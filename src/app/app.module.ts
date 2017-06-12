@@ -13,9 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { routing } from './app.routing';
 
 import { AuthGuard } from './auth.guard';
-import { AlertService } from './alert.service'
-import { UserService } from './user.service';
-import { AuthenticationService } from './authentication.service'
+import { AlertService, UserService, AuthenticationService } from './services/index';
 
 @NgModule({
   declarations: [

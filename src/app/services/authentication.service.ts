@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
+import { JwtHelper } from 'angular2-jwt';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthenticationService {
 
+  jwtHelper: JwtHelper = new JwtHelper();
+
   constructor(private http: Http) { }
+
 
   login(email: string, password: string) {
         console.log("email", email);
@@ -20,7 +24,8 @@ export class AuthenticationService {
                 let user = response.json();
                 if (user && user.token) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    localStorage.setItem('currentUser', JSON.stringify(this.jwtHelper.decodeToken(user.token)));
+                    console.log("token decoded",this.jwtHelper.decodeToken(user.token));
                 }
             });
     }

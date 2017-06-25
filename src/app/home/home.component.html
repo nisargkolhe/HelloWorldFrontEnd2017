@@ -1,4 +1,11 @@
-<div class="col-md-6 col-md-offset-3">
-    <h1>Hi {{currentUser.firstname}}!</h1>
-    <p><a [routerLink]="['/login']">Logout</a></p>
-</div>
+<md-card class="home-card">
+  <md-card-header>
+    <md-card-title><h1>Hi {{currentUser.firstname}}!</h1></md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <div class="buttons">
+      <a md-raised-button [routerLink]="['/application']">Application</a>
+      <a md-button [routerLink]="['/login']">Logout</a>
+    </div>
+  </md-card-content>
+</md-card>

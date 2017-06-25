@@ -2,7 +2,7 @@ export class Application {
     id: number;
     user_id: string;
     class_year: string;
-    grad_year: number;
+    grad_year: string;
     major: string;
     referral: string;
     hackathon_count: number;

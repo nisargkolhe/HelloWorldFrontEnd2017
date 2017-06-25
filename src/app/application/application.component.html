@@ -14,7 +14,7 @@
       </div>
       <div>
         <md-select placeholder="Graduation Year" class="full-width" [(ngModel)]="model.grad_year" name="grad_year">
-          <md-option *ngFor="let year of[2017,2018,2019,2020,2021,2022,2023,2024,2025]" [value]="year">
+          <md-option *ngFor="let year of grad_years" [value]="year">
             {{year}}
           </md-option>
         </md-select>

@@ -17,6 +17,7 @@ export class ApplicationComponent implements OnInit {
 
   model: any = {};
   loading = false;
+  appSubmitted = false;
 
   class_years = [
     {value: 'freshman', viewValue: 'Freshman'},
@@ -24,6 +25,8 @@ export class ApplicationComponent implements OnInit {
     {value: 'junior', viewValue: 'Junior'},
     {value: 'senior', viewValue: 'Senior'}
   ];
+
+  grad_years = ["2017","2018","2019","2020","2021","2022","2023","2024","2025"];
 
   referrals = [
     {value: 'social_media', viewValue: 'Social Media'},
@@ -49,6 +52,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadApplication();
   }
 
   apply() {
@@ -63,5 +67,19 @@ export class ApplicationComponent implements OnInit {
                   this.alertService.error(error);
                   this.loading = false;
               });
+  }
+
+  private loadApplication() {
+      this.userService.getApplication()
+        .subscribe(
+          result => {
+            this.model = result.application;
+            if(result.message === "success")
+              this.appSubmitted = true;
+            console.log(result);
+          }, error => {
+            console.log(error);
+          }
+      );
   }
 }

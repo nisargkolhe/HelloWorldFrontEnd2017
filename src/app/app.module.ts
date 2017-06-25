@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AlertComponent } from './alert/alert.component';
@@ -14,6 +16,7 @@ import { routing } from './app.routing';
 
 import { AuthGuard } from './auth.guard';
 import { AlertService, UserService, AuthenticationService } from './services/index';
+import { ApplicationComponent } from './application/application.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +24,22 @@ import { AlertService, UserService, AuthenticationService } from './services/ind
     AlertComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    BrowserAnimationsModule,
+    MdButtonModule,
+    MdCheckboxModule,
+    MdCardModule,
+    MdInputModule,
+    MdProgressSpinnerModule,
+    MdRadioModule,
+    MdSelectModule
   ],
   providers: [
     AuthGuard,

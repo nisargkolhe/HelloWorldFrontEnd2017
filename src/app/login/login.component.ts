@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertService, AuthenticationService } from '../services/index';
+import { MdCardModule } from '@angular/material';
 
 
 @Component({
@@ -37,7 +38,8 @@ export class LoginComponent implements OnInit {
                   this.router.navigate([this.returnUrl]);
               },
               error => {
-                  this.alertService.error(error);
+                  error = error.json()
+                  this.alertService.error(error.message);
                   this.loading = false;
               });
   }

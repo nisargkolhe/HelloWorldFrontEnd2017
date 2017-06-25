@@ -32,7 +32,14 @@ export class AlertService {
 
     error(message: string, keepAfterNavigationChange = false) {
         this.keepAfterNavigationChange = keepAfterNavigationChange;
-        this.subject.next({ type: 'error', text: message });
+
+        let msg = message;
+
+        if(message === "invalid_credentials"){
+          msg = "Invalid Credentials";
+        }
+
+        this.subject.next({ type: 'error', text: msg });
     }
 
     getMessage(): Observable<any> {

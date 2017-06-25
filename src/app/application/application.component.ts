@@ -57,16 +57,30 @@ export class ApplicationComponent implements OnInit {
 
   apply() {
       this.loading = true;
-      this.userService.apply(this.model)
-          .subscribe(
-              data => {
-                  this.alertService.success('Application successfully submitted.', true);
-                  this.router.navigate(['/']);
-              },
-              error => {
-                  this.alertService.error(error);
-                  this.loading = false;
-              });
+      if(!this.appSubmitted){
+        this.userService.apply(this.model)
+            .subscribe(
+                data => {
+                    this.alertService.success('Application successfully submitted.', true);
+                    this.router.navigate(['/']);
+                },
+                error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                });
+      } else {
+        this.userService.updateApplication(this.model)
+            .subscribe(
+                data => {
+                    this.alertService.success('Application successfully updated.', true);
+                    this.router.navigate(['/']);
+                },
+                error => {
+                    this.alertService.error(error);
+                    this.loading = false;
+                });
+      }
+
   }
 
   private loadApplication() {

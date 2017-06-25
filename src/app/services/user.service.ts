@@ -17,6 +17,10 @@ export class UserService {
       return this.http.post('http://localhost:8000'+'/api/user/apply', application, this.jwt()).map((response: Response) => response.json());
   }
 
+  updateApplication(application: Application) {
+      return this.http.patch('http://localhost:8000'+'/api/user/apply', application, this.jwt()).map((response: Response) => response.json());
+  }
+
   getApplication() {
       return this.http.get('http://localhost:8000'+'/api/user/application', this.jwt()).map((response: Response) => response.json());
   }

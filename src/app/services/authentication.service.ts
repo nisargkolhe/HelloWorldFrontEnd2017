@@ -36,4 +36,18 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
     }
 
+    resetPassword(email: string) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post('http://localhost:8000'+'/api/user/requestPasswordReset', {"email": email}, options)
+            .map((response: Response) => response.json());
+    }
+
+    confirmPassword(password: string, token: string) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post('http://localhost:8000'+'/api/user/confirmPasswordReset', {"password": password, "token": token}, options)
+            .map((response: Response) => response.json());
+    }
+
 }

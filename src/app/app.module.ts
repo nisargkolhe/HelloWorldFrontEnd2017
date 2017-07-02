@@ -17,6 +17,8 @@ import { routing } from './app.routing';
 import { AuthGuard } from './auth.guard';
 import { AlertService, UserService, AuthenticationService } from './services/index';
 import { ApplicationComponent } from './application/application.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ApplicationComponent } from './application/application.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    ResetPasswordComponent,
+    ConfirmPasswordComponent
   ],
   imports: [
     BrowserModule,

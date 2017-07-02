@@ -27,8 +27,13 @@ export class ResetPasswordComponent implements OnInit {
       this.authenticationService.resetPassword(this.model.email)
           .subscribe(
               data => {
-                  this.alertService.success(data.message);
-                  this.loading = false;
+                  if(data.message == "success"){
+                      this.alertService.success('Please check your email for password reset link.', true);
+                      this.router.navigate(['/login']);
+                  } else {
+                      this.alertService.error(data.message);
+                      this.loading = false;
+                  }
               },
               error => {
                   error = error.json()

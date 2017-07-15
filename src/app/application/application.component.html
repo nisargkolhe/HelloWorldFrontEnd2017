@@ -5,26 +5,32 @@
   <md-card-content>
     <form name="form" (ngSubmit)="f.form.valid && apply()" #f="ngForm" novalidate>
       <div>
-        <md-select placeholder="Class Year" class="full-width" [(ngModel)]="model.class_year" name="class_year">
+        <md-select placeholder="Class Year" class="full-width" [(ngModel)]="model.class_year" name="class_year" [ngClass]="{'mat-input-invalid ': f.submitted && !class_year}">
           <md-option *ngFor="let year of class_years" [value]="year.value">
             {{year.viewValue}}
           </md-option>
         </md-select>
-        <div *ngIf="f.submitted && !class_year.valid" class="help-block">Password is required</div>
+        <input type="text"
+            class="hidden-input"
+            [ngModelOptions]="{standalone: true}"
+            [required]="required"
+            [(ngModel)]="model.class_year"
+         />
+        <!-- <div *ngIf="f.submitted && !class_year" class="help-block">Class Year is required</div> -->
       </div>
       <div>
-        <md-select placeholder="Graduation Year" class="full-width" [(ngModel)]="model.grad_year" name="grad_year">
+        <md-select placeholder="Graduation Year" class="full-width" [(ngModel)]="model.grad_year" name="grad_year" ng-required>
           <md-option *ngFor="let year of grad_years" [value]="year">
             {{year}}
           </md-option>
         </md-select>
-        <div *ngIf="f.submitted && !grad_year.valid" class="help-block">Password is required</div>
+        <!-- <div *ngIf="f.submitted && !grad_year.valid" class="help-block">Graduation Year is required</div> -->
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !major.valid }">
           <input mdInput placeholder="Major" name="major" type="text" [(ngModel)]="model.major" #major="ngModel" required>
         </md-input-container>
-        <div *ngIf="f.submitted && !major.valid" class="help-block">Password is required</div>
+        <!-- <div *ngIf="f.submitted && !major.valid" class="help-block">Password is required</div> -->
       </div>
       <div>
         <md-select placeholder="Referral" class="full-width" [(ngModel)]="model.referral" name="referral">
@@ -32,45 +38,45 @@
             {{referral.viewValue}}
           </md-option>
         </md-select>
-        <div *ngIf="f.submitted && !referral.valid" class="help-block">Password is required</div>
+        <!-- <div *ngIf="f.submitted && !referral.valid" class="help-block">Referral is required</div> -->
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !hackathon_count.valid }">
           <input mdInput placeholder="Hackathon Count" name="hackathon_count" type="number" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" required>
         </md-input-container>
-        <div *ngIf="f.submitted && !hackathon_count.valid" class="help-block">Password is required</div>
+        <!-- <div *ngIf="f.submitted && !hackathon_count.valid" class="help-block">Password is required</div> -->
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !dietary_restrictions.valid }">
           <input mdInput placeholder="Dietary Restrictions" name="dietary_restrictions" type="text" [(ngModel)]="model.dietary_restrictions" #dietary_restrictions="ngModel">
         </md-input-container>
-        <div *ngIf="f.submitted && !dietary_restrictions.valid" class="help-block">Password is required</div>
+        <!-- <div *ngIf="f.submitted && !dietary_restrictions.valid" class="help-block">Password is required</div> -->
       </div>
       <div>
-        <md-select placeholder="Shirt Size" class="full-width" [(ngModel)]="model.shirt_size" name="shirt_size">
+        <md-select placeholder="Shirt Size" class="full-width" [(ngModel)]="model.shirt_size" name="shirt_size" ng-required>
           <md-option *ngFor="let size of shirt_sizes" [value]="size.value">
             {{size.viewValue}}
           </md-option>
         </md-select>
-        <div *ngIf="f.submitted && !shirt_size.valid" class="help-block">Password is required</div>
+        <!-- <div *ngIf="f.submitted && !shirt_size.valid" class="help-block">Password is required</div> -->
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !website.valid }">
           <input mdInput placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel">
         </md-input-container>
-        <div *ngIf="f.submitted && !website.valid" class="help-block">Password is required</div>
+        <!-- <div *ngIf="f.submitted && !website.valid" class="help-block">Password is required</div> -->
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !longanswer_1.valid }">
           <textarea mdInput placeholder="Long Answer 1" name="longanswer_1" type="text" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required></textarea>
         </md-input-container>
-        <div *ngIf="f.submitted && !longanswer_1.valid" class="help-block">Password is required</div>
+        <!-- <div *ngIf="f.submitted && !longanswer_1.valid" class="help-block">Password is required</div> -->
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !longanswer_2.valid }">
           <textarea mdInput placeholder="Long Answer 2" name="longanswer_2" type="text" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required></textarea>
         </md-input-container>
-        <div *ngIf="f.submitted && !longanswer_2.valid" class="help-block">Password is required</div>
+        <!-- <div *ngIf="f.submitted && !longanswer_2.valid" class="help-block">Password is required</div> -->
       </div>
 
     <div class="buttons">

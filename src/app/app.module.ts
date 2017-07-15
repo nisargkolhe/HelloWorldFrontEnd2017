@@ -15,10 +15,11 @@ import { RegisterComponent } from './register/register.component';
 import { routing } from './app.routing';
 
 import { AuthGuard } from './auth.guard';
-import { AlertService, UserService, AuthenticationService } from './services/index';
+import { AlertService, UserService, ApplicationService, AuthenticationService } from './services/index';
 import { ApplicationComponent } from './application/application.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
+import { JudgeApplicationComponent } from './judge-application/judge-application.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ConfirmPasswordComponent } from './confirm-password/confirm-password.co
     RegisterComponent,
     ApplicationComponent,
     ResetPasswordComponent,
-    ConfirmPasswordComponent
+    ConfirmPasswordComponent,
+    JudgeApplicationComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { ConfirmPasswordComponent } from './confirm-password/confirm-password.co
     AuthGuard,
     AlertService,
     AuthenticationService,
-    UserService
+    UserService,
+    ApplicationService
   ],
   bootstrap: [AppComponent]
 })

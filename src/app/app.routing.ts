@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ApplicationComponent } from './application/application.component';
+import { JudgeApplicationComponent } from './judge-application/judge-application.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
 import { AuthGuard } from './auth.guard';
@@ -15,7 +16,7 @@ const appRoutes: Routes = [
     { path: 'resetPassword', component: ResetPasswordComponent },
     { path: 'confirmPassword', component: ConfirmPasswordComponent },
     { path: 'application', component: ApplicationComponent, canActivate: [AuthGuard] },
-
+    { path: 'application/:id', component: JudgeApplicationComponent, canActivate: [AuthGuard] },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];

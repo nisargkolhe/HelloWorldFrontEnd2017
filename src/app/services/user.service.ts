@@ -14,15 +14,26 @@ export class UserService {
   }
 
   apply(application: Application) {
-      return this.http.post('http://localhost:8000'+'/api/user/apply', application, this.jwt()).map((response: Response) => response.json());
+      return this.http.post('http://localhost:8000'+'/api/user/apply', this.convertJsonToFormData(application), this.jwt()).map((response: Response) => response.json());
   }
 
   updateApplication(application: Application) {
-      return this.http.patch('http://localhost:8000'+'/api/user/apply', application, this.jwt()).map((response: Response) => response.json());
+      return this.http.post('http://localhost:8000'+'/api/user/updateApplication', this.convertJsonToFormData(application), this.jwt()).map((response: Response) => response.json());
   }
 
   getApplication() {
       return this.http.get('http://localhost:8000'+'/api/user/application', this.jwt()).map((response: Response) => response.json());
+  }
+
+  public convertJsonToFormData(item){
+    var formData = new FormData();
+
+    for (var key in item) {
+      if(item[key])
+        formData.append(key, item[key]);
+    }
+
+    return formData;
   }
 
   // private helper methods

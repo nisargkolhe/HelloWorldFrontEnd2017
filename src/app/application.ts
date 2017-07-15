@@ -15,4 +15,5 @@ export class Application {
     emailSent: boolean;
     created_at:Date;
     updated_at:Date;
+    resume: File;
 }

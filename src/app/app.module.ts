@@ -4,7 +4,7 @@ import { FormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule } from '@angular/material';
+import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule, MdSnackBarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AlertComponent } from './alert/alert.component';
@@ -45,7 +45,8 @@ import { JudgeApplicationComponent } from './judge-application/judge-application
     MdInputModule,
     MdProgressSpinnerModule,
     MdRadioModule,
-    MdSelectModule
+    MdSelectModule,
+    MdSnackBarModule
   ],
   providers: [
     AuthGuard,

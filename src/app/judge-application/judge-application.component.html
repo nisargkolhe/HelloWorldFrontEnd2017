@@ -9,7 +9,7 @@
       <h3>Hackathon Count:</h3> <p>{{application.hackathon_count}}</p>
       <h3>Major:</h3> <p>{{application.major}}</p>
       <h3>Shirt Size:</h3> <p>{{application.shirt_size}}</p>
-      <div *ngIf="application.website">
+      <div [hidden]="!application.website">
         <h3>Website:</h3> <p>{{application.website}}</p>
       </div>
       <h3>Long Answer 1:</h3> <p>{{application.longanswer_1}}</p>

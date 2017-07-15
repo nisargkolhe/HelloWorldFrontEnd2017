@@ -17,6 +17,10 @@ export class ApplicationService {
       return this.http.get('http://localhost:8000'+'/api/applications/'+id,  this.jwt()).map((response: Response) => response.json());
   }
 
+  setStatus(id, status) {
+      return this.http.post('http://localhost:8000'+'/api/applications/'+id+'/setStatus', {"status":status}, this.jwt()).map((response: Response) => response.json());
+  }
+
   // private helper methods
 
   private jwt() {

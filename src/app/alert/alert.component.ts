@@ -20,7 +20,7 @@ export class AlertComponent implements OnInit {
   ngOnInit() {
       this.alertService.getMessage().subscribe(message => {
         if(message)
-          this.snackBar.open(message.text);
+          this.snackBar.open(message.text, null, {duration: 3000});
         //this.message = message;
       });
   }

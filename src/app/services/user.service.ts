@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { environment } from '../../environments';
 
 import { User } from '../user';
 import { Application } from '../Application';
@@ -10,19 +11,19 @@ export class UserService {
   constructor(private http: Http) { }
 
   create(user: User) {
-      return this.http.post('http://localhost:8000'+'/api/user/register', user).map((response: Response) => response.json());
+      return this.http.post(environment.apiUrl+'/api/user/register', user).map((response: Response) => response.json());
   }
 
   apply(application: Application) {
-      return this.http.post('http://localhost:8000'+'/api/user/apply', this.convertJsonToFormData(application), this.jwt()).map((response: Response) => response.json());
+      return this.http.post(environment.apiUrl+'/api/user/apply', this.convertJsonToFormData(application), this.jwt()).map((response: Response) => response.json());
   }
 
   updateApplication(application: Application) {
-      return this.http.post('http://localhost:8000'+'/api/user/updateApplication', this.convertJsonToFormData(application), this.jwt()).map((response: Response) => response.json());
+      return this.http.post(environment.apiUrl+'/api/user/updateApplication', this.convertJsonToFormData(application), this.jwt()).map((response: Response) => response.json());
   }
 
   getApplication() {
-      return this.http.get('http://localhost:8000'+'/api/user/application', this.jwt()).map((response: Response) => response.json());
+      return this.http.get(environment.apiUrl+'/api/user/application', this.jwt()).map((response: Response) => response.json());
   }
 
   public convertJsonToFormData(item){

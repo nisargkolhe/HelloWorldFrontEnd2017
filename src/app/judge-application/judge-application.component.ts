@@ -28,7 +28,7 @@ export class JudgeApplicationComponent implements OnInit {
     this.loadApplication();
   }
 
-  private setStatus(status){
+  public setStatus(status){
     this.loading = true;
     this.appService.setStatus(this.application.id, status)
         .subscribe(

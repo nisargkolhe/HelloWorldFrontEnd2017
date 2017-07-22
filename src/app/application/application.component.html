@@ -5,7 +5,7 @@
   <md-card-content>
     <form name="form" (ngSubmit)="f.form.valid && apply()" #f="ngForm" novalidate>
       <div>
-        <md-select placeholder="Class Year" class="full-width" [(ngModel)]="model.class_year" name="class_year" [ngClass]="{'mat-input-invalid ': f.submitted && !class_year}">
+        <md-select placeholder="Class Year" class="full-width" [(ngModel)]="model.class_year" name="class_year" [ngClass]="{'mat-input-invalid ': f.submitted && !model.class_year}">
           <md-option *ngFor="let year of class_years" [value]="year.value">
             {{year.viewValue}}
           </md-option>
@@ -13,10 +13,9 @@
         <input type="text"
             class="hidden-input"
             [ngModelOptions]="{standalone: true}"
-            [required]="required"
             [(ngModel)]="model.class_year"
          />
-        <!-- <div *ngIf="f.submitted && !class_year" class="help-block">Class Year is required</div> -->
+        <!-- <div *ngIf="f.submitted && !model.class_year" class="help-block">Class Year is required</div> -->
       </div>
       <div>
         <md-select placeholder="Graduation Year" class="full-width" [(ngModel)]="model.grad_year" name="grad_year" ng-required>
@@ -28,7 +27,7 @@
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !major.valid }">
-          <input mdInput placeholder="Major" name="major" type="text" [(ngModel)]="model.major" #major="ngModel" required>
+          <input mdInput placeholder="Major" name="major" type="text" [(ngModel)]="model.major" #major="ngModel" ng-required>
         </md-input-container>
         <!-- <div *ngIf="f.submitted && !major.valid" class="help-block">Password is required</div> -->
       </div>
@@ -42,7 +41,7 @@
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !hackathon_count.valid }">
-          <input mdInput placeholder="Hackathon Count" name="hackathon_count" type="number" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" required>
+          <input mdInput placeholder="Hackathon Count" name="hackathon_count" type="number" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" ng-required>
         </md-input-container>
         <!-- <div *ngIf="f.submitted && !hackathon_count.valid" class="help-block">Password is required</div> -->
       </div>
@@ -62,19 +61,19 @@
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !website.valid }">
-          <input mdInput placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel">
+          <input mdInput placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel" ng-required>
         </md-input-container>
         <!-- <div *ngIf="f.submitted && !website.valid" class="help-block">Password is required</div> -->
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !longanswer_1.valid }">
-          <textarea mdInput placeholder="Long Answer 1" name="longanswer_1" type="text" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required></textarea>
+          <textarea mdInput placeholder="Long Answer 1" name="longanswer_1" type="text" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" ng-required></textarea>
         </md-input-container>
         <!-- <div *ngIf="f.submitted && !longanswer_1.valid" class="help-block">Password is required</div> -->
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !longanswer_2.valid }">
-          <textarea mdInput placeholder="Long Answer 2" name="longanswer_2" type="text" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required></textarea>
+          <textarea mdInput placeholder="Long Answer 2" name="longanswer_2" type="text" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" ng-required></textarea>
         </md-input-container>
         <!-- <div *ngIf="f.submitted && !longanswer_2.valid" class="help-block">Password is required</div> -->
       </div>

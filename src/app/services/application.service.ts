@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { environment } from '../../environments';
 
 import { User } from '../user';
 import { Application } from '../Application';
@@ -10,15 +11,15 @@ export class ApplicationService {
   constructor(private http: Http) { }
 
   getAllApplications() {
-      return this.http.get('http://localhost:8000'+'/api/applications',  this.jwt()).map((response: Response) => response.json());
+      return this.http.get(environment.apiUrl+'/api/applications',  this.jwt()).map((response: Response) => response.json());
   }
 
   getApplication(id) {
-      return this.http.get('http://localhost:8000'+'/api/applications/'+id,  this.jwt()).map((response: Response) => response.json());
+      return this.http.get(environment.apiUrl+'/api/applications/'+id,  this.jwt()).map((response: Response) => response.json());
   }
 
   setStatus(id, status) {
-      return this.http.post('http://localhost:8000'+'/api/applications/'+id+'/setStatus', {"status":status}, this.jwt()).map((response: Response) => response.json());
+      return this.http.post(environment.apiUrl+'/api/applications/'+id+'/setStatus', {"status":status}, this.jwt()).map((response: Response) => response.json());
   }
 
   // private helper methods

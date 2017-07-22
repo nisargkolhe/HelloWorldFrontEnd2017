@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { MdCardModule, MdRadioModule, MdInputModule, MdSelectModule } from '@angular/material';
 
 import { User } from '../user';
+import { Application } from '../application';
+
 import { AlertService, UserService } from '../services/index';
 
 @Component({
@@ -15,7 +17,7 @@ import { AlertService, UserService } from '../services/index';
 export class ApplicationComponent implements OnInit {
   currentUser: User;
 
-  model: any = {};
+  model: Application;
   loading = false;
   appSubmitted = false;
 

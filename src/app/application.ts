@@ -1,3 +1,5 @@
+import { User } from './user';
+
 export class Application {
     id: number;
     user_id: string;
@@ -16,4 +18,6 @@ export class Application {
     created_at:Date;
     updated_at:Date;
     resume: File;
+    status_internal: string;
+    user: User;
 }

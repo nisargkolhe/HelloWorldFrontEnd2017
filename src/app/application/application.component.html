@@ -80,7 +80,12 @@
       <div>
         <!-- <p *ngIf="model.resume.uuid">Selected: {{model.resume}}</p> -->
         <input hidden="hidden" id="resume" type="file" name="resume" (change)="setFile($event)" accept=".pdf"/>
-        <label for="resume"><a md-button md-ripple md-primary>Upload Resume</a></label>
+        <label for="resume">
+          <a md-button md-ripple md-primary>
+            <div *ngIf='filename; else elseBlock'> {{filename}} </div>
+            <ng-template #elseBlock> Upload Resume </ng-template>
+          </a>
+        </label>
       </div>
 
     <div class="buttons">

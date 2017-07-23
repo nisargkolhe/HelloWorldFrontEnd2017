@@ -21,6 +21,8 @@ export class ApplicationComponent implements OnInit {
   loading = false;
   appSubmitted = false;
 
+  filename = null;
+
   class_years = [
     {value: 'freshman', viewValue: 'Freshman'},
     {value: 'sophomore', viewValue: 'Sophomore'},
@@ -60,6 +62,7 @@ export class ApplicationComponent implements OnInit {
   setFile(event){
     console.log('upload', event.srcElement.files);
     this.model.resume = event.srcElement.files[0];
+    this.filename = event.srcElement.files[0].name;
   }
 
   apply() {

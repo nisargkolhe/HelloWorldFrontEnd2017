@@ -23,7 +23,7 @@ export class AnnouncementsComponent implements OnInit {
         that.loading = true;
         that.loadAnnouncements();
         loop();
-      }, 5000);
+      }, 60000);
     }());
   }
 

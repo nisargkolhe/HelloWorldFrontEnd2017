@@ -17,7 +17,7 @@ import { AlertService, UserService } from '../services/index';
 export class ApplicationComponent implements OnInit {
   currentUser: User;
 
-  model: Application;
+  model: any = {};
   loading = false;
   appSubmitted = false;
 
@@ -55,6 +55,11 @@ export class ApplicationComponent implements OnInit {
 
   ngOnInit() {
     this.loadApplication();
+  }
+
+  setFile(event){
+    console.log('upload', event.srcElement.files);
+    this.model.resume = event.srcElement.files[0];
   }
 
   apply() {

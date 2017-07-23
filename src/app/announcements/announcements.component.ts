@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AnnouncementService } from '../services/index';
+
+import { Announcement } from "../announcement";
+
 
 @Component({
   selector: 'app-announcements',
@@ -6,10 +10,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./announcements.component.css']
 })
 export class AnnouncementsComponent implements OnInit {
+  announcements: Announcement[] = [];
+  loading = true;
 
-  constructor() { }
+  constructor(private announcementService: AnnouncementService) { }
 
   ngOnInit() {
+    let that = this;
+    that.loadAnnouncements();
+    (function loop() {
+      setTimeout(function () {
+        that.loading = true;
+        that.loadAnnouncements();
+        loop();
+      }, 5000);
+    }());
+  }
+
+  loadAnnouncements(){
+    this.announcementService.getAllAnnouncements()
+      .subscribe(
+        result => {
+          this.announcements = result.announcements;
+          this.loading = false;
+          console.log(result);
+        }, error => {
+          console.log(error);
+        }
+    );
   }
 
 }

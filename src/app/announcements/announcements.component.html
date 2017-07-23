@@ -1,3 +1,19 @@
-<p>
-  announcements works!
-</p>
+<md-card class="main-card">
+  <md-card-header>
+    <md-card-title><h1>Announcements</h1></md-card-title>
+  </md-card-header>
+  <md-card-content>
+      <div *ngFor="let announcement of announcements">
+        <md-card>
+          <p md-line> {{announcement.message}} </p>
+        </md-card>
+      </div>
+      <md-progress-spinner
+        *ngIf="loading"
+        color="primary"
+        mode="indeterminate"
+        value="indeterminate"
+        class="spinner">
+      </md-progress-spinner>
+  </md-card-content>
+</md-card>

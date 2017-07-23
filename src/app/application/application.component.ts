@@ -79,6 +79,9 @@ export class ApplicationComponent implements OnInit {
                     this.loading = false;
                 });
       } else {
+        if(!this.filename){
+          this.model.resume = undefined;
+        }
         this.userService.updateApplication(this.model)
             .subscribe(
                 data => {

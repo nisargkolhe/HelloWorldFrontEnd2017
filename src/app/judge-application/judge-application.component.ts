@@ -14,7 +14,7 @@ import { AlertService, UserService, ApplicationService } from "../services/index
 })
 export class JudgeApplicationComponent implements OnInit {
 
-  loading = false;
+  loading = true;
   application: Application;
 
   constructor(
@@ -48,6 +48,7 @@ export class JudgeApplicationComponent implements OnInit {
         this.appService.getApplication(params.get('id')))
       .subscribe((application: Application) => {
         this.application = application;
+        this.loading = false
         console.log(application);
       });
   }

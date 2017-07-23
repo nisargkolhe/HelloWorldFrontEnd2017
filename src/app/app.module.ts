@@ -20,6 +20,7 @@ import { ApplicationComponent } from './application/application.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
 import { JudgeApplicationComponent } from './judge-application/judge-application.component';
+import { AnnouncementsComponent } from './announcements/announcements.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { JudgeApplicationComponent } from './judge-application/judge-application
     ApplicationComponent,
     ResetPasswordComponent,
     ConfirmPasswordComponent,
-    JudgeApplicationComponent
+    JudgeApplicationComponent,
+    AnnouncementsComponent
   ],
   imports: [
     BrowserModule,

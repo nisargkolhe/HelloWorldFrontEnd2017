@@ -1,32 +1,34 @@
 <md-card class="main-card">
-  <md-card-header>
-    <md-card-title><h1>{{application.user.firstName}} {{application.user.lastName}} ({{application.status_internal}})</h1></md-card-title>
-  </md-card-header>
-  <md-card-content>
-    <div>
-      <h3>Class Year:</h3> <p>{{application.class_year}}</p>
-      <h3>Graduation Year:</h3> <p>{{application.grad_year}}</p>
-      <h3>Hackathon Count:</h3> <p>{{application.hackathon_count}}</p>
-      <h3>Major:</h3> <p>{{application.major}}</p>
-      <h3>Shirt Size:</h3> <p>{{application.shirt_size}}</p>
-      <div [hidden]="!application.website">
-        <h3>Website:</h3> <p>{{application.website}}</p>
+  <div *ngIf="!loading">
+    <md-card-header>
+      <md-card-title><h1>{{application.user.firstname}} {{application.user.lastname}} ({{application.status_internal}})</h1></md-card-title>
+    </md-card-header>
+    <md-card-content>
+      <div>
+        <h3>Class Year:</h3> <p>{{application.class_year}}</p>
+        <h3>Graduation Year:</h3> <p>{{application.grad_year}}</p>
+        <h3>Hackathon Count:</h3> <p>{{application.hackathon_count}}</p>
+        <h3>Major:</h3> <p>{{application.major}}</p>
+        <h3>Shirt Size:</h3> <p>{{application.shirt_size}}</p>
+        <div [hidden]="!application.website">
+          <h3>Website:</h3> <p>{{application.website}}</p>
+        </div>
+        <h3>Long Answer 1:</h3> <p>{{application.longanswer_1}}</p>
+        <h3>Long Answer 2:</h3> <p>{{application.longanswer_2}}</p>
+        <h3>Resume URL:</h3> <a href="{{application.resume.url}}" md-button>Click here</a>
       </div>
-      <h3>Long Answer 1:</h3> <p>{{application.longanswer_1}}</p>
-      <h3>Long Answer 2:</h3> <p>{{application.longanswer_2}}</p>
-
-    </div>
-    <div class="buttons">
-      <button md-raised-button md-ripple [disabled]="application.status_internal == 'accepted'" mdRippleColor="#F00" (click)="setStatus('accepted')">Accept</button>
-      <button md-raised-button md-ripple [disabled]="application.status_internal == 'rejected'" mdRippleColor="#F00" (click)="setStatus('rejected')">Reject</button>
-      <button md-raised-button md-ripple [disabled]="application.status_internal == 'waitlisted'" mdRippleColor="#F00" (click)="setStatus('waitlisted')">Waitlist</button>
-    </div>
-    <md-progress-spinner
-      *ngIf="loading"
-      color="primary"
-      mode="indeterminate"
-      value="indeterminate"
-      class="spinner">
-    </md-progress-spinner>
-  </md-card-content>
+      <div class="buttons">
+        <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'accepted'" mdRippleColor="#F00" (click)="setStatus('accepted')">Accept</button>
+        <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'rejected'" mdRippleColor="#F00" (click)="setStatus('rejected')">Reject</button>
+        <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'waitlisted'" mdRippleColor="#F00" (click)="setStatus('waitlisted')">Waitlist</button>
+      </div>
+    </md-card-content>
+  </div>
+  <md-progress-spinner
+    *ngIf="loading"
+    color="primary"
+    mode="indeterminate"
+    value="indeterminate"
+    class="spinner">
+  </md-progress-spinner>
 </md-card>

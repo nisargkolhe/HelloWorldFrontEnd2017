@@ -1,12 +1,12 @@
 <md-card class="home-card">
   <md-card-header>
-    <md-card-title><h1>Hi {{currentUser.firstName}}!</h1></md-card-title>
+    <md-card-title><h1>Hi {{currentUser.firstname}}!</h1></md-card-title>
   </md-card-header>
   <md-card-content>
     <div *ngIf="currentUser.roles.indexOf('admin') !== -1">
         <a [routerLink]="['/application', app.id]"  *ngFor="let app of applications">
           <md-card>
-            <h3 md-line> {{app.user.firstName}} {{app.user.lastName}} </h3>
+            <h3 md-line> {{app.user.firstname}} {{app.user.lastname}} </h3>
             <p md-line> {{app.status_internal}} </p>
           </md-card>
         </a>

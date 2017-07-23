@@ -29,8 +29,8 @@ export class UserService {
   loadFromLocalStorage() {
     let currentUser = new User();
     let jsonData = JSON.parse(localStorage.getItem("currentUser"));
-    currentUser.firstName = jsonData.firstname;
-    currentUser.lastName = jsonData.lastname;
+    currentUser.firstname = jsonData.firstname;
+    currentUser.lastname = jsonData.lastname;
     currentUser.roles = jsonData.roles;
 
     return currentUser;

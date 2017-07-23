@@ -19,5 +19,6 @@ export class Application {
     updated_at:Date;
     resume: File;
     status_internal: string;
+    status_public: string;
     user: User;
 }

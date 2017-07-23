@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     private appService: ApplicationService,
     private route: ActivatedRoute,
     private router: Router) {
-    this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    this.currentUser = userService.loadFromLocalStorage();
   }
 
   ngOnInit() {

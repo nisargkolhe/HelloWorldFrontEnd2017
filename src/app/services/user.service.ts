@@ -26,6 +26,16 @@ export class UserService {
       return this.http.get(environment.apiUrl+'/api/user/application', this.jwt()).map((response: Response) => response.json());
   }
 
+  loadFromLocalStorage() {
+    let currentUser = new User();
+    let jsonData = JSON.parse(localStorage.getItem("currentUser"));
+    currentUser.firstName = jsonData.firstname;
+    currentUser.lastName = jsonData.lastname;
+    currentUser.roles = jsonData.roles;
+
+    return currentUser;
+  }
+
   public convertJsonToFormData(item){
     var formData = new FormData();
 

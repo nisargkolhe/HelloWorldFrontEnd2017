@@ -4,18 +4,17 @@
   </md-card-header>
   <md-card-content>
     <div *ngIf="currentUser.roles.indexOf('admin') !== -1">
-        <a [routerLink]="['/application', app.id]"  *ngFor="let app of applications">
-          <md-card>
-            <h3 md-line> {{app.user.firstname}} {{app.user.lastname}} </h3>
-            <p md-line> {{app.status_internal}} </p>
-          </md-card>
-        </a>
-      <!-- <ul>
-        <li *ngFor="let app of applications" (click)="onSelect(app)">
-          {{app.user.firstname}} {{app.user.lastname}}
-        </li>
-      </ul> -->
+      <h3>Admin Actions:</h3>
+      <li>
+        <ul>
+          <a md-button [routerLink]="['/applications']">Applications</a>
+        </ul>
+        <ul>
+          <a md-button [routerLink]="['/announcement']">Post Announcement</a>
+        </ul>
+      </li>
     </div>
+    <br>
     <div class="buttons">
       <a md-raised-button [routerLink]="['/application']">Application</a>
       <a md-button [routerLink]="['/login']">Logout</a>

@@ -1,3 +1,29 @@
-<p>
-  announcement works!
-</p>
+<md-card class="main-card">
+  <md-card-header>
+    <md-card-title><h1>Post Announcement</h1></md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <form name="form" (ngSubmit)="f.form.valid && postAnnouncement()" #f="ngForm" novalidate>
+      <div>
+        <md-input-container class="full-width">
+          <textarea mdInput placeholder="Message" name="message" type="text" [(ngModel)]="announcement.message" #message="ngModel" ng-required></textarea>
+        </md-input-container>
+      </div>
+      <div class="full-width">
+        <md-checkbox name="should_email" [(ngModel)]="announcement.should_email" ng-required>Should Email?</md-checkbox>
+      </div>
+      <br/>
+    <div class="buttons">
+      <button md-raised-button md-ripple [disabled]="loading" mdRippleColor="#F00">Submit</button>
+    </div>
+
+      <md-progress-spinner
+        *ngIf="loading"
+        color="primary"
+        mode="indeterminate"
+        class="spinner">
+      </md-progress-spinner>
+
+    </form>
+  </md-card-content>
+</md-card>

@@ -5,4 +5,5 @@ export class Announcement {
     created_at: Date;
     updated_at: Date;
     user_id: number;
+    should_email: boolean;
 }

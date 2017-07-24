@@ -24,19 +24,15 @@ export class ApplicationsComponent implements OnInit {
     }
 
   ngOnInit() {
-    if(this.currentUser.roles.indexOf('admin') !== -1){
-      this.appService.getAllApplications()
-        .subscribe(
-          result => {
-            this.applications = result;
-            console.log(result);
-          }, error => {
-            console.log(error);
-          }
-      );
-    } else {
-      this.router.navigate(['/']);
-    }
+    this.appService.getAllApplications()
+      .subscribe(
+        result => {
+          this.applications = result;
+          console.log(result);
+        }, error => {
+          console.log(error);
+        }
+    );
   }
 
   onSelect(app: Application) {

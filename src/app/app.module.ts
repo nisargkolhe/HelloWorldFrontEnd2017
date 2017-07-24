@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { routing } from './app.routing';
 
 import { AuthGuard } from './auth.guard';
+import { AdminGuard } from './admin.guard';
 import { AlertService, UserService, ApplicationService, AuthenticationService, AnnouncementService } from './services/index';
 import { ApplicationComponent } from './application/application.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
@@ -56,6 +57,7 @@ import { AnnouncementComponent } from './announcement/announcement.component';
   ],
   providers: [
     AuthGuard,
+    AdminGuard,
     AlertService,
     AuthenticationService,
     UserService,

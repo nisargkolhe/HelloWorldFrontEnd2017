@@ -3,7 +3,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { environment } from '../../environments';
 
 import { User } from '../user';
-import { Application } from '../Application';
+import { Application } from '../application';
 
 @Injectable()
 export class UserService {

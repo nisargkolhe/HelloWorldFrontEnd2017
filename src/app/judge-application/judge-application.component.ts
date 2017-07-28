@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { User } from "../user";
-import { Application } from '../Application';
+import { Application } from '../application';
 
 import { AlertService, UserService, ApplicationService } from "../services/index";
 

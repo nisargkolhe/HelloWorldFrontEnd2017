@@ -106,6 +106,8 @@ export class ApplicationComponent implements OnInit {
             console.log(result);
           }, error => {
             console.log(error);
+            this.loading = false;
+            //this.alertService.error(error);
           }
       );
   }

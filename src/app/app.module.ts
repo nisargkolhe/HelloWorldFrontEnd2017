@@ -16,7 +16,7 @@ import { routing } from './app.routing';
 
 import { AuthGuard } from './auth.guard';
 import { AdminGuard } from './admin.guard';
-import { AlertService, UserService, ApplicationService, AuthenticationService, AnnouncementService } from './services/index';
+import { AlertService, UserService, ApplicationService, AuthenticationService, AnnouncementService, ExecService } from './services/index';
 import { ApplicationComponent } from './application/application.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
@@ -24,6 +24,7 @@ import { JudgeApplicationComponent } from './judge-application/judge-application
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
+import { CheckinComponent } from './checkin/checkin.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AnnouncementComponent } from './announcement/announcement.component';
     JudgeApplicationComponent,
     AnnouncementsComponent,
     ApplicationsComponent,
-    AnnouncementComponent
+    AnnouncementComponent,
+    CheckinComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { AnnouncementComponent } from './announcement/announcement.component';
     AuthenticationService,
     UserService,
     ApplicationService,
-    AnnouncementService
+    AnnouncementService,
+    ExecService
   ],
   bootstrap: [AppComponent]
 })

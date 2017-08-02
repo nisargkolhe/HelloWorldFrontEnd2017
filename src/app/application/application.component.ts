@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { MdCardModule, MdRadioModule, MdInputModule, MdSelectModule } from '@angular/material';
+import { FormsModule, FormControl } from '@angular/forms';
+import { MdCardModule, MdRadioModule, MdInputModule, MdSelectModule, MdAutocompleteModule } from '@angular/material';
+
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
 
 import { User } from '../user';
 import { Application } from '../application';
@@ -15,6 +18,11 @@ import { AlertService, UserService } from '../services/index';
   styleUrls: ['./application.component.css']
 })
 export class ApplicationComponent implements OnInit {
+  //for autocomplete
+  majorCtrl: FormControl;
+  filteredMajors: any;
+  majors = [];
+
   currentUser: User;
 
   model: any = {};
@@ -53,10 +61,20 @@ export class ApplicationComponent implements OnInit {
     private userService: UserService,
     private alertService: AlertService) {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.majorCtrl = new FormControl();
+      this.filteredMajors = this.majorCtrl.valueChanges
+          .startWith(null)
+          .map(name => this.filterMajors(name));
+      this.majors = Application.getMajors();
   }
 
   ngOnInit() {
     this.loadApplication();
+  }
+
+  filterMajors(val: string) {
+    return val ? this.majors.filter(s => s.toLowerCase().indexOf(val.toLowerCase()) === 0)
+               : this.majors;
   }
 
   setFile(event){

@@ -5,7 +5,7 @@
   <md-card-content>
     <form name="form" (ngSubmit)="f.form.valid && apply()" #f="ngForm" novalidate>
       <div>
-        <md-select placeholder="Class Year" class="full-width" [(ngModel)]="model.class_year" name="class_year" [ngClass]="{'mat-input-invalid ': f.submitted && !model.class_year}">
+        <md-select placeholder="Class Year" class="full-width" [(ngModel)]="model.class_year" name="class_year"  required>
           <md-option *ngFor="let year of class_years" [value]="year.value">
             {{year.viewValue}}
           </md-option>
@@ -26,9 +26,21 @@
         <!-- <div *ngIf="f.submitted && !grad_year.valid" class="help-block">Graduation Year is required</div> -->
       </div>
       <div>
-        <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.major }">
-          <input mdInput placeholder="Major" name="major" type="text" [(ngModel)]="model.major" #major="ngModel" ng-required>
+        <!-- <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.major }">
+          <input mdInput placeholder="Major" name="major" type="text" [(ngModel)]="model.major" #major="ngModel" required>
+        </md-input-container> -->
+
+        <md-input-container class="full-width">
+          <input mdInput placeholder="Major" [mdAutocomplete]="auto" [formControl]="majorCtrl" required>
         </md-input-container>
+
+        <md-autocomplete #auto="mdAutocomplete">
+          <md-option *ngFor="let major of filteredMajors | async" [value]="major" >
+            {{ major }}
+          </md-option>
+        </md-autocomplete>
+
+
         <!-- <div *ngIf="f.submitted && !major" class="help-block">Password is required</div> -->
       </div>
       <div>
@@ -41,7 +53,7 @@
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.hackathon_count }">
-          <input mdInput placeholder="Hackathon Count" name="hackathon_count" type="number" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" ng-required>
+          <input mdInput placeholder="Hackathon Count" name="hackathon_count" type="number" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" required>
         </md-input-container>
         <!-- <div *ngIf="f.submitted && !hackathon_count" class="help-block">Password is required</div> -->
       </div>
@@ -51,7 +63,7 @@
         </md-input-container>
       </div>
       <div>
-        <md-select placeholder="Shirt Size" class="full-width" [(ngModel)]="model.shirt_size" name="shirt_size" ng-required>
+        <md-select placeholder="Shirt Size" class="full-width" [(ngModel)]="model.shirt_size" name="shirt_size" required>
           <md-option *ngFor="let size of shirt_sizes" [value]="size.value">
             {{size.viewValue}}
           </md-option>
@@ -60,18 +72,18 @@
       </div>
       <div>
         <md-input-container class="full-width">
-          <input mdInput placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel" ng-required>
+          <input mdInput placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel">
         </md-input-container>
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.longanswer_1 }">
-          <textarea mdInput placeholder="Long Answer 1" name="longanswer_1" type="text" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" ng-required></textarea>
+          <textarea mdInput placeholder="Long Answer 1" name="longanswer_1" type="text" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required></textarea>
         </md-input-container>
         <!-- <div *ngIf="f.submitted && !longanswer_1" class="help-block">Password is required</div> -->
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.longanswer_2 }">
-          <textarea mdInput placeholder="Long Answer 2" name="longanswer_2" type="text" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" ng-required></textarea>
+          <textarea mdInput placeholder="Long Answer 2" name="longanswer_2" type="text" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required></textarea>
         </md-input-container>
         <!-- <div *ngIf="f.submitted && !longanswer_2" class="help-block">Password is required</div> -->
       </div>

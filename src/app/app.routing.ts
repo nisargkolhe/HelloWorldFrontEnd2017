@@ -1,5 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 
+import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -16,7 +17,8 @@ import { AdminGuard } from './admin.guard';
 
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: '', component: LandingComponent },
+    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'resetPassword', component: ResetPasswordComponent },
@@ -27,7 +29,7 @@ const appRoutes: Routes = [
     { path: 'announcement', component: AnnouncementComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'announcements', component: AnnouncementsComponent},
     { path: 'checkin', component: CheckinComponent, canActivate: [AuthGuard, AdminGuard]},
-    // otherwise redirect to home
+    // otherwise redirect to landing
     { path: '**', redirectTo: '' }
 ];
 

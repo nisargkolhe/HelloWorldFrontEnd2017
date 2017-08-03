@@ -7,13 +7,13 @@
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !firstname.valid }">
           <input mdInput placeholder="First Name" name="firstname" type="text" [(ngModel)]="model.firstname" #firstname="ngModel" required>
-          <md-hint align="end" style="color:red;" *ngIf="f.submitted && !email.valid">First Name is required</md-hint>
+          <md-hint align="end" style="color:red;" *ngIf="f.submitted && !firstname.valid">First Name is required</md-hint>
         </md-input-container>
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !lastname.valid }">
           <input mdInput placeholder="Last Name" name="lastname" type="text" [(ngModel)]="model.lastname" #lastname="ngModel" required>
-          <md-hint align="end" style="color:red;" *ngIf="f.submitted && !email.valid">Last Name is required</md-hint>
+          <md-hint align="end" style="color:red;" *ngIf="f.submitted && !lastname.valid">Last Name is required</md-hint>
         </md-input-container>
       </div>
       <div>
@@ -27,7 +27,7 @@
       <div>
       <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !password.valid }">
         <input mdInput placeholder="Password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required>
-        <md-hint align="end" style="color:red;" *ngIf="f.submitted && !email.valid">Password is required</md-hint>
+        <md-hint align="end" style="color:red;" *ngIf="f.submitted && !password.valid">Password is required</md-hint>
       </md-input-container>
     </div>
     <div class="buttons">

@@ -15,7 +15,12 @@
         </div>
         <h3>Long Answer 1:</h3> <p>{{application.longanswer_1}}</p>
         <h3>Long Answer 2:</h3> <p>{{application.longanswer_2}}</p>
-        <h3>Resume URL:</h3> <a href="{{application.resume.url}}" md-button>Click here</a>
+        <span [hidden]="!application.resume?.url">
+          <h3>Resume URL:</h3> <a [hidden]="true" href="{{application.resume?.url}}" md-button>Click here</a>
+        </span>
+        <span [hidden]="!!application.resume?.url">
+          <h3> No resume uploaded</h3>
+        </span>
       </div>
       <div class="buttons">
         <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'accepted'" mdRippleColor="#F00" (click)="setStatus('accepted')">Accept</button>

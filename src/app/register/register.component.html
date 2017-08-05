@@ -1,37 +1,31 @@
 <md-card class="login-card">
-  <md-card-header>
-    <md-card-title><h1>Register</h1></md-card-title>
-  </md-card-header>
   <md-card-content>
     <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-      <div>
+    <h1>Register</h1>
+     
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !firstname.valid }">
-          <input mdInput placeholder="First Name" name="firstname" type="text" [(ngModel)]="model.firstname" #firstname="ngModel" required>
+          <input placeholder="First Name" name="firstname" type="text" [(ngModel)]="model.firstname" #firstname="ngModel" required>
         </md-input-container>
         <div *ngIf="f.submitted && !firstname.valid" class="help-block">First Name is required</div>
-      </div>
-      <div>
+      
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !lastname.valid }">
-          <input mdInput placeholder="Last Name" name="lastname" type="text" [(ngModel)]="model.lastname" #lastname="ngModel" required>
+          <input placeholder="Last Name" name="lastname" type="text" [(ngModel)]="model.lastname" #lastname="ngModel" required>
         </md-input-container>
         <div *ngIf="f.submitted && !lastname.valid" class="help-block">Last Name is required</div>
-      </div>
-      <div>
+      
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !email.valid }">
-          <input mdInput placeholder="Email" name="email" type="email" [(ngModel)]="model.email" #email="ngModel" required>
+          <input  placeholder="Email" name="email" type="email" [(ngModel)]="model.email" #email="ngModel" required>
         </md-input-container>
         <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
-      </div>
-
-      <div>
+       
       <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !password.valid }">
-        <input mdInput placeholder="Password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required>
+        <input placeholder="Password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required>
       </md-input-container>
       <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-    </div>
+    
     <div class="buttons">
       <button md-raised-button md-ripple [disabled]="loading" mdRippleColor="#F00">Register</button>
-      <a md-button [routerLink]="['/login']">Login</a>
+      <button md-raised-button md-ripple [routerLink]="['/login']">Login</button>
     </div>
 
       <md-progress-spinner

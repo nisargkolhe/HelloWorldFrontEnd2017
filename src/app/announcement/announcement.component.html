@@ -1,14 +1,12 @@
-<md-card class="main-card">
-  <md-card-header>
-    <md-card-title><h1>Post Announcement</h1></md-card-title>
-  </md-card-header>
+<md-card class="login-card">
   <md-card-content>
+  <h1>Post Announcement</h1>
     <form name="form" (ngSubmit)="f.form.valid && postAnnouncement()" #f="ngForm" novalidate>
-      <div>
+    
         <md-input-container class="full-width">
           <textarea mdInput placeholder="Message" name="message" type="text" [(ngModel)]="announcement.message" #message="ngModel" ng-required></textarea>
         </md-input-container>
-      </div>
+  
       <div class="full-width">
         <md-checkbox name="should_email" [(ngModel)]="announcement.should_email" ng-required>Should Email?</md-checkbox>
       </div>

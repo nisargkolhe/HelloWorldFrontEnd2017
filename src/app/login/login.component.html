@@ -1,27 +1,24 @@
 <md-card class="login-card">
-  <md-card-header>
-    <md-card-title><h1>Login</h1></md-card-title>
-  </md-card-header>
+ 
   <md-card-content>
+   <h1>Login</h1>
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-      <div>
-        <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !email.valid }">
-          <input mdInput placeholder="Email" name="email" type="email" [(ngModel)]="model.email" #email="ngModel" required>
-        </md-input-container>
-        <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
-      </div>
-
-      <div>
-      <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !password.valid }">
-        <input mdInput placeholder="Password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required>
+      
+      <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !email.valid }">
+        <input placeholder="Email" name="email" type="email" [(ngModel)]="model.email" #email="ngModel" required>
       </md-input-container>
-      <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-    </div>
+        <div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>
+      
+ 
+      <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !password.valid }">
+        <input placeholder="Password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required>
+      </md-input-container>
+        <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div> 
+
     <div class="buttons">
       <button md-raised-button md-ripple [disabled]="loading" mdRippleColor="#F00">Login</button>
-      <a md-button [routerLink]="['/register']">Register</a>
-      <a md-button [routerLink]="['/resetPassword']" class="float-right">Forgot Password?</a>
-
+      <button md-button [routerLink]="['/register']">Register</button>
+      <button md-button [routerLink]="['/resetPassword']" class="float-right">Forgot Password?</button>
     </div>
 
       <md-progress-spinner

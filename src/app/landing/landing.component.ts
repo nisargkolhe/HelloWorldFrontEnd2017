@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertService, AuthenticationService } from '../services/index';
+import { AlertService, AuthenticationService, UserService } from '../services/index';
 
 @Component({
   selector: 'app-landing',
@@ -13,10 +13,11 @@ export class LandingComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthenticationService,
+    private userService: UserService,
     private alertService: AlertService) { }
 
   ngOnInit() {
-    if(this.authService.jwt()){
+    if(this.userService.loadFromLocalStorage()){
       this.router.navigate(['/home']);
     }
   }

@@ -9,6 +9,7 @@ import { ApplicationComponent } from './application/application.component';
 import { JudgeApplicationComponent } from './judge-application/judge-application.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { CheckinComponent } from './checkin/checkin.component';
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'resetPassword', component: ResetPasswordComponent },
     { path: 'confirmPassword', component: ConfirmPasswordComponent },
+    { path: 'confirmEmail', component: ConfirmEmailComponent },
     { path: 'application', component: ApplicationComponent, canActivate: [AuthGuard] },
     { path: 'applications', component: ApplicationsComponent, canActivate: [AuthGuard, AdminGuard] },
     { path: 'application/:id', component: JudgeApplicationComponent, canActivate: [AuthGuard, AdminGuard] },

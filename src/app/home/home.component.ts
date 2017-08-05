@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { User } from "../user";
 import { Application } from '../application';
 import { UserService } from "../services/index";
-import { ApplicationService } from "../services/index";
+import { AuthenticationService, AlertService, ApplicationService } from "../services/index";
 
 
 @Component({
@@ -18,10 +18,12 @@ export class HomeComponent implements OnInit {
   applications: Application[] = [];
   application: Application;
   appSubmitted = false;
-  loading: false;
+  loading = false;
 
   constructor(
     private userService: UserService,
+    private authService: AuthenticationService,
+    private alertService: AlertService,
     private appService: ApplicationService,
     private route: ActivatedRoute,
     private router: Router) {
@@ -59,6 +61,21 @@ export class HomeComponent implements OnInit {
             this.loading = false;
           }, error => {
             console.log(error);
+            this.loading = false;
+          }
+      );
+  }
+
+  private resendVerificationEmail() {
+      this.loading = true;
+      this.authService.resendVerificationEmail()
+        .subscribe(
+          result => {
+            this.alertService.success(result.message);
+            console.log(result);
+            this.loading = false;
+          }, error => {
+            this.alertService.error(error.message);
             this.loading = false;
           }
       );

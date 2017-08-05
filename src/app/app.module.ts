@@ -26,6 +26,7 @@ import { ApplicationsComponent } from './applications/applications.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { CheckinComponent } from './checkin/checkin.component';
 import { LandingComponent } from './landing/landing.component';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { LandingComponent } from './landing/landing.component';
     ApplicationsComponent,
     AnnouncementComponent,
     CheckinComponent,
-    LandingComponent
+    LandingComponent,
+    ConfirmEmailComponent
   ],
   imports: [
     BrowserModule,

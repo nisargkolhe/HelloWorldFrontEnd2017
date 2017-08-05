@@ -29,11 +29,15 @@ export class UserService {
   loadFromLocalStorage() {
     let currentUser = new User();
     let jsonData = JSON.parse(localStorage.getItem("currentUser"));
-    currentUser.firstname = jsonData.firstname;
-    currentUser.lastname = jsonData.lastname;
-    currentUser.roles = jsonData.roles;
+    if(jsonData){
+      currentUser.firstname = jsonData.firstname;
+      currentUser.lastname = jsonData.lastname;
+      currentUser.roles = jsonData.roles;
 
-    return currentUser;
+      return currentUser;
+    } else {
+      return null;
+    }
   }
 
   public convertJsonToFormData(item){

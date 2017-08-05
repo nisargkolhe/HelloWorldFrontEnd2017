@@ -18,7 +18,8 @@
       </li>
     </div>
     <ng-template #elseBlock>
-      <div *ngIf="true else elseBlock">
+      <!--TODO: Replace email verification hardcoded condition-->
+      <div *ngIf="false else elseBlock">
         <h3>Application Status:</h3>
         <div class="application-status">
           <div *ngIf="appSubmitted else elseBlock">
@@ -30,7 +31,15 @@
         </div>
       </div>
       <ng-template #elseBlock>
-        <p>Please verify your to access the application. Click <a href="#">here</a> to resend the verfication email.</p>
+        <p>Please verify your to access the application.</p>
+        <a md-raised-button (click)="resendVerificationEmail()">Resend Verification Email</a>
+        <md-progress-spinner
+          *ngIf="loading"
+          color="primary"
+          mode="indeterminate"
+          value="indeterminate"
+          class="spinner">
+        </md-progress-spinner>
       </ng-template>
     </ng-template>
     <br>

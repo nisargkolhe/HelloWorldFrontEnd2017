@@ -1,0 +1,22 @@
+<md-card class="main-card">
+  <md-card-header>
+    <md-card-title><h1>Email Verification</h1></md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <div style="text-align:center" >
+      <div *ngIf="loading else elseBlock">
+        <h3>Verifying your email...</h3>
+
+        <md-progress-spinner
+          color="primary"
+          mode="indeterminate"
+          value="indeterminate"
+          class="spinner">
+        </md-progress-spinner>
+      </div>
+      <ng-template #elseBlock>
+        <h3>Email verification unsuccessful. :(</h3>
+      </ng-template>
+    </div>
+  </md-card-content>
+</md-card>

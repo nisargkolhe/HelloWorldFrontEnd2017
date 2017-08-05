@@ -17,9 +17,9 @@ export class AuthenticationService {
   login(email: string, password: string) {
         console.log("email", email);
         console.log("password", password);
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this.http.post(environment.apiUrl+'/api/user/auth', {"email": email, "password": password }, options)
+        //let headers = new Headers({ 'Content-Type': 'application/json' });
+        //let options = new RequestOptions({ headers: headers });
+        return this.http.post(environment.apiUrl+'/api/user/auth', {"email": email, "password": password })
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 console.log("RESPONSE",response);
@@ -39,16 +39,21 @@ export class AuthenticationService {
     }
 
     resetPassword(email: string) {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this.http.post(environment.apiUrl+'/api/user/requestPasswordReset', {"email": email}, options)
+        return this.http.post(environment.apiUrl+'/api/user/requestPasswordReset', {"email": email})
             .map((response: Response) => response.json());
     }
 
     confirmPassword(password: string, token: string) {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        return this.http.post(environment.apiUrl+'/api/user/confirmPasswordReset', {"password": password, "token": token}, options)
+        return this.http.post(environment.apiUrl+'/api/user/confirmPasswordReset', {"password": password, "token": token})
+            .map((response: Response) => response.json());
+    }
+
+    resendVerificationEmail() {
+        return this.http.post(environment.apiUrl+'/api/user/resendVerificationEmail', {}, this.jwt()).map((response: Response) => response.json());
+    }
+
+    confirmEmail(token: string) {
+        return this.http.post(environment.apiUrl+'/api/user/confirmEmail', {"token": token})
             .map((response: Response) => response.json());
     }
 

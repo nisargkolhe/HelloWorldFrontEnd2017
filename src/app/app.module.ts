@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule, MdSnackBarModule, MdAutocompleteModule } from '@angular/material';
+import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule, MdSnackBarModule, MdAutocompleteModule, MdTooltipModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AlertComponent } from './alert/alert.component';
@@ -61,7 +61,8 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
     MdRadioModule,
     MdSelectModule,
     MdSnackBarModule,
-    MdAutocompleteModule
+    MdAutocompleteModule,
+    MdTooltipModule
   ],
   providers: [
     AuthGuard,

@@ -27,7 +27,15 @@ export class RegisterComponent {
                   this.router.navigate(['/login']);
               },
               error => {
-                  this.alertService.error(error);
+                  error = error.json();
+                  console.log('error obj', error);
+                  let errorMsg = "";
+                  for(var attr in error.errors){
+                    //errorMsg += attr + ":\n"
+                    error.errors[attr].forEach(error => errorMsg += error + "\n");
+                  }
+                  console.log('errorMsg', errorMsg);
+                  this.alertService.error(errorMsg);
                   this.loading = false;
               });
   }

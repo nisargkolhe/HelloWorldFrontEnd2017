@@ -5,7 +5,9 @@
   <md-card-content>
       <div *ngFor="let announcement of announcements">
         <md-card>
-          <p md-line> {{announcement.message}} </p>
+          <p md-line> {{announcement.message}}
+            <a *ngIf="currentUser && currentUser.roles.indexOf('admin') !== -1" class="float-right delete-button" (click)="deleteAnnouncement(announcement.id)">&times;</a>
+          </p>
         </md-card>
       </div>
       <md-progress-spinner

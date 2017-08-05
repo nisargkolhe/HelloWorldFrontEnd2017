@@ -9,12 +9,12 @@
         <h3>Graduation Year:</h3> <p>{{application.grad_year}}</p>
         <h3>Hackathon Count:</h3> <p>{{application.hackathon_count}}</p>
         <h3>Major:</h3> <p>{{application.major}}</p>
-        <h3>Shirt Size:</h3> <p>{{application.shirt_size}}</p>
+        <h3>Shirt Size:</h3> <p>{{application.shirt_size | uppercase}}</p>
         <div [hidden]="!application.website">
           <h3>Website:</h3> <p>{{application.website}}</p>
         </div>
-        <h3>Long Answer 1:</h3> <p>{{application.longanswer_1}}</p>
-        <h3>Long Answer 2:</h3> <p>{{application.longanswer_2}}</p>
+        <h3>Why do you want to attend Hello World?:</h3> <p>{{application.longanswer_1}}</p>
+        <h3>What do you hope to learn from your experience at Hello World?:</h3> <p>{{application.longanswer_2}}</p>
         <span [hidden]="!application.resume?.url">
           <h3>Resume URL:</h3> <a [hidden]="true" href="{{application.resume?.url}}" md-button>Click here</a>
         </span>
@@ -24,8 +24,8 @@
       </div>
       <div class="buttons">
         <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'accepted'" mdRippleColor="#F00" (click)="setStatus('accepted')">Accept</button>
-        <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'rejected'" mdRippleColor="#F00" (click)="setStatus('rejected')">Reject</button>
         <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'waitlisted'" mdRippleColor="#F00" (click)="setStatus('waitlisted')">Waitlist</button>
+        <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'rejected'" mdRippleColor="#F00" (click)="setStatus('rejected')">Reject</button>
       </div>
     </md-card-content>
   </div>

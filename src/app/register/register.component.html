@@ -18,7 +18,7 @@
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !email.valid }">
-          <input mdInput placeholder="Email" name="email" type="email" [(ngModel)]="model.email" #email="ngModel" pattern="^[A-Z0-9._%+-]+@purdue.edu$" required>
+          <input mdInput placeholder="Email" name="email" type="email" [(ngModel)]="model.email" #email="ngModel" pattern="^[A-Za-z0-9._%+-]+@purdue.edu$" required>
           <md-hint align="start">Use your @purdue.edu email</md-hint>
           <md-hint align="end" style="color:red;" *ngIf="f.submitted && !email.valid">Purdue Email is required</md-hint>
         </md-input-container>

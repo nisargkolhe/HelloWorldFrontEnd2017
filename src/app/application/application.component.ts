@@ -94,8 +94,16 @@ export class ApplicationComponent implements OnInit {
                 },
                 error => {
                     error = error.json();
-                    console.log('error', error);
-                    this.alertService.error(error.message);
+                    let errorMsg = error.message;
+                    if(error.errors){
+                      errorMsg = "";
+                      for(var attr in error.errors){
+                        //errorMsg += attr + ":\n"
+                        error.errors[attr].forEach(error => errorMsg += error + "\n");
+                      }
+                    }
+                    console.log('errorMsg', errorMsg);
+                    this.alertService.error(errorMsg);
                     this.loading = false;
                 });
       } else {

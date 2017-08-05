@@ -16,6 +16,9 @@ export class HomeComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
   applications: Application[] = [];
+  application: Application;
+  appSubmitted = false;
+  loading: false;
 
   constructor(
     private userService: UserService,
@@ -36,10 +39,28 @@ export class HomeComponent implements OnInit {
             console.log(error);
           }
       );
+    } else {
+      this.loadApplication();
     }
   }
 
   onSelect(app: Application) {
     this.router.navigate(['/applications', app.id]);
+  }
+
+  private loadApplication() {
+      this.userService.getApplication()
+        .subscribe(
+          result => {
+            this.application = result.application;
+            if(result.message === "success")
+              this.appSubmitted = true;
+            console.log(result);
+            this.loading = false;
+          }, error => {
+            console.log(error);
+            this.loading = false;
+          }
+      );
   }
 }

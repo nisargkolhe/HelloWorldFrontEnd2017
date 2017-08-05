@@ -3,7 +3,7 @@
     <md-card-title><h1>Hi {{currentUser.firstname}}!</h1></md-card-title>
   </md-card-header>
   <md-card-content>
-    <div *ngIf="currentUser.roles.indexOf('admin') !== -1">
+    <div *ngIf="currentUser.roles.indexOf('admin') !== -1 else elseBlock">
       <h3>Admin Actions:</h3>
       <li>
         <ul>
@@ -17,6 +17,22 @@
         </ul>
       </li>
     </div>
+    <ng-template #elseBlock>
+      <div *ngIf="true else elseBlock">
+        <h3>Application Status:</h3>
+        <div class="application-status">
+          <div *ngIf="appSubmitted else elseBlock">
+            <h2>{{application.status | uppercase}}</h2>
+          </div>
+          <ng-template #elseBlock>
+            <h2>INCOMPLETE</h2>
+          </ng-template>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <p>Please verify your to access the application. Click <a href="#">here</a> to resend the verfication email.</p>
+      </ng-template>
+    </ng-template>
     <br>
     <div class="buttons">
       <a md-raised-button [routerLink]="['/application']">Application</a>

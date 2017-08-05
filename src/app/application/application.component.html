@@ -44,7 +44,7 @@
         <!-- <div *ngIf="f.submitted && !major" class="help-block">Password is required</div> -->
       </div>
       <div>
-        <md-select placeholder="Referral" class="full-width" [(ngModel)]="model.referral" name="referral">
+        <md-select placeholder="Referral" class="full-width" [(ngModel)]="model.referral" name="referral" required>
           <md-option *ngFor="let referral of referrals" [value]="referral.value">
             {{referral.viewValue}}
           </md-option>

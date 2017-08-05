@@ -72,18 +72,18 @@
       </div>
       <div>
         <md-input-container class="full-width">
-          <input mdInput placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel">
+          <input mdInput placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel" pattern="(https?:\/\/)?([\w\d]+\.)?[\w\d]+\.\w+\/?.+">
         </md-input-container>
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.longanswer_1 }">
-          <textarea mdInput placeholder="Long Answer 1" name="longanswer_1" type="text" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required></textarea>
+          <textarea mdInput placeholder="Why do you want to attend Hello World?" name="longanswer_1" type="text" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required></textarea>
         </md-input-container>
         <!-- <div *ngIf="f.submitted && !longanswer_1" class="help-block">Password is required</div> -->
       </div>
       <div>
         <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.longanswer_2 }">
-          <textarea mdInput placeholder="Long Answer 2" name="longanswer_2" type="text" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required></textarea>
+          <textarea mdInput placeholder="What do you hope to learn from your experience at Hello World?" name="longanswer_2" type="text" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required></textarea>
         </md-input-container>
         <!-- <div *ngIf="f.submitted && !longanswer_2" class="help-block">Password is required</div> -->
       </div>

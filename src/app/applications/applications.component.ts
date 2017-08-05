@@ -5,6 +5,7 @@ import { User } from "../user";
 import { Application } from '../application';
 import { UserService } from "../services/index";
 import { ApplicationService } from "../services/index";
+import { ExecService } from "../services/index";
 
 @Component({
   selector: 'app-applications',
@@ -14,10 +15,11 @@ import { ApplicationService } from "../services/index";
 export class ApplicationsComponent implements OnInit {
   currentUser: User;
   applications: Application[] = [];
-
+  stats: {} = {};
   constructor(
     private userService: UserService,
     private appService: ApplicationService,
+    private execService: ExecService,
     private route: ActivatedRoute,
     private router: Router) {
       this.currentUser = userService.loadFromLocalStorage();
@@ -33,6 +35,15 @@ export class ApplicationsComponent implements OnInit {
           console.log(error);
         }
     );
+
+    this.execService.getStats()
+      .subscribe(
+        result => {
+          this.stats = result;
+        }, error => {
+          console.log(error);
+        }
+      )
   }
 
   onSelect(app: Application) {

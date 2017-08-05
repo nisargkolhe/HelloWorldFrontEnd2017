@@ -59,6 +59,8 @@ export class AuthenticationService {
         if (token) {
             let headers = new Headers({ 'Authorization': 'Bearer ' + token });
             return new RequestOptions({ headers: headers });
+        } else {
+            return false;
         }
     }
 

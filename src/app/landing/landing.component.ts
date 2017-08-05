@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AlertService, AuthenticationService } from '../services/index';
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthenticationService,
+    private alertService: AlertService) { }
 
   ngOnInit() {
+    if(this.authService.jwt()){
+      this.router.navigate(['/home']);
+    }
   }
 
 }

@@ -93,7 +93,9 @@ export class ApplicationComponent implements OnInit {
                     this.router.navigate(['/']);
                 },
                 error => {
-                    this.alertService.error(error);
+                    error = error.json();
+                    console.log('error', error);
+                    this.alertService.error(error.message);
                     this.loading = false;
                 });
       } else {

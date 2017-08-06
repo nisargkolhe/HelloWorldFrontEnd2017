@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { FormsModule, FormControl } from '@angular/forms';
 
-import { ExecService, AlertService } from "../services/index";
+import { ExecService, AlertService, UserService } from "../services/index";
+
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/delay';
 
 
 @Component({
@@ -10,18 +17,39 @@ import { ExecService, AlertService } from "../services/index";
   styleUrls: ['./checkin.component.css']
 })
 export class CheckinComponent implements OnInit {
+  emailCtrl: FormControl;
+  filteredUsers: any;
+  _filteredUsers: any;
 
   checkins: any = [];
   model: any = {};
 
   loading = false;
+  loadingSearch = false;
 
   constructor(
     private execService: ExecService,
     private alertService: AlertService,
+    private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {
+    this.emailCtrl = new FormControl();
+    this.filteredUsers = this.emailCtrl.valueChanges
+      .debounceTime(400)
+      .subscribe(searchKey => {
+        console.log('searchKey', searchKey);
+        if(!searchKey)
+          return this._filteredUsers = [];
+
+        this.loadingSearch = true;
+        this.userService.userSearch(searchKey).subscribe((res) => {
+          this.loadingSearch = false;
+          return this._filteredUsers = res.users;
+        });
+
+      });
+  }
 
   ngOnInit() {
     this.loadCheckIns();
@@ -54,8 +82,24 @@ export class CheckinComponent implements OnInit {
                   console.log(error);
                   this.loading = false;
               });
+  }
 
+  loadFilteredUsers(searchKey: string) {
+    this.userService.userSearch(searchKey)
+      .subscribe(
+        result => {
+          this._filteredUsers = result;
+          console.log(result);
+        }, error => {
+          this.alertService.error(error);
+          console.log(error);
+        }
+    );
+  }
 
+  filterUsers(searchKey: string) {
+    return searchKey ? this._filteredUsers.filter(user => user.email.toLowerCase().indexOf(searchKey.toLowerCase()) === 0)
+      : this._filteredUsers;
   }
 
 }

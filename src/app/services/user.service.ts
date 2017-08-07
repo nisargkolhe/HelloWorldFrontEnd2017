@@ -26,14 +26,22 @@ export class UserService {
       return this.http.get(environment.apiUrl+'/api/user/application', this.jwt()).map((response: Response) => response.json());
   }
 
+  userSearch(searchKey: string) {
+      return this.http.post(environment.apiUrl+'/api/user/search', {"searchvalue": searchKey}, this.jwt()).map((response: Response) => response.json());
+  }
+
   loadFromLocalStorage() {
     let currentUser = new User();
     let jsonData = JSON.parse(localStorage.getItem("currentUser"));
-    currentUser.firstname = jsonData.firstname;
-    currentUser.lastname = jsonData.lastname;
-    currentUser.roles = jsonData.roles;
+    if(jsonData){
+      currentUser.firstname = jsonData.firstname;
+      currentUser.lastname = jsonData.lastname;
+      currentUser.roles = jsonData.roles;
 
-    return currentUser;
+      return currentUser;
+    } else {
+      return null;
+    }
   }
 
   public convertJsonToFormData(item){

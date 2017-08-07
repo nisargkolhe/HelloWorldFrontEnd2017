@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AnnouncementService } from '../services/index';
+import { AnnouncementService, UserService, AlertService } from '../services/index';
 
 import { Announcement } from "../announcement";
-
+import { User } from "../user";
 
 @Component({
   selector: 'app-announcements',
@@ -11,9 +11,15 @@ import { Announcement } from "../announcement";
 })
 export class AnnouncementsComponent implements OnInit {
   announcements: Announcement[] = [];
+  currentUser: User;
   loading = true;
 
-  constructor(private announcementService: AnnouncementService) { }
+  constructor(
+    private announcementService: AnnouncementService,
+    private alertService: AlertService,
+    private userService: UserService) {
+      this.currentUser = userService.loadFromLocalStorage();
+  }
 
   ngOnInit() {
     let that = this;
@@ -35,6 +41,22 @@ export class AnnouncementsComponent implements OnInit {
           this.loading = false;
           console.log(result);
         }, error => {
+          console.log(error);
+        }
+    );
+  }
+
+  deleteAnnouncement(announcementId: number){
+    this.announcementService.deleteAnnouncementById(announcementId)
+      .subscribe(
+        result => {
+          this.loading = false;
+          this.alertService.success(result.message);
+          this.loadAnnouncements();
+          console.log(result);
+        }, error => {
+          this.loading = false;
+          this.alertService.success(error.message);
           console.log(error);
         }
     );

@@ -37,6 +37,10 @@ export class AlertService {
 
         if(message === "invalid_credentials"){
           msg = "Invalid Credentials";
+        } else if(message === "unverified_email") {
+          msg = "Please verify your email before submitting the application";
+        } else if(message == "token_not_provided"){
+          msg = "Invalid Token";
         }
 
         this.subject.next({ type: 'error', text: msg });

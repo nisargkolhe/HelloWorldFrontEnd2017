@@ -220,9 +220,21 @@ input:valid {
   margin-left: auto;
   margin-right: auto;
 }
+
 .formInput {
   margin-bottom: -30px;
   display: inline-block;
   position: relative;
   text-align: left;
+}
+
+.buttons {
+  margin-top: 70px;
+  margin-left: 0px;
+}
+
+.help-block {
+  color: red;
+  margin-top:20px;
+  margin-bottom: -30px;
 }

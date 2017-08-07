@@ -10,10 +10,7 @@ h1 {
 }
 
 
-.buttons {
-  margin-top: 70px;
-  margin-left: 0px;
-}
+
 
 button {
   color: black;
@@ -33,9 +30,4 @@ button {
 .float-right:hover {
   background-color: #f6d9d6;
   color: #101B24;
-}
-
-.help-block {
-  margin-top:20px;
-  margin-bottom: -30px;
 }

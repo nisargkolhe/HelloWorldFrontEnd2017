@@ -95,7 +95,7 @@ li {
   margin-right: 40px;
   margin-top: -20px;
 }
-.register {  
+.register {
   font-family: 'Short Stack', sans-serif;
   font-size: 20px;
   border-radius: 5px;
@@ -116,7 +116,7 @@ li {
   text-decoration: underline;
   padding-left: 5px;
 }
-.mentor {  
+.mentor {
   font-family: 'Short Stack', sans-serif;
   font-size: 20px;
   border-radius: 5px;
@@ -151,9 +151,6 @@ button:hover {
   margin: 0 auto;
 }
 
-div {
-  padding: 20px;
-}
 .faq {
   color: #C1FFF2;
   font-size: 13px;

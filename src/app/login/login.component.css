@@ -1,4 +1,7 @@
-
+.login-card {
+  max-width: 600px;
+  margin: 1em auto;
+}
 
 h1 {
   padding-top: 15px;

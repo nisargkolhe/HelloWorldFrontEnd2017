@@ -207,3 +207,11 @@ input {
   font-family: 'Varela Round', sans-serif;
   color: #4AC29A;
 }
+
+input:invalid {
+  border-color: red;
+}
+
+input:valid {
+  border-color: #C1FFF2;
+}

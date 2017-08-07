@@ -19,7 +19,7 @@
     </div>
     <ng-template #elseBlock>
       <!--TODO: Replace email verification hardcoded condition-->
-      <div *ngIf="true else elseBlock">
+      <div *ngIf="currentUser.verified else elseBlock">
         <h3>Application Status:</h3>
         <div class="application-status">
           <div *ngIf="appSubmitted else elseBlock">

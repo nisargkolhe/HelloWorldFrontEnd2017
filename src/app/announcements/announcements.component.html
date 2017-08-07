@@ -1,7 +1,8 @@
-<md-card class="login-card">
-
+<md-card class="main-card">
+  <md-card-header>
+    <md-card-title><h1>Announcements</h1></md-card-title>
+  </md-card-header>
   <md-card-content>
-      <h1>Announcements</h1>
       <div *ngFor="let announcement of announcements">
         <md-card>
           <p md-line> {{announcement.message}} </p>

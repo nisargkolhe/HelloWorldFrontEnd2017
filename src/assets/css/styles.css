@@ -215,3 +215,14 @@ input:invalid {
 input:valid {
   border-color: #C1FFF2;
 }
+
+.inputWrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+.formInput {
+  margin-bottom: -30px;
+  display: inline-block;
+  position: relative;
+  text-align: left;
+}

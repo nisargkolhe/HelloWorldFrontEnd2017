@@ -37,7 +37,7 @@ export class UserService {
       currentUser.firstname = jsonData.firstname;
       currentUser.lastname = jsonData.lastname;
       currentUser.roles = jsonData.roles;
-
+      currentUser.verified = jsonData.verified;
       return currentUser;
     } else {
       return null;

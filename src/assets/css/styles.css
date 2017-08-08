@@ -185,11 +185,9 @@ button:hover {
 .ui-alert {
   border-radius: 5px !important;
 }
-
 .ui-alert.success{
   background-color: #4CAF50;
 }
-
 .ui-alert.danger{
   background-color: #ac7b77;
 }
@@ -283,6 +281,7 @@ input:valid {
   color: #4AC29A;
   margin-bottom: -30px;
   text-align: left;
+  transition: border-color ease 0.5s;
 }
 
 .formInput:focus:required:invalid {
@@ -306,6 +305,7 @@ input:valid {
   margin-bottom: -30px;
 }
 
+/*THEME MD-CARD HERE*/
 .mat-card{
   background: rgba(16, 16, 16, 0.5);
 }

@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-/*@import '~@angular/material/prebuilt-themes/indigo-pink.css';*/
+@import '~@angular/material/prebuilt-themes/purple-green.css';
 
 /* Colors
 teal: ##55C296
@@ -23,6 +23,14 @@ section {
 
 main {
   min-height: 100vh;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
 }
 
 .box {
@@ -133,7 +141,7 @@ li {
   color: #101B24;
 }
 
-button {
+/*button {
   padding: 10px 20px;
   font-family: 'Varela Round', sans-serif;
   font-size: 18px;
@@ -144,7 +152,35 @@ button {
 button:hover {
   background-color: #C1FFF2;
   color: #101B24;
+}*/
+
+.ui-button {
+  padding: 10px 20px;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 18px;
+  background-color: #55C296;
+  color: black;
+  width: auto;
+  border: none;
+  margin-right: 10px;
+  border-radius: 5px;
+  transition: all ease 1s;
 }
+
+.ui-button:hover {
+  background-color: #C1FFF2;
+  color: #101B24;
+}
+
+.ui-button.negative{
+  background-color: #ac7b77;
+}
+
+.ui-button.negative:hover{
+  background-color: #f6d9d6;
+}
+
+
 
 .center {
   text-align: center;
@@ -195,7 +231,7 @@ button:hover {
 }
 
 
-input {
+/*input {
   position: absolute;
   width: 445px;
   padding: 20px 20px;
@@ -214,7 +250,7 @@ input:invalid {
 
 input:valid {
   border-color: #C1FFF2;
-}
+}*/
 
 .inputWrapper {
   margin-left: auto;
@@ -222,10 +258,28 @@ input:valid {
 }
 
 .formInput {
-  margin-bottom: -30px;
+  /*position: absolute;*/
+  width: 445px;
+  padding: 20px 20px;
+  font-size: 18px;
   display: inline-block;
-  position: relative;
+  border: 1px solid #C1FFF2;
+  border-radius: 4px;
+  background: rgba(16, 27, 36, 0.9);
+  font-family: 'Varela Round', sans-serif;
+  color: #4AC29A;
+  margin-bottom: -30px;
   text-align: left;
+}
+
+.formInput:focus:required:invalid {
+  outline: none;
+  border-color: red;
+}
+
+.formInput:required:valid {
+  outline: none;
+  border-color: #4CAF50;
 }
 
 .buttons {
@@ -237,4 +291,8 @@ input:valid {
   color: red;
   margin-top:20px;
   margin-bottom: -30px;
+}
+
+.mat-card{
+  background: rgba(16, 16, 16, 0.5);
 }

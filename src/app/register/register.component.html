@@ -24,8 +24,8 @@
         <div class="help-block" *ngIf="f.submitted && !password.valid">Password is required</div>
 
     <div class="buttons">
-      <button md-raised-button md-ripple [disabled]="loading" mdRippleColor="#F00">Register</button>
-      <button md-raised-button [routerLink]="['/login']">Login</button>
+      <button class="ui-button" [disabled]="loading" mdRippleColor="#F00">Register</button>
+      <button class="ui-button" [routerLink]="['/login']">Login</button>
     </div>
 
       <md-progress-spinner

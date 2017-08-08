@@ -10,11 +10,11 @@
             {{year.viewValue}}
           </md-option>
         </md-select>
-        <input type="text"
+        <!-- <input type="text"
             class="hidden-input"
             [ngModelOptions]="{standalone: true}"
             [(ngModel)]="model.class_year"
-         />
+         /> -->
         <!-- <div *ngIf="f.submitted && !model.class_year" class="help-block">Class Year is required</div> -->
       </div>
       <div>
@@ -99,7 +99,7 @@
       </div>
 
     <div class="buttons">
-      <button md-raised-button md-ripple [disabled]="loading" mdRippleColor="#F00">Submit</button>
+      <button class="ui-button" [disabled]="loading" mdRippleColor="#F00">Submit</button>
     </div>
 
       <md-progress-spinner

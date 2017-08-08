@@ -31,15 +31,17 @@
         </div>
       </div>
       <ng-template #elseBlock>
-        <p>Please verify your to access the application.</p>
-        <a md-raised-button (click)="resendVerificationEmail()">Resend Verification Email</a>
-        <md-progress-spinner
-          *ngIf="loading"
-          color="primary"
-          mode="indeterminate"
-          value="indeterminate"
-          class="spinner">
-        </md-progress-spinner>
+        <div class="padded-divs">
+          <p>Please verify your to access the application.</p>
+          <a class="ui-button" (click)="resendVerificationEmail()">Resend Verification Email</a>
+          <md-progress-spinner
+            *ngIf="loading"
+            color="primary"
+            mode="indeterminate"
+            value="indeterminate"
+            class="spinner">
+          </md-progress-spinner>
+        </div>
       </ng-template>
     </ng-template>
     <br>

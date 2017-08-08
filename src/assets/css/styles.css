@@ -164,6 +164,7 @@ button:hover {
   border: none;
   margin-right: 10px;
   border-radius: 5px;
+  cursor: pointer;
   transition: all ease 1s;
 }
 
@@ -180,6 +181,18 @@ button:hover {
   background-color: #f6d9d6;
 }
 
+/*THEME ALERT SNACKBAR HERE */
+.ui-alert {
+  border-radius: 5px !important;
+}
+
+.ui-alert.success{
+  background-color: #4CAF50;
+}
+
+.ui-alert.danger{
+  background-color: #ac7b77;
+}
 
 
 .center {

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://api.helloworld.purduehackers.com'
+  apiUrl: 'https://api.helloworld.purduehackers.com'
 };

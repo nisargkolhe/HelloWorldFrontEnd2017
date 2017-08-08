@@ -17,6 +17,14 @@ export class AnnouncementService {
     return this.http.post(environment.apiUrl+'/api/announcements', this.convertJsonToFormData(announcement), this.jwt()).map((response: Response) => response.json());
   }
 
+  getAnnouncementById(announcementId: number){
+    return this.http.get(environment.apiUrl+'/api/announcements/'+announcementId, this.jwt()).map((response: Response) => response.json());
+  }
+
+  deleteAnnouncementById(announcementId: number){
+    return this.http.delete(environment.apiUrl+'/api/announcements/'+announcementId, this.jwt()).map((response: Response) => response.json());
+  }
+
   public convertJsonToFormData(item){
     var formData = new FormData();
 

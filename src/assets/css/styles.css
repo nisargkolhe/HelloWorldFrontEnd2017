@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-/*@import '~@angular/material/prebuilt-themes/indigo-pink.css';*/
+@import '~@angular/material/prebuilt-themes/purple-green.css';
 
 /* Colors
 teal: ##55C296
@@ -23,6 +23,14 @@ section {
 
 main {
   min-height: 100vh;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
 }
 
 .box {
@@ -95,7 +103,7 @@ li {
   margin-right: 40px;
   margin-top: -20px;
 }
-.register {  
+.register {
   font-family: 'Short Stack', sans-serif;
   font-size: 20px;
   border-radius: 5px;
@@ -116,7 +124,7 @@ li {
   text-decoration: underline;
   padding-left: 5px;
 }
-.mentor {  
+.mentor {
   font-family: 'Short Stack', sans-serif;
   font-size: 20px;
   border-radius: 5px;
@@ -133,7 +141,7 @@ li {
   color: #101B24;
 }
 
-button {
+/*button {
   padding: 10px 20px;
   font-family: 'Varela Round', sans-serif;
   font-size: 18px;
@@ -144,14 +152,53 @@ button {
 button:hover {
   background-color: #C1FFF2;
   color: #101B24;
+}*/
+
+.ui-button {
+  padding: 10px 20px;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 18px;
+  background-color: #55C296;
+  color: black;
+  width: auto;
+  border: none;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all ease 1s;
 }
+
+.ui-button:hover {
+  background-color: #C1FFF2;
+  color: #101B24;
+}
+
+.ui-button.negative{
+  background-color: #ac7b77;
+}
+
+.ui-button.negative:hover{
+  background-color: #f6d9d6;
+}
+
+/*THEME ALERT SNACKBAR HERE */
+.ui-alert {
+  border-radius: 5px !important;
+}
+.ui-alert.success{
+  background-color: #4CAF50;
+}
+.ui-alert.danger{
+  background-color: #ac7b77;
+}
+
 
 .center {
   text-align: center;
   margin: 0 auto;
 }
 
-div {
+.padded-divs div {
   padding: 20px;
 }
 .faq {
@@ -195,7 +242,7 @@ div {
 }
 
 
-input {
+/*input {
   position: absolute;
   width: 445px;
   padding: 20px 20px;
@@ -204,7 +251,61 @@ input {
   border: 1px solid #C1FFF2;
   border-radius: 4px;
   background: rgba(16, 27, 36, 0.9);
-  margin-left: -55px;
   font-family: 'Varela Round', sans-serif;
   color: #4AC29A;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+input:valid {
+  border-color: #C1FFF2;
+}*/
+
+.inputWrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formInput {
+  /*position: absolute;*/
+  width: 445px;
+  padding: 20px 20px;
+  font-size: 18px;
+  display: inline-block;
+  border: 1px solid #C1FFF2;
+  border-radius: 4px;
+  background: rgba(16, 27, 36, 0.9);
+  font-family: 'Varela Round', sans-serif;
+  color: #4AC29A;
+  margin-bottom: -30px;
+  text-align: left;
+  transition: border-color ease 0.5s;
+}
+
+.formInput:focus:required:invalid {
+  outline: none;
+  border-color: red;
+}
+
+.formInput:required:valid {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.buttons {
+  margin-top: 70px;
+  margin-left: 0px;
+}
+
+.help-block {
+  color: red;
+  margin-top:20px;
+  margin-bottom: -30px;
+}
+
+/*THEME MD-CARD HERE*/
+.mat-card{
+  background: rgba(16, 16, 16, 0.5);
 }

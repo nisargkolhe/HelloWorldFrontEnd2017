@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule, MdSnackBarModule } from '@angular/material';
+import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule, MdSnackBarModule, MdAutocompleteModule, MdTooltipModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AlertComponent } from './alert/alert.component';
@@ -25,6 +25,8 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { ApplicationsComponent } from './applications/applications.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { CheckinComponent } from './checkin/checkin.component';
+import { LandingComponent } from './landing/landing.component';
+import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +42,14 @@ import { CheckinComponent } from './checkin/checkin.component';
     AnnouncementsComponent,
     ApplicationsComponent,
     AnnouncementComponent,
-    CheckinComponent
+    CheckinComponent,
+    LandingComponent,
+    ConfirmEmailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     routing,
     BrowserAnimationsModule,
@@ -55,7 +60,9 @@ import { CheckinComponent } from './checkin/checkin.component';
     MdProgressSpinnerModule,
     MdRadioModule,
     MdSelectModule,
-    MdSnackBarModule
+    MdSnackBarModule,
+    MdAutocompleteModule,
+    MdTooltipModule
   ],
   providers: [
     AuthGuard,

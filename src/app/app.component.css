@@ -18,6 +18,14 @@
 
 .spinner {
   margin: 0 auto;
-  width: 3em;
-  height: 3em;
+  max-width: 3em !important;
+  max-height: 3em !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.spinner-sm {
+  margin: 0 auto;
+  width: 24px;
+  height: 24px;
 }

@@ -1,10 +1,13 @@
-<md-card class="login-card">
-
+<md-card class="main-card">
+  <md-card-header>
+    <md-card-title><h1>Announcements</h1></md-card-title>
+  </md-card-header>
   <md-card-content>
-      <h1>Announcements</h1>
       <div *ngFor="let announcement of announcements">
         <md-card>
-          <p md-line> {{announcement.message}} </p>
+          <p md-line> {{announcement.message}}
+            <a *ngIf="currentUser && currentUser.roles.indexOf('admin') !== -1" class="float-right delete-button" (click)="deleteAnnouncement(announcement.id)">&times;</a>
+          </p>
         </md-card>
       </div>
       <md-progress-spinner

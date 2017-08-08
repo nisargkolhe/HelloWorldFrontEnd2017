@@ -5,7 +5,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { User } from "../user";
 import { Application } from '../application';
 
-import { AlertService, UserService, ApplicationService } from "../services/index";
+import { AlertService, UserService, ApplicationService, ExecService } from "../services/index";
 
 @Component({
   selector: 'app-judge-application',
@@ -21,6 +21,7 @@ export class JudgeApplicationComponent implements OnInit {
     private userService: UserService,
     private alertService: AlertService,
     private appService: ApplicationService,
+    private execService: ExecService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -34,8 +35,21 @@ export class JudgeApplicationComponent implements OnInit {
         .subscribe(
             data => {
                 this.alertService.success('Application successfully updated.', true);
-                this.loading = false;
-                this.loadApplication();
+                //this.loading = false;
+                //this.loadApplication();
+                this.execService.getNextApplication()
+                  .subscribe(
+                    result => {
+                      console.log(result);
+                      if(result){
+                        this.router.navigate(['/application/'+result.id]);
+                      }
+                    }, error => {
+                      console.log(error);
+                      this.router.navigate(['/applications']);
+                      this.loading = false;
+                    }
+                );
             },
             error => {
                 this.alertService.error(error);

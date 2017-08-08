@@ -5,9 +5,25 @@
   <md-card-content>
     <form name="form" (ngSubmit)="f.form.valid && checkInUser()" #f="ngForm" novalidate>
       <div>
-        <md-input-container [ngClass]="{ 'ng-invalid': f.submitted && !model.userEmail.valid }">
+        <!-- <md-input-container [ngClass]="{ 'ng-invalid': f.submitted && !model.userEmail.valid }">
           <input mdInput placeholder="Enter to Check In" name="email" type="email" [(ngModel)]="model.userEmail" #userEmail="ngModel" ng-required>
+        </md-input-container> -->
+        <md-input-container  [ngClass]="{ 'ng-invalid': f.submitted && !model.userEmail.valid }" class="full-width">
+          <input mdInput placeholder="Enter to Check In" name="email" type="email" [mdAutocomplete]="auto" [(ngModel)]="model.userEmail" [formControl]="emailCtrl" required>
         </md-input-container>
+
+        <md-autocomplete #auto="mdAutocomplete">
+          <md-option *ngIf="loadingSearch">
+            <md-progress-spinner
+              color="primary"
+              mode="indeterminate"
+              class="spinner">
+            </md-progress-spinner>
+          </md-option>
+          <md-option *ngFor="let user of _filteredUsers" [value]="user.email" >
+            {{ user.firstname }} {{ user.lastname }}: {{ user.email }}
+          </md-option>
+        </md-autocomplete>
         <button md-raised-button md-ripple [disabled]="loading" mdRippleColor="#F00">
           <!-- <div *ngIf=loading; else elseBlock”>
             <md-progress-spinner

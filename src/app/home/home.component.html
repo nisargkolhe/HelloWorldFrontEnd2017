@@ -3,7 +3,7 @@
     <md-card-title><h1>Hi {{currentUser.firstname}}!</h1></md-card-title>
   </md-card-header>
   <md-card-content>
-    <div *ngIf="currentUser.roles.indexOf('admin') !== -1">
+    <div *ngIf="currentUser.roles.indexOf('admin') !== -1 else elseBlock">
       <h3>Admin Actions:</h3>
       <li>
         <ul>
@@ -17,10 +17,37 @@
         </ul>
       </li>
     </div>
+    <ng-template #elseBlock>
+      <!--TODO: Replace email verification hardcoded condition-->
+      <div *ngIf="currentUser.verified else elseBlock">
+        <h3>Application Status:</h3>
+        <div class="application-status">
+          <div *ngIf="appSubmitted else elseBlock">
+            <h2>{{application.status | uppercase}}</h2>
+          </div>
+          <ng-template #elseBlock>
+            <h2>INCOMPLETE</h2>
+          </ng-template>
+        </div>
+      </div>
+      <ng-template #elseBlock>
+        <div class="padded-divs">
+          <p>Please verify your to access the application.</p>
+          <a class="ui-button" (click)="resendVerificationEmail()">Resend Verification Email</a>
+          <md-progress-spinner
+            *ngIf="loading"
+            color="primary"
+            mode="indeterminate"
+            value="indeterminate"
+            class="spinner">
+          </md-progress-spinner>
+        </div>
+      </ng-template>
+    </ng-template>
     <br>
     <div class="buttons">
-      <a md-raised-button [routerLink]="['/application']">Application</a>
-      <a md-button [routerLink]="['/login']">Logout</a>
+      <a class="ui-button" [routerLink]="['/application']">Application</a>
+      <a class="ui-button negative" [routerLink]="['/login']">Logout</a>
     </div>
   </md-card-content>
 </md-card>

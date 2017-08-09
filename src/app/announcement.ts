@@ -1,5 +1,6 @@
 export class Announcement {
     id: number;
+    title: string;
     message: string;
     scope: string;
     created_at: Date;

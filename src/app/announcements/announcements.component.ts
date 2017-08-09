@@ -62,4 +62,8 @@ export class AnnouncementsComponent implements OnInit {
     );
   }
 
+  private getDateString(date: Date){
+    date = new Date(date);
+    return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),  date.getUTCHours(), date.getUTCMinutes() - new Date().getTimezoneOffset() * 2, date.getUTCSeconds());
+  }
 }

@@ -13,6 +13,7 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { CheckinComponent } from './checkin/checkin.component';
+import { ResourcesComponent } from './resources/resources.component';
 import { AuthGuard } from './auth.guard';
 import { AdminGuard } from './admin.guard';
 
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
     { path: 'announcement', component: AnnouncementComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'announcements', component: AnnouncementsComponent},
     { path: 'checkin', component: CheckinComponent, canActivate: [AuthGuard, AdminGuard]},
+    { path: 'resources', component: ResourcesComponent },
     // otherwise redirect to landing
     { path: '**', redirectTo: '' }
 ];

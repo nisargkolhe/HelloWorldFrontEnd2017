@@ -27,6 +27,7 @@ import { AnnouncementComponent } from './announcement/announcement.component';
 import { CheckinComponent } from './checkin/checkin.component';
 import { LandingComponent } from './landing/landing.component';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { ResourcesComponent } from './resources/resources.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
     AnnouncementComponent,
     CheckinComponent,
     LandingComponent,
-    ConfirmEmailComponent
+    ConfirmEmailComponent,
+    ResourcesComponent
   ],
   imports: [
     BrowserModule,

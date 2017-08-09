@@ -6,7 +6,12 @@
     <form name="form" (ngSubmit)="f.form.valid && postAnnouncement()" #f="ngForm" novalidate>
       <div>
         <md-input-container class="full-width">
-          <textarea mdInput placeholder="Message" name="message" type="text" [(ngModel)]="announcement.message" #message="ngModel" ng-required></textarea>
+          <input mdInput placeholder="Title" name="title" type="text" [(ngModel)]="announcement.title" #title="ngModel" required />
+        </md-input-container>
+      </div>
+      <div>
+        <md-input-container class="full-width">
+          <textarea mdInput placeholder="Message" name="message" type="text" [(ngModel)]="announcement.message" #message="ngModel" required></textarea>
         </md-input-container>
       </div>
       <div class="full-width">

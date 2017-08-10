@@ -1,15 +1,7 @@
 .login-card {
-  max-width: 600px;
-  margin: 1em auto;
-}
-
-.full-width {
-  width: 100%;
-  margin: 1em;
-}
-
-.buttons {
-  margin: 1em;
+  max-width: 530px;
+  min-width: 530px;
+  margin: 2em auto;
 }
 
 .spinner {
@@ -18,11 +10,12 @@
   height: 3em;
 }
 
+h1 {
+  padding-top: 15px;
+  margin-left: 20px;
+  margin-bottom: 0px;
+}
 
-/*button {
-  color: black;
-  width: 120px;
-  margin-right: 10px;
-  padding: 10px 20px;
-  border-radius: 5px;
-}*/
+.buttons{
+   margin-left: 0px;
+}

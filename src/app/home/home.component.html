@@ -3,15 +3,15 @@
   <h1>Hi {{currentUser.firstname}}!</h1>
     <div *ngIf="currentUser.roles.indexOf('admin') !== -1 else elseBlock">
       <h3>Admin Actions:</h3>
-      <li>
+      <li class="admin">
         <ul>
-          <a md-button [routerLink]="['/applications']">Applications</a>
+          <a [routerLink]="['/applications']">Applications</a>
         </ul>
         <ul>
-          <a md-button [routerLink]="['/announcement']">Post Announcement</a>
+          <a [routerLink]="['/announcement']">Post Announcement</a>
         </ul>
         <ul>
-          <a md-button [routerLink]="['/checkin']">Check In</a>
+          <a [routerLink]="['/checkin']">Check In</a>
         </ul>
       </li>
     </div>

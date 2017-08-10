@@ -252,8 +252,9 @@ button:hover {
 
 .help-block {
   color: red;
-  margin-top:20px;
-  margin-bottom: -30px;
+  margin-top: -15px;
+  font-family: 'Varela Round', sans-serif;
+  
 }
 
 /*THEME MD-CARD HERE*/

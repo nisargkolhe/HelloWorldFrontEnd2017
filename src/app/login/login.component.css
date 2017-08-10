@@ -10,26 +10,11 @@ h1 {
   margin-bottom: 0px;
 }
 
-/*
-button {
-  color: black;
-  width: 120px;
-  margin-right: 10px;
-  padding: 20px 20px;
-  border-radius: 5px;
-}*/
-
 .buttons{
    margin-left: 0px;
 }
 .float-right {
-  width: auto;
-  background-color: #ac7b77;
-  color: white;
   margin-right: -10px;
 }
 
-.float-right:hover {
-  background-color: #f6d9d6;
-  color: #101B24;
-}
+

@@ -1,8 +1,6 @@
-<md-card class="main-card">
-  <md-card-header>
-    <md-card-title><h1>Application</h1></md-card-title>
-  </md-card-header>
+<md-card class="login-card">
   <md-card-content>
+    <h1>Application</h1>
     <form name="form" (ngSubmit)="f.form.valid && apply()" #f="ngForm" novalidate>
       <div>
         <md-select placeholder="Class Year" class="full-width" [(ngModel)]="model.class_year" name="class_year"  required>

@@ -1,8 +1,6 @@
-<md-card class="main-card">
-  <md-card-header>
-    <md-card-title><h1>Check Ins</h1></md-card-title>
-  </md-card-header>
+<md-card class="login-card">
   <md-card-content>
+  <h1>Check Ins</h1>
     <form name="form" (ngSubmit)="f.form.valid && checkInUser()" #f="ngForm" novalidate>
       <div>
         <!-- <md-input-container [ngClass]="{ 'ng-invalid': f.submitted && !model.userEmail.valid }">
@@ -24,7 +22,7 @@
             {{ user.firstname }} {{ user.lastname }}: {{ user.email }}
           </md-option>
         </md-autocomplete>
-        <button md-raised-button md-ripple [disabled]="loading" mdRippleColor="#F00">
+        <button [disabled]="loading" mdRippleColor="#F00">
           <!-- <div *ngIf=loading; else elseBlock”>
             <md-progress-spinner
               *ngIf="loading"
@@ -40,7 +38,7 @@
       </div>
     </form>
     <a  *ngFor="let checkin of checkins">
-      <md-card>
+      <md-card class="main-card">
         <h3 md-line> {{checkin.user.firstname}} {{checkin.user.lastname}} </h3>
         <p md-line> {{checkin.user.email}} </p>
       </md-card>

@@ -2,12 +2,13 @@
   <md-card-content>
     <h1>Application</h1>
     <form name="form" (ngSubmit)="f.form.valid && apply()" #f="ngForm" novalidate>
-      <div>
-        <md-select placeholder="Class Year" class="full-width" [(ngModel)]="model.class_year" name="class_year"  required>
-          <md-option *ngFor="let year of class_years" [value]="year.value">
+      <div class="SelectForm">
+        <Select class="full-width" [(ngModel)]="model.class_year" name="class_year"  required>
+          <option value="" disabled selected>Class Year</option>
+          <Option *ngFor="let year of class_years" [value]="year.value">
             {{year.viewValue}}
-          </md-option>
-        </md-select>
+          </Option>
+        </Select>
         <!-- <input type="text"
             class="hidden-input"
             [ngModelOptions]="{standalone: true}"
@@ -15,12 +16,13 @@
          /> -->
         <!-- <div *ngIf="f.submitted && !model.class_year" class="help-block">Class Year is required</div> -->
       </div>
-      <div>
-        <md-select placeholder="Graduation Year" class="full-width" [(ngModel)]="model.grad_year" name="grad_year" required>
-          <md-option *ngFor="let year of grad_years" [value]="year">
+      <div class="SelectForm">
+        <Select class="full-width" [(ngModel)]="model.grad_year" name="grad_year" required>
+          <option value="" disabled selected>Graduation Year</option>
+          <Option *ngFor="let year of grad_years" [value]="year">
             {{year}}
-          </md-option>
-        </md-select>
+          </Option>
+        </Select>
         <!-- <div *ngIf="f.submitted && !grad_year.valid" class="help-block">Graduation Year is required</div> -->
       </div>
       <div>
@@ -41,12 +43,13 @@
 
         <!-- <div *ngIf="f.submitted && !major" class="help-block">Password is required</div> -->
       </div>
-      <div>
-        <md-select placeholder="Referral" class="full-width" [(ngModel)]="model.referral" name="referral" required>
-          <md-option *ngFor="let referral of referrals" [value]="referral.value">
+      <div class="SelectForm">
+        <Select class="full-width" [(ngModel)]="model.referral" name="referral" required>
+          <option value="" disabled selected>Referral</option>
+          <Option *ngFor="let referral of referrals" [value]="referral.value">
             {{referral.viewValue}}
-          </md-option>
-        </md-select>
+          </Option>
+        </Select>
         <!-- <div *ngIf="f.submitted && !referral" class="help-block">Referral is required</div> -->
       </div>
       <div>
@@ -60,12 +63,13 @@
           <input mdInput placeholder="Dietary Restrictions" name="dietary_restrictions" type="text" [(ngModel)]="model.dietary_restrictions" #dietary_restrictions="ngModel">
         </md-input-container>
       </div>
-      <div>
-        <md-select placeholder="Shirt Size" class="full-width" [(ngModel)]="model.shirt_size" name="shirt_size" required>
-          <md-option *ngFor="let size of shirt_sizes" [value]="size.value">
+      <div class="SelectForm">
+        <Select class="full-width" [(ngModel)]="model.shirt_size" name="shirt_size" required>
+          <option value="" disabled selected>Shirt Size</option>
+          <Option *ngFor="let size of shirt_sizes" [value]="size.value">
             {{size.viewValue}}
-          </md-option>
-        </md-select>
+          </Option>
+        </Select>
         <!-- <div *ngIf="f.submitted && !shirt_size" class="help-block">Password is required</div> -->
       </div>
       <div>

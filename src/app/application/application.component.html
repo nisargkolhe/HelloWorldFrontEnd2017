@@ -3,22 +3,16 @@
     <h1>Application</h1>
     <form name="form" (ngSubmit)="f.form.valid && apply()" #f="ngForm" novalidate>
       <div class="SelectForm">
+        <label for="class_year">Class Year</label>
         <Select class="full-width" [(ngModel)]="model.class_year" name="class_year"  required>
-          <option value="" disabled selected>Class Year</option>
           <Option *ngFor="let year of class_years" [value]="year.value">
             {{year.viewValue}}
           </Option>
         </Select>
-        <!-- <input type="text"
-            class="hidden-input"
-            [ngModelOptions]="{standalone: true}"
-            [(ngModel)]="model.class_year"
-         /> -->
-        <!-- <div *ngIf="f.submitted && !model.class_year" class="help-block">Class Year is required</div> -->
       </div>
       <div class="SelectForm">
+        <label for="grad_year">Graduation Year</label>
         <Select class="full-width" [(ngModel)]="model.grad_year" name="grad_year" required>
-          <option value="" disabled selected>Graduation Year</option>
           <Option *ngFor="let year of grad_years" [value]="year">
             {{year}}
           </Option>
@@ -43,52 +37,60 @@
 
         <!-- <div *ngIf="f.submitted && !major" class="help-block">Password is required</div> -->
       </div>
+
       <div class="SelectForm">
+        <label for="referral">How did you hear about us?</label>
         <Select class="full-width" [(ngModel)]="model.referral" name="referral" required>
-          <option value="" disabled selected>Referral</option>
           <Option *ngFor="let referral of referrals" [value]="referral.value">
             {{referral.viewValue}}
           </Option>
         </Select>
         <!-- <div *ngIf="f.submitted && !referral" class="help-block">Referral is required</div> -->
       </div>
-      <div>
-        <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.hackathon_count }">
-          <input mdInput placeholder="Hackathon Count" name="hackathon_count" type="number" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" required>
-        </md-input-container>
-        <!-- <div *ngIf="f.submitted && !hackathon_count" class="help-block">Password is required</div> -->
+
+      <label for="hackathon_count">Past Number of Hackathons</label>
+      <div class="formWrapper">
+        <input class="textInput" placeholder="Hackathon Count" name="hackathon_count" type="number" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" required>
+        <div *ngIf="f.submitted && !hackathon_count.valid" class="app-error-block">Hackathon count is required</div>
       </div>
-      <div>
-        <md-input-container class="full-width">
-          <input mdInput placeholder="Dietary Restrictions" name="dietary_restrictions" type="text" [(ngModel)]="model.dietary_restrictions" #dietary_restrictions="ngModel">
-        </md-input-container>
+
+      <label for="dietary_restrictions">Dietary Restrictions</label>
+      <div class="formWrapper">
+        <input class="textInput" placeholder="Dietary Restrictions" name="dietary_restrictions" type="text" [(ngModel)]="model.dietary_restrictions" #dietary_restrictions="ngModel">
       </div>
+
+
       <div class="SelectForm">
+        <label for="class_year">T-Shirt Size</label>
         <Select class="full-width" [(ngModel)]="model.shirt_size" name="shirt_size" required>
-          <option value="" disabled selected>Shirt Size</option>
           <Option *ngFor="let size of shirt_sizes" [value]="size.value">
             {{size.viewValue}}
           </Option>
         </Select>
-        <!-- <div *ngIf="f.submitted && !shirt_size" class="help-block">Password is required</div> -->
       </div>
-      <div>
-        <md-input-container class="full-width">
-          <input mdInput placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel" pattern="(https?:\/\/)?([\w\d]+\.)?[\w\d]+\.\w+\/?.+">
-        </md-input-container>
+
+
+      <label for="hackathon_count">Personal Website or Github</label>
+      <div class="formWrapper">
+        <input class="textInput" placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel" pattern="(https?:\/\/)([\w\d]+\.)?[\w\d]+\.\w+\/?.+">
+        <div *ngIf="f.submitted && !website.valid" class="app-error-block">Website must be a valid url</div>
       </div>
-      <div>
-        <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.longanswer_1 }">
-          <textarea mdInput placeholder="Why do you want to attend Hello World?" name="longanswer_1" type="text" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required></textarea>
-        </md-input-container>
-        <!-- <div *ngIf="f.submitted && !longanswer_1" class="help-block">Password is required</div> -->
+
+
+      <label for="longanswer_1">Why do you want to attend Hello World?</label>
+      <div class="formWrapper">
+        <input class="textInput" placeholder="What do you hope to learn from your experience at Hello World?" name="longanswer_1" type="text" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required>
+        <div *ngIf="f.submitted && !longanswer_1.valid" class="app-error-block">Answer is required</div>
       </div>
-      <div>
-        <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.longanswer_2 }">
-          <textarea mdInput placeholder="What do you hope to learn from your experience at Hello World?" name="longanswer_2" type="text" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required></textarea>
-        </md-input-container>
-        <!-- <div *ngIf="f.submitted && !longanswer_2" class="help-block">Password is required</div> -->
+
+
+      <label for="longanswer_2">What do you hope to learn from your experience at Hello World?</label>
+      <div class="formWrapper">
+        <input class="textInput" placeholder="What do you hope to learn from your experience at Hello World?" name="longanswer_2" type="text" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required>
+        <div *ngIf="f.submitted && !longanswer_2.valid" class="app-error-block">Answer is required</div>
       </div>
+
+
       <div>
         <!-- <p *ngIf="model.resume.uuid">Selected: {{model.resume}}</p> -->
         <input hidden="hidden" id="resume" type="file" name="resume" (change)="setFile($event)" accept=".pdf"/>
@@ -104,12 +106,12 @@
       <button class="ui-button" [disabled]="loading" mdRippleColor="#F00">Submit</button>
     </div>
 
-      <md-progress-spinner
-        *ngIf="loading"
-        color="primary"
-        mode="indeterminate"
-        class="spinner">
-      </md-progress-spinner>
+    <md-progress-spinner
+      *ngIf="loading"
+      color="primary"
+      mode="indeterminate"
+      class="spinner">
+    </md-progress-spinner>
 
     </form>
   </md-card-content>

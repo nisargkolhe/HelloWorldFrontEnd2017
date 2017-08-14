@@ -1,4 +1,4 @@
-<md-card class="login-card">  
+<md-card class="login-card">
   <md-card-content>
   <h1>Hi {{currentUser.firstname}}!</h1>
     <div *ngIf="currentUser.roles.indexOf('admin') !== -1 else elseBlock">
@@ -27,6 +27,10 @@
             <h2>INCOMPLETE</h2>
           </ng-template>
         </div>
+        <div class="buttons">
+          <button class="ui-button" [routerLink]="['/application']">Application</button>
+          <button class="ui-button negative" [routerLink]="['/login']">Logout</button>
+        </div>
       </div>
       <ng-template #elseBlock>
         <div class="padded-divs">
@@ -40,12 +44,15 @@
             class="spinner">
           </md-progress-spinner>
         </div>
+        <div class="buttons">
+          <button class="ui-button negative" [routerLink]="['/login']">Logout</button>
+        </div>
       </ng-template>
     </ng-template>
-    
+<!--
     <div class="buttons">
       <button class="ui-button" [routerLink]="['/application']">Application</button>
       <button class="ui-button negative" [routerLink]="['/login']">Logout</button>
-    </div>
+    </div> -->
   </md-card-content>
 </md-card>

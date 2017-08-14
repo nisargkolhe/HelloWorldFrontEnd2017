@@ -4,19 +4,19 @@
     <form name="form" (ngSubmit)="f.form.valid && apply()" #f="ngForm" novalidate>
       <div class="SelectForm">
         <label for="class_year">Class Year</label>
-        <Select class="full-width" [(ngModel)]="model.class_year" name="class_year"  required>
-          <Option *ngFor="let year of class_years" [value]="year.value">
+        <select class="full-width" [(ngModel)]="model.class_year" #class_year="ngModel" name="class_year"  required>
+          <option *ngFor="let year of class_years" [value]="year.value">
             {{year.viewValue}}
-          </Option>
-        </Select>
+          </option>
+        </select>
       </div>
       <div class="SelectForm">
         <label for="grad_year">Graduation Year</label>
-        <Select class="full-width" [(ngModel)]="model.grad_year" name="grad_year" required>
-          <Option *ngFor="let year of grad_years" [value]="year">
+        <select class="full-width" [(ngModel)]="model.grad_year" name="grad_year" required>
+          <option *ngFor="let year of grad_years" [value]="year">
             {{year}}
-          </Option>
-        </Select>
+          </option>
+        </select>
         <!-- <div *ngIf="f.submitted && !grad_year.valid" class="help-block">Graduation Year is required</div> -->
       </div>
       <div>
@@ -40,11 +40,11 @@
 
       <div class="SelectForm">
         <label for="referral">How did you hear about us?</label>
-        <Select class="full-width" [(ngModel)]="model.referral" name="referral" required>
-          <Option *ngFor="let referral of referrals" [value]="referral.value">
+        <select class="full-width" [(ngModel)]="model.referral" name="referral" required>
+          <option *ngFor="let referral of referrals" [value]="referral.value">
             {{referral.viewValue}}
-          </Option>
-        </Select>
+          </option>
+        </select>
         <!-- <div *ngIf="f.submitted && !referral" class="help-block">Referral is required</div> -->
       </div>
 
@@ -62,11 +62,11 @@
 
       <div class="SelectForm">
         <label for="class_year">T-Shirt Size</label>
-        <Select class="full-width" [(ngModel)]="model.shirt_size" name="shirt_size" required>
-          <Option *ngFor="let size of shirt_sizes" [value]="size.value">
+        <select class="full-width" [(ngModel)]="model.shirt_size" name="shirt_size" required>
+          <option *ngFor="let size of shirt_sizes" [value]="size.value">
             {{size.viewValue}}
-          </Option>
-        </Select>
+          </option>
+        </select>
       </div>
 
 

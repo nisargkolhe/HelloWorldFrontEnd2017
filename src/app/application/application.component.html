@@ -4,7 +4,7 @@
     <form name="form" (ngSubmit)="f.form.valid && apply()" #f="ngForm" novalidate>
       <div class="SelectForm">
         <label for="class_year">Class Year*</label>
-        <select class="full-width" [(ngModel)]="model.class_year" #class_year="ngModel" name="class_year"  required>
+        <select class="full-width textInput" [ngClass]="{'invalidInput':(f.submitted && !model.class_year)}" [(ngModel)]="model.class_year" #class_year="ngModel" name="class_year"  required>
           <option *ngFor="let year of class_years" [value]="year.value">
             {{year.viewValue}}
           </option>
@@ -12,7 +12,7 @@
       </div>
       <div class="SelectForm">
         <label for="grad_year">Graduation Year*</label>
-        <select class="full-width" [(ngModel)]="model.grad_year" name="grad_year" required>
+        <select class="full-width textInput" [ngClass]="{'invalidInput':(f.submitted && !model.grad_year)}" [(ngModel)]="model.grad_year" name="grad_year" required>
           <option *ngFor="let year of grad_years" [value]="year">
             {{year}}
           </option>
@@ -25,7 +25,7 @@
         </md-input-container> -->
         <label for="major">Major*</label>
         <div class="formWrapper">
-          <input class="textInput" placeholder="Major" [mdAutocomplete]="auto" [(ngModel)]="model.major" [formControl]="majorCtrl" required>
+          <input class="textInput" placeholder="Major" [ngClass]="{'invalidInput':(f.submitted && !model.major)}" [mdAutocomplete]="auto" [(ngModel)]="model.major" [formControl]="majorCtrl" required>
         </div>
 
         <md-autocomplete #auto="mdAutocomplete">
@@ -40,7 +40,7 @@
 
       <div class="SelectForm">
         <label for="referral">How did you hear about us?*</label>
-        <select class="full-width" [(ngModel)]="model.referral" name="referral" required>
+        <select class="full-width textInput" [ngClass]="{'invalidInput':(f.submitted && !model.referral)}" [(ngModel)]="model.referral" name="referral" required>
           <option *ngFor="let referral of referrals" [value]="referral.value">
             {{referral.viewValue}}
           </option>
@@ -50,8 +50,8 @@
 
       <label for="hackathon_count">Past Number of Hackathons*</label>
       <div class="formWrapper">
-        <input class="textInput" placeholder="Hackathon Count" name="hackathon_count" type="number" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" required>
-        <div *ngIf="f.submitted && !hackathon_count.valid" class="app-error-block">Hackathon count is required</div>
+        <input class="textInput" placeholder="Hackathon Count" name="hackathon_count" type="number" [ngClass]="{'invalidInput':(f.submitted && !model.hackathon_count)}" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" required>
+        <!-- <div *ngIf="f.submitted && !hackathon_count.valid" class="app-error-block">Hackathon count is required</div> -->
       </div>
 
       <label for="dietary_restrictions">Dietary Restrictions</label>
@@ -62,7 +62,7 @@
 
       <div class="SelectForm">
         <label for="class_year">T-Shirt Size*</label>
-        <select class="full-width" [(ngModel)]="model.shirt_size" name="shirt_size" required>
+        <select class="full-width textInput" [ngClass]="{'invalidInput':(f.submitted && !model.shirt_size)}" [(ngModel)]="model.shirt_size" name="shirt_size" required>
           <option *ngFor="let size of shirt_sizes" [value]="size.value">
             {{size.viewValue}}
           </option>
@@ -79,15 +79,15 @@
 
       <label for="longanswer_1">Why do you want to attend Hello World?*</label>
       <div class="formWrapper">
-        <input class="textInput" placeholder="What do you hope to learn from your experience at Hello World?" name="longanswer_1" type="text" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required>
-        <div *ngIf="f.submitted && !longanswer_1.valid" class="app-error-block">Answer is required</div>
+        <textarea class="textInput" placeholder="What do you hope to learn from your experience at Hello World?" name="longanswer_1" type="text" [ngClass]="{'invalidInput':(f.submitted && !model.longanswer_1)}" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required></textarea>
+        <!-- <div *ngIf="f.submitted && !longanswer_1.valid" class="app-error-block">Answer is required</div> -->
       </div>
 
 
       <label for="longanswer_2">What do you hope to learn from your experience at Hello World?*</label>
       <div class="formWrapper">
-        <input class="textInput" placeholder="What do you hope to learn from your experience at Hello World?" name="longanswer_2" type="text" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required>
-        <div *ngIf="f.submitted && !longanswer_2.valid" class="app-error-block">Answer is required</div>
+        <textarea class="textInput" placeholder="What do you hope to learn from your experience at Hello World?" name="longanswer_2" type="text" [ngClass]="{'invalidInput':(f.submitted && !model.longanswer_2)}" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required></textarea>
+        <!-- <div *ngIf="f.submitted && !longanswer_2.valid" class="app-error-block">Answer is required</div> -->
       </div>
 
 
@@ -107,16 +107,15 @@
         </div>
 
       </div>
-
     <div class="buttons">
-      <button class="ui-button" [disabled]="loading" mdRippleColor="#F00">
+      <button class="ui-button" [disabled]="loading" mdRippleColor="#F00" type="submit">
         <div *ngIf='appSubmitted'>
           Update Application
         </div>
         <div *ngIf='!appSubmitted'>Submit</div>
       </button>
     </div>
-
+    <div *ngIf="f.submitted && f.form.invalid" class="help-block">Some fields are missing and/or invalid.</div>
     <md-progress-spinner
       *ngIf="loading"
       color="primary"

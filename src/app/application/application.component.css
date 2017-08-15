@@ -20,6 +20,7 @@
 select {
   /*position: absolute;*/
   width: auto;
+  height: 48px;
   padding: 12px 20px;
   font-size: 18px;
   border: 1px solid #C1FFF2;
@@ -66,6 +67,11 @@ label {
   outline: none;
   border-color: red;
 }
+
+/*.textInput.ng-submitted.ng-pristine {
+  outline: none !important;
+  border-color: red !important;
+}*/
 
 .textInput:required:valid {
   outline: none;

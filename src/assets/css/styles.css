@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/purple-green.css';
+/*@import '~@angular/material/prebuilt-themes/purple-green.css';*/
 
 /* Colors
 teal: ##55C296
@@ -316,6 +316,11 @@ li {
 .formInput:required:valid {
   outline: none;
   border-color: #4CAF50;
+}
+
+.invalidInput{
+  outline: none !important;
+  border-color: red !important;
 }
 
 

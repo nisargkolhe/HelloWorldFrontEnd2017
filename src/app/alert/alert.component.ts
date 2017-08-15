@@ -21,7 +21,7 @@ export class AlertComponent implements OnInit {
       this.alertService.getMessage().subscribe(message => {
         if(message)
           this.snackBar.open(message.text, null, {
-            //duration: 3000,
+            duration: 3000,
             extraClasses: ['ui-alert']
           });
         //this.message = message;

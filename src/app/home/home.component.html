@@ -14,6 +14,10 @@
           <a [routerLink]="['/checkin']">Check In</a>
         </ul>
       </li>
+      <div class="buttons">
+        <button class="ui-button" [routerLink]="['/application']">Application</button>
+        <button class="ui-button negative" [routerLink]="['/login']">Logout</button>
+      </div>
     </div>
     <ng-template #elseBlock>
       <!--TODO: Replace email verification hardcoded condition-->
@@ -49,10 +53,5 @@
         </div>
       </ng-template>
     </ng-template>
-<!--
-    <div class="buttons">
-      <button class="ui-button" [routerLink]="['/application']">Application</button>
-      <button class="ui-button negative" [routerLink]="['/login']">Logout</button>
-    </div> -->
   </md-card-content>
 </md-card>

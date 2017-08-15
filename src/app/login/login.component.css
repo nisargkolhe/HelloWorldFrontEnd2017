@@ -16,4 +16,7 @@ h1 {
   margin-right: -10px;
 }
 
-
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}

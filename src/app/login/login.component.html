@@ -17,14 +17,10 @@
       <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
 
     <div class="buttons">
-      <button class="ui-button" [disabled]="loading">Login</button>
-      <button class="ui-button" [routerLink]="['/register']">Register</button>
+      <button class="ui-button centered" [disabled]="loading">Login</button>
+      <button class="ui-button centered" [routerLink]="['/register']">Register</button>
+      <button [routerLink]="['/resetPassword']" class="ui-button negative centered">Forgot Password?</button>
     </div>
-    <div class="buttons">
-      <button [routerLink]="['/resetPassword']" class="ui-button negative float-right">Forgot Password?</button>
-    </div>
-
-
       <md-progress-spinner
         *ngIf="loading"
         color="primary"

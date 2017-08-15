@@ -153,7 +153,67 @@ li {
   color: #101B24;
 }
 
-button {
+.ui-button {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer !important;
+	padding: 1em 2em;
+	display: inline-block;
+	margin: 0.5em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+  background: #55C296;
+	color: #fff;
+  border-radius: 10px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.ui-button:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.ui-button:hover {
+	background: #C1FFF2;
+  color: #101B24;
+}
+
+.ui-button:active {
+	background: #C1FFF2;
+	top: 2px;
+}
+
+.upload-btn {
+  padding: 1em 2em;
+  background-color: transparent;
+  border: 1px solid #C1FFF2;
+  border-radius: 4px;
+  margin: 0;
+  cursor: pointer !important;
+}
+
+.upload-btn input[type=file] {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+/*.ui-button {
   padding: 12px 20px;
   width: auto;
   color: black;
@@ -164,10 +224,10 @@ button {
   border-radius: 4px;
   margin-right: 10px;
 }
-button:hover {
+.ui-button:hover {
   background-color: #C1FFF2;
   color: #101B24;
-}
+}*/
 
 /*THEME ALERT SNACKBAR HERE */
 .ui-alert {

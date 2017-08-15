@@ -8,7 +8,7 @@ light teal: #C1FFF2
 light blue: #7489A7
 */
 body {
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   background-color: #101B24;
   margin: 0;
   color: white;
@@ -64,6 +64,10 @@ h3 {
 
 p {
   font-size: 18px;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.mat-option {
   font-family: 'Varela Round', sans-serif;
 }
 

@@ -23,10 +23,10 @@
         <!-- <md-input-container class="full-width" [ngClass]="{ 'ng-invalid': f.submitted && !model.major }">
           <input mdInput placeholder="Major" name="major" type="text" [(ngModel)]="model.major" #major="ngModel" required>
         </md-input-container> -->
-
-        <md-input-container class="full-width">
-          <input mdInput placeholder="Major" [mdAutocomplete]="auto" [(ngModel)]="model.major" [formControl]="majorCtrl" required>
-        </md-input-container>
+        <label for="major">Major</label>
+        <div class="formWrapper">
+          <input class="textInput" placeholder="Major" [mdAutocomplete]="auto" [(ngModel)]="model.major" [formControl]="majorCtrl" required>
+        </div>
 
         <md-autocomplete #auto="mdAutocomplete">
           <md-option *ngFor="let major of filteredMajors | async" [value]="major" >

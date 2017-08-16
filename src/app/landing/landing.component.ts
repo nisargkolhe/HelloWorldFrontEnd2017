@@ -8,6 +8,7 @@ import { AlertService, AuthenticationService, UserService } from '../services/in
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
+  private buttonText: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -18,8 +19,14 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
     if(this.userService.loadFromLocalStorage()){
-      this.router.navigate(['/home']);
+      //User is logged in
+      this.buttonText = "My Account";
+    } else {
+      this.buttonText = "Sign Up";
     }
   }
 
+  public getButtonText(): string {
+    return this.buttonText;
+  }
 }

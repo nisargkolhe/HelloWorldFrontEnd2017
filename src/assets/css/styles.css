@@ -204,11 +204,6 @@ button:hover {
   padding: 5px;
 }
 
-.inputWrapper {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .formInput {
   /*position: absolute;*/
   padding: 12px 20px;
@@ -221,7 +216,6 @@ button:hover {
   background: rgba(16, 27, 36, 0.9);
   font-family: 'Varela Round', sans-serif;
   color: #4AC29A;
-  margin-bottom: -30px;
   text-align: left;
   transition: border-color ease 0.5s;
 }
@@ -242,7 +236,6 @@ button:hover {
   color: red;
   margin-top: -15px;
   font-family: 'Varela Round', sans-serif;
-
 }
 
 /*THEME MD-CARD HERE*/

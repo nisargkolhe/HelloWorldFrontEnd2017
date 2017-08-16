@@ -1,6 +1,6 @@
 <div class="padded-divs">
 <main id="main">
-<nav class="desktop-nav">
+<nav class="desktop-nav nav">
   <a href="#main">Home</a>
   <a href="#about">About</a>
   <a href="#mentors">Mentors</a>
@@ -23,7 +23,7 @@
 </div>
 <div class="landing_button">
   <ul>
-    <li><button class="updates" [routerLink]="['/login']">Sign Up!</button></li>
+    <li><button class="ui-button" [routerLink]="['/login']">Sign Up!</button></li>
   </ul>
 </div>
 </main>
@@ -57,7 +57,20 @@
     </p>
   </div>
   <div>
-    <button class="mentor" onClick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdcnkqkgwqUBqu1QZKAKzH-fISteTxMMeNBlfN86nEuYOLnPg/viewform');">Be a mentor</button>
+    <button class="ui-button" onClick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdcnkqkgwqUBqu1QZKAKzH-fISteTxMMeNBlfN86nEuYOLnPg/viewform');">Be a mentor</button>
+  </div>
+</section>
+<section id="faq">
+  <h2>FAQ</h2>
+  <div class="box">
+    <details>
+      <summary>What is a hackathon?</summary>
+      <p>A hackathon is an event when programmers meet to do collaborative computer programming. Checkout <a href="https://medium.com/hackathons-anonymous/wtf-is-a-hackathon-92668579601">this article</a> for a better explanation.</p>
+    </details>
+    <details>
+      <summary>How do I apply?</summary>
+      <p>Right <a href="/#/login" [routerLink]="['/login']">here!</a></p>
+    </details>
   </div>
 </section>
 <footer>

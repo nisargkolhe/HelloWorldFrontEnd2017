@@ -15,7 +15,10 @@ body {
   text-align: center;
 }
 section {
+  width: 100%;
+  max-width: 960px;
   padding: 20px;
+  margin: 0 auto;
 }
 .box {
   display: block;
@@ -26,7 +29,7 @@ section {
   border-radius: 5px;
   background: rgba(16, 27, 36, 0.9);
   vertical-align: middle;
-  padding: 0 20px;
+  padding: 1em;
   text-align: left;
 }
 h1 {
@@ -36,18 +39,33 @@ p {
   font-size: 20px;
 }
 a {
+  border-bottom: .08em solid #55C296;
+  padding-bottom: .08em;
   text-decoration: none;
+  vertical-align: baseline;
+  margin: 0;
+  background: 0 0;
+  font-weight: 300;
+  -webkit-transition: all .25s;
+  transition: all .25s;
   color: inherit;
 }
+a:hover {
+    text-decoration: none;
+    border-bottom: .08em solid #C1FFF2;
+}
+
 .desktop-nav {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 .desktop-nav a {
+  text-decoration: none;
   padding: 20px 10px;
   color: #C1FFF2;
   font-size: 20px;
+  border-bottom: none;
 }
 .desktop-nav a:hover {
   padding-bottom: 12px;
@@ -82,6 +100,7 @@ a {
   display: block;
   padding-top: 5px;
   text-align: left;
+  border-bottom: none;
 }
 @media screen and (max-width:380px) {
   .desktop-nav {
@@ -218,4 +237,9 @@ button:hover {
 
 .logo img {
   max-width: 300px;
+}
+
+details{
+  font-size: 1.5em;
+  margin: 1em;
 }

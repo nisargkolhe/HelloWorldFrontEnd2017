@@ -87,9 +87,9 @@ nav a span:hover {
   border-bottom: 3px solid #C1FFF2;
 }
 
-a {
+/*a {
   text-decoration: none;
-}
+}*/
 
 footer {
   padding: 20px;
@@ -164,6 +164,7 @@ li {
 	display: inline-block;
 	margin: 0.5em;
 	text-transform: uppercase;
+  text-decoration: none;
 	letter-spacing: 1px;
 	font-weight: 700;
 	outline: none;
@@ -340,11 +341,11 @@ li {
 
 .negative {
   width: auto;
-  background-color: #ac7b77;
+  background-color: #ac7b77 !important;
   color: white;
 }
 
 .negative:hover {
-  background-color: #f6d9d6;
+  background-color: #f6d9d6 !important;
   color: #101B24;
 }

@@ -80,4 +80,21 @@ export class HomeComponent implements OnInit {
           }
       );
   }
+
+  public getStatusString(): object {
+    switch(this.application.status) {
+      case "incomplete":
+          return {title: "Application Not Submitted", description: "You have not submitted an application"};
+      case "pending":
+          return {title: "Application Submitted", description: "We've got your application!\nYou can still make changes if needed."};
+      case "accepted":
+          return {title: "Accepted!", description: "You're in!\nWe're so excited to see you at Hello World!"};
+      case "waitlisted":
+          return {title: "Waitlisted", description: "Hang tight! We received more applications than expected, so we'll be in touch as we get closer to the event."};
+      case "rejected":
+          return {title: "Rejected", description: "Unfortunately we aren't able to offer you a spot at Hello World."};
+      default:
+        return {title: "Pending", description: ""};
+    }
+  }
 }

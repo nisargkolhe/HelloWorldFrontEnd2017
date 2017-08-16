@@ -22,10 +22,10 @@
     <ng-template #elseBlock>
       <!--TODO: Replace email verification hardcoded condition-->
       <div *ngIf="currentUser.verified else elseBlock">
-        <h3>Application Status:</h3>
         <div class="application-status">
           <div *ngIf="appSubmitted else elseBlock">
-            <h2>{{application.status | uppercase}}</h2>
+            <h2>{{getStatusString().title | uppercase}}</h2>
+            <p>{{getStatusString().description}}</p>
           </div>
           <ng-template #elseBlock>
             <h2>INCOMPLETE</h2>

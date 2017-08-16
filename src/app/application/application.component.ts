@@ -90,7 +90,7 @@ export class ApplicationComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Application successfully submitted.', true);
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/home']);
                 },
                 error => {
                     error = error.json();
@@ -114,7 +114,7 @@ export class ApplicationComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Application successfully updated.', true);
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/home']);
                 },
                 error => {
                     this.alertService.error(error);

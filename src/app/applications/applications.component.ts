@@ -15,7 +15,7 @@ import { ExecService } from "../services/index";
 export class ApplicationsComponent implements OnInit {
   currentUser: User;
   applications: Application[] = [];
-  stats: {} = {};
+  stats: any = {};
   constructor(
     private userService: UserService,
     private appService: ApplicationService,

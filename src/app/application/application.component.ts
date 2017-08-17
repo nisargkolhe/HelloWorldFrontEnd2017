@@ -78,9 +78,9 @@ export class ApplicationComponent implements OnInit {
   }
 
   setFile(event){
-    console.log('upload', event.srcElement.files);
-    this.model.resume = event.srcElement.files[0];
-    this.filename = event.srcElement.files[0].name;
+    console.log('upload', event.target.files);
+    this.model.resume = event.target.files[0];
+    this.filename = event.target.files[0].name;
   }
 
   apply() {

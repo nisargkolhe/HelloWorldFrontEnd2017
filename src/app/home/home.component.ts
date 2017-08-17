@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   applications: Application[] = [];
   application: Application;
   appSubmitted = false;
+  appLoaded = false;
   loading = false;
 
   constructor(
@@ -57,11 +58,19 @@ export class HomeComponent implements OnInit {
             this.application = result.application;
             if(result.message === "success")
               this.appSubmitted = true;
+              this.appLoaded = true;
             console.log(result);
             this.loading = false;
           }, error => {
-            console.log(error);
-            this.loading = false;
+            if(error.status == 404) {
+              //User has not submitted their application yet
+              this.appSubmitted = false;
+              this.appLoaded = true;
+            } else {
+              //Something else bad happened
+              console.log(error);
+              this.loading = false;
+            }
           }
       );
   }
@@ -83,8 +92,6 @@ export class HomeComponent implements OnInit {
 
   public getStatusString(): object {
     switch(this.application.status) {
-      case "incomplete":
-          return {title: "Application Not Submitted", description: "You have not submitted an application"};
       case "pending":
           return {title: "Application Submitted", description: "We've got your application!\nYou can still make changes if needed."};
       case "accepted":

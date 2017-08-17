@@ -22,13 +22,22 @@
     <ng-template #elseBlock>
       <!--TODO: Replace email verification hardcoded condition-->
       <div *ngIf="currentUser.verified else elseBlock">
+        <!-- Application Status Page -->
         <div class="application-status">
-          <div *ngIf="appSubmitted else elseBlock">
-            <h2>{{getStatusString().title | uppercase}}</h2>
-            <p>{{getStatusString().description}}</p>
+          <!-- Show once the app has loaded-->
+          <div *ngIf="appLoaded else elseBlock">
+            <div *ngIf="appSubmitted else elseBlock">
+              <h2>{{getStatusString().title | uppercase}}</h2>
+              <p>{{getStatusString().description}}</p>
+            </div>
+            <ng-template #elseBlock>
+              <h2>INCOMPLETE</h2>
+              <p>You have not submitted an application</p>
+            </ng-template>
           </div>
+          <!-- Show if the app is still loading -->
           <ng-template #elseBlock>
-            <h2>INCOMPLETE</h2>
+            <h2>Loading...</h2>
           </ng-template>
         </div>
         <div class="buttons">

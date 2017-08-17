@@ -30,6 +30,7 @@ select {
   color: #4AC29A;
   text-align: left;
   transition: border-color ease 0.5s;
+  outline: 0;
 }
 
 .SelectForm {
@@ -83,3 +84,4 @@ label {
   color: red;
   font-family: 'Varela Round', sans-serif;
 }
+

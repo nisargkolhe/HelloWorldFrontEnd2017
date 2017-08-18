@@ -1,3 +1,6 @@
+.container {
+  padding: 20px;
+}
 .main-card {
   max-width: 600px;
   margin: 1em auto;
@@ -9,10 +12,6 @@
 
 .full-width {
   width: 100%;
-  margin: 1em;
-}
-
-.buttons {
   margin: 1em;
 }
 
@@ -29,7 +28,9 @@
   width: 24px;
   height: 24px;
 }
-
+nav a {
+  text-decoration: none;
+}
 .desktop-nav {
   display: flex;
   justify-content: flex-start;
@@ -48,12 +49,13 @@
 
 .nav-con .fa {
   position: absolute;
+  color: #C1FFF2;
   top: 20px;
   right: 20px;
 }
 .nav-con .logo {
   position: absolute;
-  top: 20px;
+  top: 0px;
   left: 20px;
   font-family: 'Short Stack', sans-serif;
 }

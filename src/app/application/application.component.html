@@ -50,7 +50,7 @@
 
       <label for="hackathon_count">Past Number of Hackathons*</label>
       <div class="formWrapper">
-        <input class="textInput" placeholder="Hackathon Count" name="hackathon_count" type="number" [ngClass]="{'invalidInput':(f.submitted && !model.hackathon_count)}" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" required>
+        <input class="textInput" placeholder="Hackathon Count" name="hackathon_count" type="number" [ngClass]="{'invalidInput':(f.submitted && (!model.hackathon_count || model.hackathon_count < 0))}" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" min="0" required>
         <!-- <div *ngIf="f.submitted && !hackathon_count.valid" class="app-error-block">Hackathon count is required</div> -->
       </div>
 

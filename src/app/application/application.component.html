@@ -79,7 +79,7 @@
 
       <label for="longanswer_1">Why do you want to attend Hello World?*</label>
       <div class="formWrapper">
-        <textarea class="textInput" placeholder="What do you hope to learn from your experience at Hello World?" name="longanswer_1" type="text" [ngClass]="{'invalidInput':(f.submitted && !model.longanswer_1)}" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required></textarea>
+        <textarea class="textInput" placeholder="Why do you want to attend Hello World?" name="longanswer_1" type="text" [ngClass]="{'invalidInput':(f.submitted && !model.longanswer_1)}" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required></textarea>
         <!-- <div *ngIf="f.submitted && !longanswer_1.valid" class="app-error-block">Answer is required</div> -->
       </div>
 

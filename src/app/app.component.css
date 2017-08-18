@@ -49,12 +49,13 @@ nav a {
 
 .nav-con .fa {
   position: absolute;
+  color: #C1FFF2;
   top: 20px;
   right: 20px;
 }
 .nav-con .logo {
   position: absolute;
-  top: 20px;
+  top: 0px;
   left: 20px;
   font-family: 'Short Stack', sans-serif;
 }

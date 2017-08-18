@@ -8,7 +8,7 @@ import { AlertService, AuthenticationService, UserService } from '../services/in
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  private isLoggedIn: boolean;
+  public isLoggedIn: boolean;
 
   constructor(
     private route: ActivatedRoute,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule, FormControl } from '@angular/forms';
 import { MdCardModule, MdRadioModule, MdInputModule, MdSelectModule, MdAutocompleteModule } from '@angular/material';
+import { CustomFormsModule } from 'ng2-validation'
 
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';

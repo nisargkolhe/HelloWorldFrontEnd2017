@@ -25,7 +25,12 @@
 </div>
 <div class="landing_button">
   <ul>
-    <li><button class="ui-button" [routerLink]="['/home']">{{getButtonText()}}</button></li>
+    <span *ngIf="isLoggedIn else elseBlock">
+      <li><button class="ui-button" [routerLink]="['/home']">My Account</button></li>
+    </span>
+    <ng-template #elseBlock>
+      <li><button class="ui-button" [routerLink]="['/register']">Sign Up</button></li>
+    </ng-template>
   </ul>
 </div>
 </main>
@@ -92,7 +97,7 @@
 
     <details>
       <summary>How do I apply?</summary>
-      <p>Just sign up  <a href="/#/login" [routerLink]="['/login']">here!</a> with your Purdue email and fill out the application form. We’ll let you know in the next few weeks if you’ve been accepted.</p>
+      <p>Just sign up  <a href="/#/register" [routerLink]="['/register']">here!</a> with your Purdue email and fill out the application form. We’ll let you know in the next few weeks if you’ve been accepted.</p>
     </details>
 
     <details>

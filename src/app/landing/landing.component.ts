@@ -8,7 +8,7 @@ import { AlertService, AuthenticationService, UserService } from '../services/in
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-  private buttonText: string;
+  private isLoggedIn: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,13 +20,10 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
     if(this.userService.loadFromLocalStorage()){
       //User is logged in
-      this.buttonText = "My Account";
+      this.isLoggedIn = true;
     } else {
-      this.buttonText = "Sign Up";
+      //User is not logged in
+      this.isLoggedIn = false;
     }
-  }
-
-  public getButtonText(): string {
-    return this.buttonText;
   }
 }

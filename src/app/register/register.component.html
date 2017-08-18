@@ -1,7 +1,7 @@
-<md-card class="login-card padded-divs">
+<md-card class="main-card padded-divs">
   <md-card-content>
   <h1>Register</h1>
-  
+
     <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
         <div class="inputWrapper">
           <input class="formInput" placeholder="First Name" name="firstname" type="text" [(ngModel)]="model.firstname" #firstname="ngModel" required>

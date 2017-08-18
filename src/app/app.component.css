@@ -28,7 +28,9 @@
   width: 24px;
   height: 24px;
 }
-
+nav a {
+  text-decoration: none;
+}
 .desktop-nav {
   display: flex;
   justify-content: flex-start;

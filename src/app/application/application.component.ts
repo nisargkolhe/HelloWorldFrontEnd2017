@@ -78,9 +78,9 @@ export class ApplicationComponent implements OnInit {
   }
 
   setFile(event){
-    console.log('upload', event.srcElement.files);
-    this.model.resume = event.srcElement.files[0];
-    this.filename = event.srcElement.files[0].name;
+    console.log('upload', event.target.files);
+    this.model.resume = event.target.files[0];
+    this.filename = event.target.files[0].name;
   }
 
   apply() {
@@ -90,7 +90,7 @@ export class ApplicationComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Application successfully submitted.', true);
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/home']);
                 },
                 error => {
                     error = error.json();
@@ -114,7 +114,7 @@ export class ApplicationComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Application successfully updated.', true);
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/home']);
                 },
                 error => {
                     this.alertService.error(error);

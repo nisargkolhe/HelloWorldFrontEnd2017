@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/purple-green.css';
+/*@import '~@angular/material/prebuilt-themes/purple-green.css';*/
 
 /* Colors
 teal: ##55C296
@@ -8,7 +8,7 @@ light teal: #C1FFF2
 light blue: #7489A7
 */
 body {
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   background-color: #101B24;
   margin: 0;
   color: white;
@@ -18,7 +18,7 @@ body {
   text-align: center;
 }
 section {
-  min-height: 100vh;
+  /*min-height: 100vh;*/
 }
 
 main {
@@ -51,10 +51,25 @@ main {
   text-align: left;
 }
 h1 {
-  font-family: 'Short Stack', sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
+
+h2 {
+  font-size: 20px;
+  font-family: 'Varela Round', sans-serif;
+}
+
+h3 {
+  font-size: 20px;
+  font-family: 'Varela Round', sans-serif;
+}
+
 p {
   font-size: 18px;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.mat-option {
   font-family: 'Varela Round', sans-serif;
 }
 
@@ -74,9 +89,9 @@ nav a span:hover {
   border-bottom: 3px solid #C1FFF2;
 }
 
-a {
+/*a {
   text-decoration: none;
-}
+}*/
 
 footer {
   padding: 20px;
@@ -102,12 +117,8 @@ li {
   color: #4AC29A;
 }
 
-.register_button {
-  margin-right: 40px;
-  margin-top: -20px;
-}
 .register {
-  font-family: 'Short Stack', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-size: 20px;
   border-radius: 5px;
   padding: 20px 80px;
@@ -128,7 +139,7 @@ li {
   padding-left: 5px;
 }
 .mentor {
-  font-family: 'Short Stack', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-size: 20px;
   border-radius: 5px;
   width: 254.98px;
@@ -144,7 +155,68 @@ li {
   color: #101B24;
 }
 
-button {
+.ui-button {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer !important;
+	padding: 1em 2em;
+	display: inline-block;
+	margin: 0.5em;
+	text-transform: uppercase;
+  text-decoration: none;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+  background: #55C296;
+	color: #fff;
+  border-radius: 10px;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.ui-button:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.ui-button:hover {
+	background: #C1FFF2;
+  color: #101B24;
+}
+
+.ui-button:active {
+	background: #C1FFF2;
+	top: 2px;
+}
+
+.upload-btn {
+  padding: 1em 2em;
+  background-color: transparent;
+  border: 1px solid #C1FFF2;
+  border-radius: 4px;
+  margin: 0;
+  cursor: pointer !important;
+}
+
+.upload-btn input[type=file] {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+/*.ui-button {
   padding: 12px 20px;
   width: auto;
   color: black;
@@ -155,10 +227,10 @@ button {
   border-radius: 4px;
   margin-right: 10px;
 }
-button:hover {
+.ui-button:hover {
   background-color: #C1FFF2;
   color: #101B24;
-}
+}*/
 
 /*THEME ALERT SNACKBAR HERE */
 .ui-alert {
@@ -230,12 +302,16 @@ button:hover {
   border-color: #4CAF50;
 }
 
-
+.invalidInput{
+  outline: none !important;
+  border-color: red !important;
+}
 
 .help-block {
   color: red;
   margin-top: -15px;
   font-family: 'Varela Round', sans-serif;
+
 }
 
 /*THEME MD-CARD HERE*/
@@ -246,11 +322,11 @@ button:hover {
 
 .negative {
   width: auto;
-  background-color: #ac7b77;
+  background-color: #ac7b77 !important;
   color: white;
 }
 
 .negative:hover {
-  background-color: #f6d9d6;
+  background-color: #f6d9d6 !important;
   color: #101B24;
 }

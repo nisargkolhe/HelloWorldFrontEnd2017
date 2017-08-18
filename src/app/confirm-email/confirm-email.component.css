@@ -1,0 +1,30 @@
+.login-card {
+  max-width: 600px;
+  text-align: center;
+}
+
+.application-status {
+  width: 100%;
+  text-align: center;
+  padding: 1em 0;
+  background-color: #f0f0f0;
+  color: #0f0f0f;
+}
+
+li {
+  list-style: none;
+  margin-left: -40px;
+  margin-bottom: 30px;
+}
+
+a {
+  font-size: 18px;
+  font-family: 'Varela Round', sans-serif;
+  color: white;
+  text-decoration: underline;
+}
+
+
+h3 {
+	margin-top: -15px;
+}

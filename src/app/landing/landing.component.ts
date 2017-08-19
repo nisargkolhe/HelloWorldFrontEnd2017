@@ -9,7 +9,8 @@ import { AlertService, AuthenticationService, UserService } from '../services/in
 })
 export class LandingComponent implements OnInit {
   public isLoggedIn: boolean;
-
+  public show: boolean;
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,

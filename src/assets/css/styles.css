@@ -44,7 +44,7 @@ body {
   text-align: left;
 }
 
-h1, h2, h3 {
+h1, h2, h3, mat-option {
   font-family: 'Varela Round', sans-serif;
 }
 
@@ -54,10 +54,6 @@ h2, h3 {
 
 p {
   font-size: 18px;
-  font-family: 'Varela Round', sans-serif;
-}
-
-.mat-option {
   font-family: 'Varela Round', sans-serif;
 }
 
@@ -132,6 +128,7 @@ button {
   margin: 5px;
 }
 .ui-button {
+  border: none;
 	font-family: 'Varela Round', sans-serif;
 	font-size: inherit;
 	color: inherit;

@@ -170,8 +170,9 @@ button:hover {
 summary {
   outline:none;
 }
+
 details {
-  font-size: 1.5em;
+  font-size: 22px;
   margin: 1em;
 }
 

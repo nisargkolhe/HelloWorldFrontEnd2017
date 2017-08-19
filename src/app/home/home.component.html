@@ -1,4 +1,4 @@
-<md-card class="main-card">
+``<md-card class="main-card">
   <md-card-content>
   <h1>Hi {{currentUser.firstname}}!</h1>
     <div *ngIf="currentUser.roles.indexOf('admin') !== -1 else elseBlock">
@@ -40,7 +40,7 @@
             <h2>Loading...</h2>
           </ng-template>
         </div>
-        <div class="buttons">
+        <div class="buttons topSpacing">
           <button class="ui-button" [routerLink]="['/application']">Application</button>
           <button class="ui-button negative" [routerLink]="['/login']">Logout</button>
         </div>

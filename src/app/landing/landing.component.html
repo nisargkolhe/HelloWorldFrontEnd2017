@@ -1,3 +1,23 @@
+<nav class="desktop-nav nav">
+  <a href="#main">Home</a>
+  <a href="#about">About</a>
+  <a href="#mentors">Mentors</a>
+  <a href="#sponsors">Sponsors</a>
+  <a href="#faq">FAQ</a>
+</nav>
+<nav class="mobile-nav">
+  <div class="nav-con">
+    <a class="logo" href="#main">Hello World</a>
+    <i (click)="show = !show" class="fa fa-bars" aria-hidden="true"></i>
+  </div>
+  <div [hidden]="show" class="mobile-nav-content">
+    <a href="#main">Home</a>
+    <a href="#about">About</a>
+    <a href="#mentors">Mentors</a>
+    <a href="#sponsors">Sponsors</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
 <div class="padded-divs">
 <main id="main">
 <div class="logo">

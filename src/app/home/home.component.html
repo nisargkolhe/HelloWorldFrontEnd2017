@@ -1,4 +1,4 @@
-<md-card class="main-card">
+<md-card class="con">
   <md-card-content>
   <h1>Hi {{currentUser.firstname}}!</h1>
     <div *ngIf="currentUser.roles.indexOf('admin') !== -1 else elseBlock">
@@ -23,7 +23,7 @@
       <!--TODO: Replace email verification hardcoded condition-->
       <div *ngIf="currentUser.verified else elseBlock">
         <!-- Application Status Page -->
-        <div class="application-status">
+        <div class="application-status topSpacing">
           <!-- Show once the app has loaded-->
           <div *ngIf="appLoaded else elseBlock">
             <div *ngIf="appSubmitted else elseBlock">
@@ -46,20 +46,18 @@
         </div>
       </div>
       <ng-template #elseBlock>
-        <div class="padded-divs">
+        <div class="buttons">
           <p>Please verify your email to access the application.</p>
           <button class="ui-button" (click)="resendVerificationEmail()">Resend Verification Email </button>
-          <md-progress-spinner
-            *ngIf="loading"
-            color="primary"
-            mode="indeterminate"
-            value="indeterminate"
-            class="spinner">
-          </md-progress-spinner>
-        </div>
-        <div class="buttons">
           <button class="ui-button negative" [routerLink]="['/login']">Logout</button>
         </div>
+        <md-progress-spinner
+          *ngIf="loading"
+          color="primary"
+          mode="indeterminate"
+          value="indeterminate"
+          class="spinner">
+        </md-progress-spinner>
       </ng-template>
     </ng-template>
   </md-card-content>

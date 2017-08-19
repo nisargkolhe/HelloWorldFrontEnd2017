@@ -1,15 +1,9 @@
-<nav class="desktop-nav nav">
+<!-- <nav class="desktop-nav nav">
   <a href="#main">Home</a>
   <a href="#about">About</a>
   <a href="#mentors">Mentors</a>
   <a href="#sponsors">Sponsors</a>
   <a href="#faq">FAQ</a>
-  <span *ngIf="isLoggedIn else elseBlock">
-    <a [routerLink]="['/login']">Logout</a>
-  </span>
-  <ng-template #elseBlock>
-    <a [routerLink]="['/login']">Login</a>
-  </ng-template>
 </nav>
 <nav class="mobile-nav">
   <div class="nav-con">
@@ -22,15 +16,9 @@
     <a href="#mentors">Mentors</a>
     <a href="#sponsors">Sponsors</a>
     <a href="#faq">FAQ</a>
-    <span *ngIf="isLoggedIn else elseBlock">
-      <a [routerLink]="['/login']">Logout</a>
-    </span>
-    <ng-template #elseBlock>
-      <a [routerLink]="['/login']">Login</a>
-    </ng-template>
   </div>
-</nav>
-  <div class="container">
-      <alert></alert>
-      <router-outlet></router-outlet>
-  </div>
+</nav> -->
+<div class="container">
+    <alert></alert>
+    <router-outlet></router-outlet>
+</div>

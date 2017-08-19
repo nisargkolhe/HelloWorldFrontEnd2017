@@ -1,6 +1,6 @@
 <div class="con">
   <h1>Email Verification</h1>
-  <div style="text-align:center" >
+  <div style="text-align:center" class="topSpacing">
     <div *ngIf="loading else elseBlock">
       <h3>Verifying your email...</h3>
       <md-progress-spinner
@@ -11,7 +11,7 @@
       </md-progress-spinner>
     </div>
     <ng-template #elseBlock>
-      <h3>Email verification unsuccessful. :(</h3>
+      <h3>Email verification unsuccessful :(</h3>
       If you're having problems verifying your email, please contact us at helloworld@purduehackers.com
     </ng-template>
   </div>

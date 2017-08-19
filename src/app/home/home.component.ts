@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
       this.authService.resendVerificationEmail()
         .subscribe(
           result => {
-            this.alertService.success(result.message);
+            this.alertService.success("Please check your email for a link!");
             console.log(result);
             this.loading = false;
           }, error => {

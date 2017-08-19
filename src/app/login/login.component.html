@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<md-card class="con">
-=======
-<md-card class="main-card">
->>>>>>> 36abfb20d0abbdd01b5faa55524e7b16a2aa2d37
+<div class="con">
    <h1>Login</h1>
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
 
@@ -17,11 +13,9 @@
       <input class="formInput topSpacing" placeholder="Password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required>
       </div>
       <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-    <div class="buttons topSpacing">
-      <button class="ui-button" [disabled]="loading">Login</button>
-      <button class="ui-button" [routerLink]="['/register']">Register</button>
-      <button [routerLink]="['/resetPassword']" class="ui-button negative float-right">Forgot Password?</button>
-    </div>
+      <button class="ui-button topSpacing" [disabled]="loading">Login</button>
+      <button class="ui-button topSpacing" [routerLink]="['/register']">Register</button>
+      <a class="link topSpacing" [routerLink]="['/resetPassword']">Forgot Password?</a>
       <md-progress-spinner
         *ngIf="loading"
         color="primary"
@@ -30,4 +24,4 @@
       </md-progress-spinner>
 
     </form>
-</md-card>
+</div>

@@ -157,14 +157,14 @@ li {
 
 .ui-button {
 	border: none;
-	font-family: inherit;
+	font-family: 'Varela Round', sans-serif;
 	font-size: inherit;
 	color: inherit;
 	background: none;
 	cursor: pointer !important;
 	padding: 1em 2em;
 	display: inline-block;
-	margin: 0.5em;
+	margin-right: 20px;
 	text-transform: uppercase;
   text-decoration: none;
 	letter-spacing: 1px;
@@ -302,7 +302,7 @@ li {
   border-color: #4CAF50;
 }
 
-.invalidInput{
+.invalidInput {
   outline: none !important;
   border-color: red !important;
 }
@@ -329,4 +329,15 @@ li {
 .negative:hover {
   background-color: #f6d9d6 !important;
   color: #101B24;
+}
+
+.con h1 {
+  margin-bottom: 0px;
+}
+
+.link {
+  color: #ac7b77;
+  font-size: 14px;
+  font-family: 'Varela Round', sans-serif;
+  display: block;
 }

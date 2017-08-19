@@ -1,39 +1,26 @@
-<md-card class="login-card padded-divs">
-  <md-card-content>
-  <h1>Register</h1>
-  
-    <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-        <div class="inputWrapper">
-          <input class="formInput" placeholder="First Name" name="firstname" type="text" [(ngModel)]="model.firstname" #firstname="ngModel" required>
-        </div>
-        <div class="help-block" *ngIf="f.submitted && !firstname.valid">First Name is required</div>
-        <div class="inputWrapper">
-          <input class="formInput" placeholder="Last Name" name="lastname" type="text" [(ngModel)]="model.lastname" #lastname="ngModel" required>
-        </div>
-        <div class="help-block" *ngIf="f.submitted && !lastname.valid">Last Name is required</div>
+<md-card class="con">
+<h1>Register</h1>
 
-        <div class="inputWrapper">
-          <input class="formInput" placeholder="Purdue Email" name="email" type="email" [(ngModel)]="model.email" #email="ngModel" pattern="^[A-Za-z0-9._%+-]+@purdue.edu$" required>
-        </div>
-        <div class="help-block" *ngIf="f.submitted && !email.valid">Purdue Email is required</div>
+  <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+    <input class="formInput topSpacing" placeholder="First Name" name="firstname" type="text" [(ngModel)]="model.firstname" #firstname="ngModel" required>
+    <div class="help-block" *ngIf="f.submitted && !firstname.valid">First Name is required</div>
+    <input class="formInput topSpacing" placeholder="Last Name" name="lastname" type="text" [(ngModel)]="model.lastname" #lastname="ngModel" required>
+    <div class="help-block" *ngIf="f.submitted && !lastname.valid">Last Name is required</div>
+    <input class="formInput topSpacing" placeholder="Purdue Email" name="email" type="email" [(ngModel)]="model.email" #email="ngModel" pattern="^[A-Za-z0-9._%+-]+@purdue.edu$" required>
+    <div class="help-block" *ngIf="f.submitted && !email.valid">Purdue Email is required</div>
+    <input class="formInput topSpacing" placeholder="Password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required>
+    <div class="help-block" *ngIf="f.submitted && !password.valid">Password is required</div>
+  <div class="buttons topSpacing">
+    <button class="ui-button" [disabled]="loading" mdRippleColor="#F00">Register</button>
+    <button class="ui-button" [routerLink]="['/login']">Login</button>
+  </div>
 
-        <div class="inputWrapper">
-          <input class="formInput" placeholder="Password" name="password" type="password" [(ngModel)]="model.password" #password="ngModel" required>
-        </div>
-        <div class="help-block" *ngIf="f.submitted && !password.valid">Password is required</div>
+    <md-progress-spinner
+      *ngIf="loading"
+      color="primary"
+      mode="indeterminate"
+      class="spinner">
+    </md-progress-spinner>
 
-    <div class="buttons">
-      <button class="ui-button" [disabled]="loading" mdRippleColor="#F00">Register</button>
-      <button class="ui-button" [routerLink]="['/login']">Login</button>
-    </div>
-
-      <md-progress-spinner
-        *ngIf="loading"
-        color="primary"
-        mode="indeterminate"
-        class="spinner">
-      </md-progress-spinner>
-
-    </form>
-  </md-card-content>
+  </form>
 </md-card>

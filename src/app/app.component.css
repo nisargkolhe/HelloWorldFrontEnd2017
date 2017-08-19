@@ -72,11 +72,12 @@ nav a {
   color: #C1FFF2;
   top: 20px;
   right: 20px;
+  cursor: pointer;
 }
 .nav-con .logo {
   position: absolute;
   top: 0px;
-  left: 20px;
+  left: 0px;
   font-family: 'Short Stack', sans-serif;
 }
 .mobile-nav {
@@ -86,18 +87,17 @@ nav a {
 .mobile-nav .nav-con {
   display: inline-block;
   text-align: left;
-  max-width: 380px;
+  min-height: 50px;
 }
-#mobile-nav-content {
+.mobile-nav-content {
   padding-top: 0;
-  display: none;
 }
 .mobile-nav-content a {
   display: block;
   padding-top: 5px;
   text-align: left;
 }
-@media screen and (max-width:380px) {
+@media screen and (max-width:480px) {
   .desktop-nav {
     display: none;
   }

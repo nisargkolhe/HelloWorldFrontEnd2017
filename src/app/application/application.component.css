@@ -1,6 +1,16 @@
-.main-card {
+.app {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-card {
   max-width: 600px;
-  margin: 1em auto;
 }
 
 .full-width {
@@ -14,4 +24,56 @@
   position: absolute;
   margin-top: -25px;
   outline: 0;
+}
+option {
+  left: 0;
+}
+select {
+  height: 48px;
+  padding: 12px 20px;
+  font-size: 18px;
+  border: 1px solid #C1FFF2;
+  border-radius: 4px;
+  background: rgba(16, 27, 36, 0.9);
+  font-family: 'Varela Round', sans-serif;
+  color: #4AC29A;
+  text-align: left;
+  transition: border-color ease 0.5s;
+  outline: 0;
+}
+
+.SelectForm {
+	margin-left: -15px;
+	margin-right: 20px;
+}
+
+.textInput {
+  padding: 12px 12px 12px 12px;
+  width: 100%;
+  font-size: 18px;
+  border: 1px solid #C1FFF2;
+  border-radius: 4px;
+  background: rgba(16, 27, 36, 0.9);
+  font-family: 'Varela Round', sans-serif;
+  color: #4AC29A;
+  text-align: left;
+}
+
+.formWrapper {
+  margin: 1em 20px 1em 0;
+}
+
+.textInput:focus:required:invalid {
+  outline: none;
+  border-color: red;
+}
+
+.textInput:required:valid {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.app-error-block {
+  color: red;
+  font-family: 'Varela Round', sans-serif;
 }

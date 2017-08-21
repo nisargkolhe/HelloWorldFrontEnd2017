@@ -1,0 +1,9 @@
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+  height: 0;
+}
+
+.alert {
+  height: auto;
+  left: auto;
+  top: -50px;
+}

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule, FormControl } from '@angular/forms';
 import { MdCardModule, MdRadioModule, MdInputModule, MdSelectModule, MdAutocompleteModule } from '@angular/material';
+import { CustomFormsModule } from 'ng2-validation'
 
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
@@ -78,9 +79,9 @@ export class ApplicationComponent implements OnInit {
   }
 
   setFile(event){
-    console.log('upload', event.srcElement.files);
-    this.model.resume = event.srcElement.files[0];
-    this.filename = event.srcElement.files[0].name;
+    console.log('upload', event.target.files);
+    this.model.resume = event.target.files[0];
+    this.filename = event.target.files[0].name;
   }
 
   apply() {
@@ -90,7 +91,7 @@ export class ApplicationComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Application successfully submitted.', true);
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/home']);
                 },
                 error => {
                     error = error.json();
@@ -114,7 +115,7 @@ export class ApplicationComponent implements OnInit {
             .subscribe(
                 data => {
                     this.alertService.success('Application successfully updated.', true);
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/home']);
                 },
                 error => {
                     this.alertService.error(error);

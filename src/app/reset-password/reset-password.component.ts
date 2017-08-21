@@ -37,7 +37,11 @@ export class ResetPasswordComponent implements OnInit {
               },
               error => {
                   error = error.json()
-                  this.alertService.error(error.message);
+                  if(error.message === "validation") {
+                    this.alertService.error("Please enter a valid email");
+                  } else {
+                    this.alertService.error(error.message);
+                  }
                   this.loading = false;
               });
   }

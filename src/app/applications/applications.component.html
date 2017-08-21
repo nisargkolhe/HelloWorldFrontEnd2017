@@ -1,8 +1,7 @@
-<md-card class="main-card">
-  <md-card-header>
-    <md-card-title><h1>Applications</h1></md-card-title>
-  </md-card-header>
-  <md-card-content>
+<md-card class="login-card">
+<md-card-content>
+  <h1>Applications</h1>
+  <div class="tasks">
     Apps left to review: {{stats.pending_internal}}<br>
     Currently Accepted: {{stats.accepted_public}}<br>
     Currently Waitlisted: {{stats.waitlisted_public}}<br>
@@ -10,11 +9,12 @@
     Internally Accepted: {{stats.accepted_internal}} ({{stats.accepted_internal - stats.accepted_public}})<br>
     Internally Waitlisted: {{stats.waitlisted_internal}} ({{stats.waitlisted_internal - stats.waitlisted_public}})<br>
     Internally Rejected: {{stats.rejected_internal}} ({{stats.rejected_internal - stats.rejected_public}})<br>
+    </div>
   </md-card-content>
   <md-card-content>
     <a [routerLink]="['/application', app.id]"  *ngFor="let app of applications">
-      <md-card>
-        <h3 md-line> {{app.user.firstname}} {{app.user.lastname}} </h3>
+      <md-card class="main-card">
+        <h2 md-line> {{app.user.firstname}} {{app.user.lastname}} </h2>
         <p md-line> {{app.status_internal}} </p>
       </md-card>
     </a>

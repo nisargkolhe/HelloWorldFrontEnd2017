@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdCheckboxModule, MdCardModule, MdInputModule, MdProgressSpinnerModule, MdRadioModule, MdSelectModule, MdSnackBarModule, MdAutocompleteModule, MdTooltipModule } from '@angular/material';
+import { CustomFormsModule } from 'ng2-validation';
 
 import { AppComponent } from './app.component';
 import { AlertComponent } from './alert/alert.component';
@@ -55,6 +56,7 @@ import { ResourcesComponent } from './resources/resources.component';
     HttpModule,
     routing,
     BrowserAnimationsModule,
+    CustomFormsModule,
     MdButtonModule,
     MdCheckboxModule,
     MdCardModule,

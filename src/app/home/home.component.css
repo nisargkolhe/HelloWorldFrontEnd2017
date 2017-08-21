@@ -1,16 +1,30 @@
-.home-card {
+.login-card {
   max-width: 600px;
-  margin: 1em auto;
+  text-align: center;
 }
 
 .application-status {
   width: 100%;
   text-align: center;
   padding: 1em 0;
-  background-color: #f0f0f0;
-  color: #0f0f0f;
+  background: rgba(16, 27, 36, 0.9);
+  border: 1px solid #4CAF50;
 }
 
-li{
+li {
   list-style: none;
+  margin-left: -40px;
+  margin-bottom: 30px;
+}
+
+a {
+  font-size: 18px;
+  font-family: 'Varela Round', sans-serif;
+  color: white;
+  text-decoration: underline;
+}
+
+
+h3 {
+	margin-top: -15px;
 }

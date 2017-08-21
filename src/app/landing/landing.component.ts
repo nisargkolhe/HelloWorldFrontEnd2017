@@ -8,7 +8,9 @@ import { AlertService, AuthenticationService, UserService } from '../services/in
   styleUrls: ['./landing.component.css']
 })
 export class LandingComponent implements OnInit {
-
+  public isLoggedIn: boolean;
+  public show: boolean;
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -18,8 +20,11 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
     if(this.userService.loadFromLocalStorage()){
-      this.router.navigate(['/home']);
+      //User is logged in
+      this.isLoggedIn = true;
+    } else {
+      //User is not logged in
+      this.isLoggedIn = false;
     }
   }
-
 }

@@ -1,8 +1,6 @@
-<md-card class="main-card">
-  <md-card-header>
-    <md-card-title><h1>Post Announcement</h1></md-card-title>
-  </md-card-header>
+<md-card class="login-card">
   <md-card-content>
+  <h1>Post Announcement</h1>
     <form name="form" (ngSubmit)="f.form.valid && postAnnouncement()" #f="ngForm" novalidate>
       <div>
         <md-input-container class="full-width">
@@ -19,7 +17,7 @@
       </div>
       <br/>
     <div class="buttons">
-      <button md-raised-button md-ripple [disabled]="loading" mdRippleColor="#F00">Submit</button>
+      <button [disabled]="loading" mdRippleColor="#F00">Submit</button>
     </div>
 
       <md-progress-spinner

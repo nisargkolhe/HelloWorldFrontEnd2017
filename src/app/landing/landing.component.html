@@ -10,7 +10,7 @@
     <a class="logo" href="#main">Hello World</a>
     <i (click)="show = !show" class="fa fa-bars" aria-hidden="true"></i>
   </div>
-  <div [hidden]="show" class="mobile-nav-content">
+  <div *ngIf="show" class="mobile-nav-content">
     <a href="#main">Home</a>
     <a href="#about">About</a>
     <a href="#mentors">Mentors</a>

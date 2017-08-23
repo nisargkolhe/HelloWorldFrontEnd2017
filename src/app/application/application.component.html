@@ -55,8 +55,8 @@
         <textarea class="formInput" placeholder="Why do you want to attend Hello World?" name="longanswer_1" type="text" [ngClass]="{'invalidInput':(f.submitted && !model.longanswer_1)}" [(ngModel)]="model.longanswer_1" #longanswer_1="ngModel" required></textarea>
         <!-- <div *ngIf="f.submitted && !longanswer_1.valid" class="app-error-block">Answer is required</div> -->
 
-      <label for="longanswer_2">What do you hope to learn from your experience at Hello World?*</label>
-        <textarea class="formInput" placeholder="What do you hope to learn from your experience at Hello World?" name="longanswer_2" type="text" [ngClass]="{'invalidInput':(f.submitted && !model.longanswer_2)}" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required></textarea>
+      <label for="longanswer_2">What do you hope to learn from Hello World?*</label>
+        <textarea class="formInput" placeholder="What do you hope to learn from Hello World?" name="longanswer_2" type="text" [ngClass]="{'invalidInput':(f.submitted && !model.longanswer_2)}" [(ngModel)]="model.longanswer_2" #longanswer_2="ngModel" required></textarea>
         <!-- <div *ngIf="f.submitted && !longanswer_2.valid" class="app-error-block">Answer is required</div> -->
         <!-- <p *ngIf="model.resume.uuid">Selected: {{model.resume}}</p> -->
         <label for="resume">

@@ -34,7 +34,7 @@
         <!-- <div *ngIf="f.submitted && !referral" class="help-block">Referral is required</div> -->
 
       <label for="hackathon_count">Past Number of Hackathons*</label>
-        <input class="formInput" placeholder="Hackathon Count" name="hackathon_count" type="number" [ngClass]="{'invalidInput':(f.submitted && (!model.hackathon_count || model.hackathon_count < 0))}" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" [min]="0" min="0" required>
+        <input class="formInput" placeholder="Hackathon Count" name="hackathon_count" type="number" [ngClass]="{'invalidInput':(f.submitted && (model.hackathon_count == null || model.hackathon_count == undefined || model.hackathon_count < 0))}" [(ngModel)]="model.hackathon_count" #hackathon_count="ngModel" [min]="0" min="0" required>
         <!-- <div *ngIf="f.submitted && !hackathon_count.valid" class="app-error-block">Hackathon count is required</div> -->
 
       <label for="dietary_restrictions">Dietary Restrictions</label>
@@ -48,7 +48,7 @@
         </select>
 
       <label for="hackathon_count">Personal Website or Github</label>
-        <input class="formInput" placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel" pattern="(https?:\/\/)([\w\d]+\.)?[\w\d]+\.\w+\/?.+">
+        <input class="formInput" [ngClass]="{'invalidInput':(f.submitted && !website.valid)}" placeholder="Website" name="website" type="text" [(ngModel)]="model.website" #website="ngModel" pattern="(https?:\/\/)([\w\d]+\.)?[\w\d]+\.\w+\/?.+">
         <div *ngIf="f.submitted && !website.valid" class="app-error-block">Website must be a valid url</div>
 
       <label for="longanswer_1">Why do you want to attend Hello World?*</label>

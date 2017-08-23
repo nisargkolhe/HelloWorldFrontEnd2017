@@ -48,7 +48,7 @@ export class UserService {
     var formData = new FormData();
 
     for (var key in item) {
-      if(item[key] !== undefined)
+      if(item[key] !== undefined && item[key] !== null)
         formData.append(key, item[key]);
     }
 

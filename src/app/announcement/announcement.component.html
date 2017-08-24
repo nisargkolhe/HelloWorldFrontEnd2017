@@ -1,23 +1,31 @@
-<md-card class="login-card">
+<md-card class="main-card">
   <md-card-content>
   <h1>Post Announcement</h1>
     <form name="form" (ngSubmit)="f.form.valid && postAnnouncement()" #f="ngForm" novalidate>
-      <div>
+      <label for="title">Title*</label>
+      <input class="formInput" placeholder="Title" name="title" type="text" [(ngModel)]="announcement.title" #dietary_restrictions="ngModel" required>
+
+      <!-- <div>
         <md-input-container class="full-width">
           <input mdInput placeholder="Title" name="title" type="text" [(ngModel)]="announcement.title" #title="ngModel" required />
         </md-input-container>
-      </div>
-      <div>
+      </div> -->
+
+      <label for="message">Message*</label>
+      <textarea class="formInput" placeholder="Message" name="message" type="text" [ngClass]="{'invalidInput':(f.submitted && !announcement.message)}" [(ngModel)]="announcement.message" #message="ngModel" required></textarea>
+
+
+      <!-- <div>
         <md-input-container class="full-width">
           <textarea mdInput placeholder="Message" name="message" type="text" [(ngModel)]="announcement.message" #message="ngModel" required></textarea>
         </md-input-container>
-      </div>
+      </div> -->
       <div class="full-width">
         <md-checkbox name="should_email" [(ngModel)]="announcement.should_email" ng-required>Should Email?</md-checkbox>
       </div>
       <br/>
     <div class="buttons">
-      <button [disabled]="loading" mdRippleColor="#F00">Submit</button>
+      <button class="ui-button" [disabled]="loading">Submit</button>
     </div>
 
       <md-progress-spinner

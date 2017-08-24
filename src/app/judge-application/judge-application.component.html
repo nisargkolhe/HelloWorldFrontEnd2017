@@ -23,9 +23,9 @@
         </span>
       </div>
       <div class="buttons" [mdTooltip]="application && application.status_internal == 'accepted' ? 'Warning: User is already marked as accepted' : null">
-        <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'accepted'" mdRippleColor="#F00" (click)="setStatus('accepted')">Accept</button>
-        <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'waitlisted'" mdRippleColor="#F00" (click)="setStatus('waitlisted')">Waitlist</button>
-        <button md-raised-button md-ripple [disabled]="application && application.status_internal == 'rejected'" mdRippleColor="#F00" (click)="setStatus('rejected')">Reject</button>
+        <button class="ui-button" [disabled]="application && application.status_internal == 'accepted'" (click)="setStatus('accepted')">Accept</button>
+        <button class="ui-button" [disabled]="application && application.status_internal == 'waitlisted'" (click)="setStatus('waitlisted')">Waitlist</button>
+        <button class="ui-button" [disabled]="application && application.status_internal == 'rejected'" (click)="setStatus('rejected')">Reject</button>
       </div>
     </md-card-content>
   </div>

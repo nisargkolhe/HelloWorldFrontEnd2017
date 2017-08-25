@@ -84,8 +84,14 @@ export class HomeComponent implements OnInit {
             console.log(result);
             this.loading = false;
           }, error => {
-            this.alertService.error(error.message);
-            this.loading = false;
+            error = error.json();
+            if(error.message && error.message == "Already verified email"){
+              this.alertService.success("Email is verified, please log in again.");
+              this.router.navigate(['/login']);
+            } else {
+              this.alertService.error(error.message);
+              this.loading = false;
+            }
           }
       );
   }

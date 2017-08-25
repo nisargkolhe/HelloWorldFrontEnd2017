@@ -26,6 +26,7 @@ export class ConfirmEmailComponent implements OnInit {
         this.model.token = token;
         this.confirmEmail();
     } else {
+        this.alertService.error("Please email us at helloworld@purduehackers.com");
         this.router.navigate(['/login']);
     }
   }

@@ -40,7 +40,7 @@ export class AlertService {
         } else if(message === "unverified_email") {
           msg = "Please verify your email before submitting the application";
         } else if(message == "token_not_provided"){
-          msg = "Invalid Token";
+          msg = "Please email us at helloworld@purduehackers.com";
         }
 
         this.subject.next({ type: 'error', text: msg });

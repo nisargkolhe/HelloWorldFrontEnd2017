@@ -49,9 +49,14 @@ export class UserService {
 
     for (var key in item) {
       if(item[key] !== undefined && item[key] !== null
-        //Numbers are always allowed, otherwise the length must be greater than 0
-        && ((typeof item[key] === "number") || (item[key].length && item[key].length > 0))) {
+        //Numbers and objects are always allowed, otherwise the length must be greater than 0
+        && ((typeof item[key] === "number")
+        || (typeof item[key] === "boolean")
+        || (typeof item[key] === "object")
+        || (typeof item[key] === "string" && item[key].length && item[key].length > 0))) {
           formData.append(key, item[key]);
+        } else {
+          console.log("Excluding " + key);
         }
     }
 

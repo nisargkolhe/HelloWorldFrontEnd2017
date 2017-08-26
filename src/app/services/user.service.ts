@@ -48,8 +48,11 @@ export class UserService {
     var formData = new FormData();
 
     for (var key in item) {
-      if(item[key] !== undefined && item[key] !== null && (item[key].length && item[key].length > 0))
-        formData.append(key, item[key]);
+      if(item[key] !== undefined && item[key] !== null
+        //Numbers are always allowed, otherwise the length must be greater than 0
+        && ((typeof item[key] === "number") || (item[key].length && item[key].length > 0))) {
+          formData.append(key, item[key]);
+        }
     }
 
     return formData;

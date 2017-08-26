@@ -135,7 +135,7 @@ button {
 	cursor: pointer !important;
 	padding: 1em 2em;
 	display: inline-block;
-	margin-right: 20px;
+	/*margin-right: 20px;*/
 	text-transform: uppercase;
   text-decoration: none;
 	letter-spacing: 1px;

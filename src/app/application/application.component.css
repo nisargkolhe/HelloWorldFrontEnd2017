@@ -55,7 +55,7 @@ select {
 }
 
 .formWrapper {
-  margin: 1em 20px 1em 0;
+  margin: 1em 20px;
 }
 
 .textInput:focus:required:invalid {

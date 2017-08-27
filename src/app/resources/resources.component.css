@@ -1,0 +1,42 @@
+.resource-card {
+  width: 100%;
+  min-height: 100px;
+  margin: 10px 0 0 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #CFD8DC;
+}
+
+.resource-logo {
+  width: 25%;
+  padding: 10px 10px 10px 10px;
+  box-sizing: border-box;
+  float: left;
+  display: inline;
+}
+
+.resource-body {
+  max-width: 75%;
+  min-height: 100px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px 10px 10px 10px;
+}
+
+.resource-description {
+  color: black;
+  font-size: 11pt;
+}
+
+.resource-title {
+  font-size: 14pt;
+  color: black;
+  margin: 0px;
+}
+
+.resource-subtitle {
+  font-weight: normal;
+  color: black;
+  font-size: 10pt;
+  margin: 0px;
+}

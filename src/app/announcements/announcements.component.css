@@ -2,3 +2,18 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.announcement {
+  font-size: 12pt;
+}
+
+.announcement-title {
+  line-height: 0;
+  font-weight: bold;
+  font-size: 14pt;
+}
+
+.announcement-timestamp {
+  line-height: 0;
+  font-size: 10pt;
+}

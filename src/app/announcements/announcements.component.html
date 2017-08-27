@@ -1,26 +1,21 @@
-<md-card class="main-card">
-  <md-card-header>
-    <md-card-title><h1>Announcements</h1></md-card-title>
-  </md-card-header>
-  <md-card-content>
-      <div *ngFor="let announcement of announcements">
-        <md-card>
-          <a *ngIf="currentUser && currentUser.roles.indexOf('admin') !== -1" class="float-right delete-button" (click)="deleteAnnouncement(announcement.id)">&times;</a>
-          <md-card-header>
-            <md-card-title>{{announcement.title}}</md-card-title>
-            <md-card-subtitle>{{getDateString(announcement.created_at) | date:'short'}}</md-card-subtitle>
-          </md-card-header>
-          <md-card-content>
-          <p md-line> {{announcement.message}}
-          </p>
-        </md-card-content>
-        </md-card>
+<div class="con">
+    <h1>Announcements</h1>
+  <div>
+    <hr>
+    <div *ngFor="let announcement of announcements">
+      <div class="announcement">
+        <a *ngIf="currentUser && currentUser.roles.indexOf('admin') !== -1" class="float-right delete-button" (click)="deleteAnnouncement(announcement.id)">&times;</a>
+          <p class="announcement-title">{{announcement.title}}</p>
+          <p class="announcement-timestamp">Posted {{getDateString(announcement.created_at) | amTimeAgo}} at {{getDateString(announcement.created_at) | amDateFormat:'h:mm A'}}</p>
+        <p md-line> {{announcement.message}}</p>
       </div>
-      <md-progress-spinner
-        *ngIf="loading"
-        color="primary"
-        mode="indeterminate"
-        class="spinner">
-      </md-progress-spinner>
-  </md-card-content>
-</md-card>
+      <hr>
+    </div>
+    <md-progress-spinner
+      *ngIf="loading"
+      color="primary"
+      mode="indeterminate"
+      class="spinner">
+    </md-progress-spinner>
+  </div>
+</div>

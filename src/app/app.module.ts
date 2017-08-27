@@ -30,6 +30,8 @@ import { LandingComponent } from './landing/landing.component';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { ResourcesComponent } from './resources/resources.component';
 
+import { MomentModule } from 'angular2-moment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,8 @@ import { ResourcesComponent } from './resources/resources.component';
     MdSelectModule,
     MdSnackBarModule,
     MdAutocompleteModule,
-    MdTooltipModule
+    MdTooltipModule,
+    MomentModule,
   ],
   providers: [
     AuthGuard,

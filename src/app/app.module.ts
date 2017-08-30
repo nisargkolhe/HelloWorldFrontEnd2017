@@ -29,8 +29,10 @@ import { CheckinComponent } from './checkin/checkin.component';
 import { LandingComponent } from './landing/landing.component';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { StatsComponent } from './stats/stats.component';
 
 import { MomentModule } from 'angular2-moment';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { MomentModule } from 'angular2-moment';
     CheckinComponent,
     LandingComponent,
     ConfirmEmailComponent,
-    ResourcesComponent
+    ResourcesComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +73,7 @@ import { MomentModule } from 'angular2-moment';
     MdAutocompleteModule,
     MdTooltipModule,
     MomentModule,
+    ChartsModule
   ],
   providers: [
     AuthGuard,

@@ -14,6 +14,7 @@ import { AnnouncementComponent } from './announcement/announcement.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { CheckinComponent } from './checkin/checkin.component';
 import { ResourcesComponent } from './resources/resources.component';
+import { StatsComponent } from './stats/stats.component';
 import { AuthGuard } from './auth.guard';
 import { AdminGuard } from './admin.guard';
 
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     { path: 'confirmEmail', component: ConfirmEmailComponent },
     { path: 'application', component: ApplicationComponent, canActivate: [AuthGuard] },
     { path: 'applications', component: ApplicationsComponent, canActivate: [AuthGuard, AdminGuard] },
+    { path: 'statistics', component: StatsComponent, canActivate: [AuthGuard, AdminGuard] },
     { path: 'application/:id', component: JudgeApplicationComponent, canActivate: [AuthGuard, AdminGuard] },
     { path: 'announcement', component: AnnouncementComponent, canActivate: [AuthGuard, AdminGuard]},
     { path: 'announcements', component: AnnouncementsComponent},

@@ -1,15 +1,6 @@
 <md-card class="main-card">
   <md-card-content>
     <h1>Applications</h1>
-    <div class="tasks">
-      Apps left to review: {{stats.pending_internal}}<br>
-      Currently Accepted: {{stats.accepted_public}}<br>
-      Currently Waitlisted: {{stats.waitlisted_public}}<br>
-      Currently Rejected: {{stats.rejected_public}}<br>
-      Internally Accepted: {{stats.accepted_internal}} ({{stats.accepted_internal - stats.accepted_public}})<br>
-      Internally Waitlisted: {{stats.waitlisted_internal}} ({{stats.waitlisted_internal - stats.waitlisted_public}})<br>
-      Internally Rejected: {{stats.rejected_internal}} ({{stats.rejected_internal - stats.rejected_public}})<br>
-    </div>
     <input class="formInput" placeholder="Filter by name or email" [(ngModel)]="model.nameFilter" (ngModelChange)="filter()">
     <div class="filters">
       <div class="filter">

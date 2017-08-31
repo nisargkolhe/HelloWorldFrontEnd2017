@@ -1,6 +1,11 @@
 <div class="chart-container">
   <script src="node_modules/chart.js/src/chart.js"></script>
   <h1>Statistics</h1>
+
+  <p class="count-number"><span class="pop">{{appStats.resumes}}</span> Resumes Uploaded</p>
+  <p class="count-number"><span class="pop">{{appStats.accepted_internal}}</span> Students Accepted</p>
+  <p class="count-number"><span class="pop">{{appStats.checkins}}</span> Hackers Checked In</p>
+
   <h2>Application Status</h2>
   <p>Breakdown of how many applications are in which state</p>
   <canvas baseChart

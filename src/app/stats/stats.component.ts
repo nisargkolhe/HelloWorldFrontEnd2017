@@ -38,17 +38,7 @@ export class StatsComponent implements OnInit {
         result => {
           this.appData = result;
           //Reduce into stats
-          var groupedData = this.appData.reduce((accumulator, currentVal) => {
-            var dateString = currentVal.created_at.split(' ')[0];
-            if(accumulator == null) {
-              accumulator = {};
-            }
-            if(!accumulator[dateString]) {
-              accumulator[dateString] = [];
-            }
-            accumulator[dateString].push(currentVal);
-            return accumulator;
-          },{});
+          var groupedData = this.reduceToDates(this.appData);
           this.groupedData = groupedData;
           this.appByDateData = [
             {data: [], label: 'Applications by Day'}
@@ -80,5 +70,21 @@ export class StatsComponent implements OnInit {
         }
       )
   }
+
+
+    private reduceToDates(inputData) {
+      var r = inputData.reduce((accumulator, currentVal) => {
+        var dateString = currentVal.created_at.split(' ')[0];
+        if(accumulator == null) {
+          accumulator = {};
+        }
+        if(!accumulator[dateString]) {
+          accumulator[dateString] = [];
+        }
+        accumulator[dateString].push(currentVal);
+        return accumulator;
+      },{});
+      return r;
+    }
 
 }

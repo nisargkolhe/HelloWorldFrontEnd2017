@@ -15,12 +15,13 @@ export class StatsComponent implements OnInit {
     };
 
     public appByDateLabels:string[] = [];
-    public barChartLabels:string[] = ['ToDo', 'Accepted', 'Waitlisted', 'Rejected'];
+    public barChartLabels:string[] = ['Pending', 'Accepted', 'Waitlisted', 'Rejected'];
     public barChartType:string = 'bar';
     public barChartLegend:boolean = true;
 
     public barChartData:any[] = [
-      {data: [], label: 'Application Status'}
+    {data: [], label: 'Internal Status'},
+    {data: [], label: 'Public Status'}
     ];
 
     appStats: any = {};
@@ -63,7 +64,11 @@ export class StatsComponent implements OnInit {
             {data: [this.appStats.pending_internal,
               this.appStats.accepted_internal,
               this.appStats.waitlisted_internal,
-              this.appStats.rejected_internal], label: 'Application Status'}
+              this.appStats.rejected_internal], label: 'Internal'},
+              {data: [this.appStats.pending_public,
+                this.appStats.accepted_public,
+                this.appStats.waitlisted_public,
+                this.appStats.rejected_public], label: 'Published'}
           ];
         }, error => {
           console.log(error);

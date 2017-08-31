@@ -1,8 +1,11 @@
 <md-card class="main-card">
   <div *ngIf="!loading">
-    <md-card-header>
-      <md-card-title><h1>{{application.user.firstname}} {{application.user.lastname}} ({{application.status_internal}})</h1></md-card-title>
-    </md-card-header>
+    <div class="heading">
+      <h1>{{application.user.firstname}} {{application.user.lastname}}</h1>
+      <h2>Internal Status: {{application.status_internal}}</h2>
+      <h2>Public Status: {{application.status_public}}</h2>
+      <hr>
+    </div>
     <md-card-content>
       <div>
         <h3>Class Year:</h3> <p>{{application.class_year}}</p>
@@ -22,7 +25,7 @@
           <h3> No resume uploaded</h3>
         </span>
       </div>
-      <div class="buttons" [mdTooltip]="application && application.status_internal == 'accepted' ? 'Warning: User is already marked as accepted' : null">
+      <div class="buttons" [mdTooltip]="application && application.status_public == 'accepted' ? 'Warning: User was already told they were accepted' : null">
         <button class="ui-button" [disabled]="application && application.status_internal == 'accepted'" (click)="setStatus('accepted')">Accept</button>
         <button class="ui-button" [disabled]="application && application.status_internal == 'waitlisted'" (click)="setStatus('waitlisted')">Waitlist</button>
         <button class="ui-button" [disabled]="application && application.status_internal == 'rejected'" (click)="setStatus('rejected')">Reject</button>

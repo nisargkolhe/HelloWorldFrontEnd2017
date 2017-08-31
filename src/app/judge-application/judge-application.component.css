@@ -4,5 +4,13 @@
 }
 
 .buttons button {
-  margin: 0 1em;
+  margin: 3em 1em;
+}
+
+.negative-button {
+  background-color: red;
+}
+
+.heading {
+  text-align: left;
 }

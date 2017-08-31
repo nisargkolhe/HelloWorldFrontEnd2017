@@ -27,3 +27,13 @@
 h2 {
 	margin-bottom: -15px;
 }
+
+.filters{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.filter{
+  flex-grow: 0.8;
+}

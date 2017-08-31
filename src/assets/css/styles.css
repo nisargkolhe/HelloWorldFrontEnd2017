@@ -127,6 +127,21 @@ li {
 button {
   margin: 5px;
 }
+
+select {
+  height: 48px;
+  padding: 12px 20px;
+  font-size: 18px;
+  border: 1px solid #C1FFF2;
+  border-radius: 4px;
+  background: rgba(16, 27, 36, 0.9);
+  font-family: 'Varela Round', sans-serif;
+  color: #4AC29A;
+  text-align: left;
+  transition: border-color ease 0.5s;
+  outline: 0;
+}
+
 .ui-button {
   border: none;
 	font-family: 'Varela Round', sans-serif;

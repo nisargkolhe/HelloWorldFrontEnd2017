@@ -38,6 +38,33 @@
   </ul>
 </div>
 </main>
+
+<!-- Content that is only shown on the day-of -->
+<div *ngIf="appMode == 'dayof' else elseBlock">
+  <section id="dayof">
+    <h2>Welcome to Hello World!</h2>
+    <div class="box">
+      <p>
+        Hello World is finally here! We hope you're as excited as we are!
+        If you have any questions or need any help, just flag down a volunteer.
+        Make sure to take advantage of our awesome mentors by sending your questions to <a href="https://help.purduehackers.com/">HelpQ</a>.
+      </p>
+      <div class="center-buttons">
+        <li><a href="https://help.purduehackers.com"><button class="ui-button">HelpQ</button></a></li>
+        <li><a href="#schedule"><button class="ui-button">Schedule</button></a></li>
+        <li><button class="ui-button" [routerLink]="['/announcements']">Announcements</button></li>
+        <li><button class="ui-button" [routerLink]="['/resources']">Resources</button></li>
+      </div>
+      <p>
+        Hello World is taking place in WALC. It's located next to the Bell Tower, just south of the Mechanical Engineering building.
+      </p>
+    </div>
+  </section>
+</div>
+<!-- Content that is NOT shown on the day-of -->
+<ng-template #elseBlock>
+</ng-template>
+
 <section id="about">
   <h2>About Us</h2>
   <div class="box">

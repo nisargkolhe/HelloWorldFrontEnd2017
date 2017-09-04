@@ -22,6 +22,10 @@ export class ApplicationService {
       return this.http.post(environment.apiUrl+'/api/applications/'+id+'/setStatus', {"status":status}, this.jwt()).map((response: Response) => response.json());
   }
 
+  getApplicationMode() {
+      return this.http.get(environment.apiUrl+'/api/applications/mode').map((response: Response) => response.json());
+  }
+
   // private helper methods
 
   private jwt() {

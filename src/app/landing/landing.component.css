@@ -316,3 +316,12 @@ details {
     display: none;
   }
 }
+
+
+.center-buttons {
+  text-align: center;
+}
+
+.center-buttons button {
+  width: 200px;
+}

@@ -40,7 +40,7 @@
 </main>
 
 <!-- Content that is only shown on the day-of -->
-<div *ngIf="appMode == 'dayof' else elseBlock">
+<div *ngIf="appMode == 'dayof' else elseBlockB">
   <section id="dayof">
     <h2>Welcome to Hello World!</h2>
     <div class="box">
@@ -62,7 +62,7 @@
   </section>
 </div>
 <!-- Content that is NOT shown on the day-of -->
-<ng-template #elseBlock>
+<ng-template #elseBlockB>
 </ng-template>
 
 <section id="about">

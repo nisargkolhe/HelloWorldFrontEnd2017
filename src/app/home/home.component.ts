@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   appSubmitted = false;
   appLoaded = false;
   loading = false;
+  appMode: string;
+
 
   constructor(
     private userService: UserService,
@@ -44,6 +46,14 @@ export class HomeComponent implements OnInit {
       );
     } else {
       this.loadApplication();
+      this.appService.getApplicationMode()
+        .subscribe(
+          result => {
+            console.log(result);
+            this.appMode = result.status;
+          }, error => {
+          }
+      );
     }
   }
 

@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 import { User } from '../user';
 import { Application } from '../application';
 
-import { AlertService, UserService } from '../services/index';
+import { AlertService, UserService, ApplicationService } from '../services/index';
 
 @Component({
   moduleId: module.id,
@@ -60,6 +60,7 @@ export class ApplicationComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserService,
+    private appService: ApplicationService,
     private alertService: AlertService) {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
       this.majorCtrl = new FormControl();
@@ -70,6 +71,17 @@ export class ApplicationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.appService.getApplicationMode()
+      .subscribe(
+        result => {
+          let appMode = result.status;
+          if(appMode != 'open'){
+            this.alertService.error('Application are closed.', true);
+            this.router.navigate(['/home']);
+          }
+        }, error => {
+        }
+    );
     this.loadApplication();
   }
 

@@ -18,7 +18,8 @@
         </ul>
       </li>
       <div class="buttons">
-        <button class="ui-button" [routerLink]="['/application']">Application</button>
+        <!--No need to have Application button for execs-->
+        <!-- <button class="ui-button" [routerLink]="['/application']">Application</button> -->
         <button class="ui-button negative" [routerLink]="['/login']">Logout</button>
       </div>
     </div>
@@ -31,7 +32,12 @@
           <div *ngIf="appLoaded else elseBlock">
             <div *ngIf="appSubmitted else elseBlock">
               <h2>{{getStatusString().title | uppercase}}</h2>
-              <p>{{getStatusString().description}}</p>
+              <div *ngIf="appMode == 'open' else closedBlock">
+                <p>{{getStatusString().description}}</p>
+              </div>
+              <ng-template #closedBlock>
+                <p>Applications are closed now. You'll soon be notified about your application status as soon as we're done judging.</p>
+              </ng-template>
             </div>
             <ng-template #elseBlock>
               <h2>INCOMPLETE</h2>
@@ -44,7 +50,7 @@
           </ng-template>
         </div>
         <div class="buttons topSpacing">
-          <button class="ui-button" [routerLink]="['/application']">Application</button>
+          <button class="ui-button" [routerLink]="['/application']" *ngIf="appMode == 'open'">Application</button>
           <button class="ui-button negative" [routerLink]="['/login']">Logout</button>
         </div>
       </div>

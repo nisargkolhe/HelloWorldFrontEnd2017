@@ -75,10 +75,6 @@ export class ApplicationComponent implements OnInit {
       .subscribe(
         result => {
           let appMode = result.status;
-          if(appMode != 'open'){
-            this.alertService.error('Application are closed.', true);
-            this.router.navigate(['/home']);
-          }
         }, error => {
         }
     );

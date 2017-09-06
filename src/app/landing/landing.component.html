@@ -29,7 +29,7 @@
 </div>
 <div class="landing_button">
   <ul>
-    <span *ngIf="isLoggedIn else elseBlock">
+    <span *ngIf="isLoggedIn || appMode == 'closed' else elseBlock">
       <li><button class="ui-button" [routerLink]="['/home']">My Account</button></li>
     </span>
     <ng-template #elseBlock>

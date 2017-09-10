@@ -28,6 +28,12 @@ export class ApplicationsComponent implements OnInit {
     {value: 'senior', viewValue: 'Senior'}
   ];
 
+  resume_options = [
+    {value: 'all', viewValue: 'Either'},
+    {value: 'yes', viewValue: 'Has Resume'},
+    {value: 'no', viewValue: 'No Resume'},
+  ]
+
   statuses = [
     {value: 'all', viewValue: 'All'},
     {value: 'pending', viewValue: 'Pending'},
@@ -51,7 +57,7 @@ export class ApplicationsComponent implements OnInit {
         result => {
           this.applications = result;
           this.filteredApplications = result;
-          console.log(result);
+          //console.log(result);
         }, error => {
           console.log(error);
         }
@@ -68,6 +74,7 @@ export class ApplicationsComponent implements OnInit {
 
     this.model.yearFilter = 'all';
     this.model.statusFilter = 'all';
+    this.model.resumeFilter = 'all';
   }
 
   filter(){
@@ -75,14 +82,21 @@ export class ApplicationsComponent implements OnInit {
 
     this.filteredApplications = this.applications.filter(function (app) {
       //Check if there's yearFilter and/or statusFilter and continue if it matches the filter
-      console.log("that.model.yearFilter", that.model.yearFilter);
-      console.log("that.model.statusFilter", that.model.statusFilter);
-
-      if((that.model.yearFilter == 'all' || (that.model.yearFilter && app.class_year == that.model.yearFilter)) && (that.model.statusFilter == 'all' || (that.model.statusFilter && app.status_internal == that.model.statusFilter))) {
-        if(!that.model.nameFilter || !app.user.email) //Check if there's nameFilter, return true if not
-          return true;
-        else
-          return (app.user.email.toLowerCase().includes(that.model.nameFilter.toLowerCase()) || app.user.firstname.toLowerCase().includes(that.model.nameFilter.toLowerCase()) || app.user.lastname.toLowerCase().includes(that.model.nameFilter.toLowerCase()));
+      if((that.model.yearFilter == 'all' || (that.model.yearFilter && app.class_year == that.model.yearFilter))
+        && (that.model.statusFilter == 'all' || (that.model.statusFilter && app.status_internal == that.model.statusFilter))
+        && (that.model.resumeFilter == 'all' || (that.model.resumeFilter
+          && (app.resume === null && that.model.resumeFilter == "no") || (app.resume !== null && that.model.resumeFilter == "yes")))) {
+        //Check if there's a text filter in place, return true if not
+        if((!that.model.nameFilter || !app.user.email) && (!that.model.majorFilter || !app.major)) {
+        return true;
+        } else {
+          return (
+              (!that.model.nameFilter
+              || app.user.email.toLowerCase().includes(that.model.nameFilter.toLowerCase())
+              || app.user.firstname.toLowerCase().includes(that.model.nameFilter.toLowerCase())
+              || app.user.lastname.toLowerCase().includes(that.model.nameFilter.toLowerCase()))
+              && ( !that.model.majorFilter || app.major.toLowerCase().includes(that.model.majorFilter.toLowerCase())));
+        }
       }
       return false;
     });

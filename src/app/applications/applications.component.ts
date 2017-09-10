@@ -34,6 +34,12 @@ export class ApplicationsComponent implements OnInit {
     {value: 'no', viewValue: 'No Resume'},
   ]
 
+  sort_options = [
+    {value: 'timestamp', viewValue: 'Time of Application'},
+    {value: 'hackathon_count', viewValue: 'Hackathon Count'},
+    {value: 'grad_year', viewValue: 'Graduation Year'},
+  ]
+
   statuses = [
     {value: 'all', viewValue: 'All'},
     {value: 'pending', viewValue: 'Pending'},
@@ -75,6 +81,7 @@ export class ApplicationsComponent implements OnInit {
     this.model.yearFilter = 'all';
     this.model.statusFilter = 'all';
     this.model.resumeFilter = 'all';
+    this.model.sort_mode = "timestamp";
   }
 
   filter(){
@@ -99,6 +106,26 @@ export class ApplicationsComponent implements OnInit {
         }
       }
       return false;
+    }).sort(function(a, b) {
+      if(that.model.sort_mode === "hackathon_count") {
+        return a.hackathon_count - b.hackathon_count;
+      } else if(that.model.sort_mode === "grad_year") {
+        var aInt = parseInt(a.grad_year);
+        var bInt = parseInt(b.grad_year);
+        if(aInt > bInt)
+          return 1;
+        else if (aInt < bInt)
+          return -1;
+        else
+          return 0;
+      } else {
+        if(a.created_at > b.created_at)
+          return 1;
+        else if (a.created_at < b.created_at)
+          return -1;
+        else
+        return 0;
+      }
     });
   }
 

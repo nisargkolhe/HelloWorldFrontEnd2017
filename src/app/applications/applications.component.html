@@ -3,6 +3,12 @@
     <h1>Applications</h1>
     <input class="formInput" placeholder="Filter by name or email" [(ngModel)]="model.nameFilter" (ngModelChange)="filter()">
     <input class="formInput" placeholder="Filter by major" [(ngModel)]="model.majorFilter" (ngModelChange)="filter()">
+    <label for="sort_mode">Sort By:</label>
+    <select class="formInput" [(ngModel)]="model.sort_mode" #sort_mode="ngModel" name="sort_mode" (change)="filter()">
+      <option *ngFor="let mode of sort_options" [value]="mode.value">
+        {{mode.viewValue}}
+      </option>
+    </select>
     <div class="filters">
       <div class="filter">
         <label for="class_year">Class Year</label>

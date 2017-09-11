@@ -25,6 +25,14 @@ export class ExecService {
     return this.http.get(environment.apiUrl+'/api/exec/statistics', this.authService.jwt()).map((response: Response) => response.json());
   }
 
+  getCheckinMode(){
+    return this.http.get(environment.apiUrl+'/api/exec/checkinmode', this.authService.jwt()).map((response: Response) => response.json());
+  }
+
+  setCheckinMode(newMode: string){
+    return this.http.post(environment.apiUrl+'/api/exec/checkinmode', {mode: newMode}, this.authService.jwt()).map((response: Response) => response.json());
+  }
+
   getNextApplication(){
     return this.http.get(environment.apiUrl+'/api/exec/nextApplication', this.authService.jwt()).map((response: Response) => response.json());
   }

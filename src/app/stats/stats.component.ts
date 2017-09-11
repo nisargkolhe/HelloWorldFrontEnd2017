@@ -25,6 +25,7 @@ export class StatsComponent implements OnInit {
     ];
 
     appStats: any = {};
+    checkinMode: any = {};
     appData: any = {};
     groupedData: any = {};
     appByDateData:any[] = [
@@ -74,6 +75,15 @@ export class StatsComponent implements OnInit {
           console.log(error);
         }
       )
+
+      this.execService.getCheckinMode()
+      .subscribe(
+        result => {
+          this.checkinMode = result.mode;
+        }, error => {
+          console.log(error);
+        }
+      )
   }
 
 
@@ -90,6 +100,30 @@ export class StatsComponent implements OnInit {
         return accumulator;
       },{});
       return r;
+    }
+
+    public getFriendlyModeName() {
+      switch(this.checkinMode) {
+        case "accepted_only":
+          return "Accepted Users Only";
+        case "waitlisted_okay":
+          return "Accepted or Waitlisted Users";
+        default:
+          return "??";
+      }
+    }
+
+    public toggleMode() {
+      var newMode = (this.checkinMode === "accepted_only") ? "waitlisted_okay" : "accepted_only";
+
+      this.execService.setCheckinMode(newMode)
+      .subscribe(
+        result => {
+          this.checkinMode = result.mode;
+        }, error => {
+          console.log(error);
+        }
+      )
     }
 
 }

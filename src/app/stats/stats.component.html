@@ -6,7 +6,9 @@
   <p class="count-number"><span class="pop">{{appStats.resumes}}</span> Resumes Uploaded</p>
   <p class="count-number"><span class="pop">{{appStats.resumes_accepted}}</span> Accepted Resumes</p>
   <p class="count-number"><span class="pop">{{appStats.accepted_internal}}</span> Students Accepted</p>
-  <p class="count-number"><span class="pop">{{appStats.checkins}}</span> Hackers Checked In</p>
+  <p class="count-number"><span class="pop">{{appStats.checkins}}</span> Hackers Checked In</p><br>
+  <p class="count-number">Checkin Mode: {{getFriendlyModeName()}}</p>
+  <button class="ui-button" (click)="toggleMode()">Toggle Checkin Mode</button>
 
   <h2>Application Status</h2>
   <p>Breakdown of how many applications are in which state</p>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ExecService } from "../services/index";
 import { ApplicationService } from "../services/index";
+import { User } from "../user";
+import { UserService } from "../services/index";
 
 @Component({
   selector: 'app-stats',
@@ -8,6 +10,16 @@ import { ApplicationService } from "../services/index";
   styleUrls: ['./stats.component.css']
 })
 export class StatsComponent implements OnInit {
+  currentUser: User;
+
+  model: any = {};
+
+  site_mode_options = [
+    {value: 'interest', viewValue: 'Interest Signups'},
+    {value: 'open', viewValue: 'Applications Open'},
+    {value: 'closed', viewValue: 'Applications Closed'},
+    {value: 'dayof', viewValue: 'Day-Of'},
+  ];
 
   public barChartOptions:any = {
       scaleShowVerticalLines: false,
@@ -26,13 +38,18 @@ export class StatsComponent implements OnInit {
 
     appStats: any = {};
     checkinMode: any = {};
+    appMode: any = "??";
     appData: any = {};
     groupedData: any = {};
     appByDateData:any[] = [
       {data: [], label: 'Application Status'}
     ];
 
-  constructor(private execService: ExecService, private appService: ApplicationService) {}
+  constructor(private execService: ExecService,
+    private appService: ApplicationService,
+    private userService: UserService) {
+    this.currentUser = userService.loadFromLocalStorage();
+  }
 
   ngOnInit() {
     this.appService.getAllApplications()
@@ -84,6 +101,16 @@ export class StatsComponent implements OnInit {
           console.log(error);
         }
       )
+
+      this.appService.getApplicationMode()
+        .subscribe(
+          result => {
+            console.log(result.status);
+            this.model.appMode = result.status;
+            this.appMode = result.status;
+          }, error => {
+          }
+      );
   }
 
 
@@ -120,6 +147,17 @@ export class StatsComponent implements OnInit {
       .subscribe(
         result => {
           this.checkinMode = result.mode;
+        }, error => {
+          console.log(error);
+        }
+      )
+    }
+
+    public confirmSiteMode() {
+      this.execService.setApplicationMode(this.model.appMode)
+      .subscribe(
+        result => {
+          this.appMode = result.mode;
         }, error => {
           console.log(error);
         }

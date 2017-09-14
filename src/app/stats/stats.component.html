@@ -19,7 +19,7 @@
               [legend]="barChartLegend"
               [chartType]="barChartType"></canvas>
 
-<h2>Application By Day</h2>
+<h2>Applications By Day</h2>
 <p>Breakdown of how many applications we recieved per day</p>
 <canvas baseChart
             [datasets]="appByDateData"
@@ -27,4 +27,18 @@
             [options]="barChartOptions"
             [legend]="barChartLegend"
             [chartType]="barChartType"></canvas>
+
+<!-- DevTeam Control Panel -->
+<span *ngIf="currentUser.roles.indexOf('devteam') !== -1">
+  <h2>DevTeam Options</h2>
+  <hr>
+  Use this form to update the site's current mode. This will enable/disable applications and change what is shown on the landing page.
+  <label for="site_mode">Application Status: {{appMode}}</label>
+  <select class="formInput stats-input" [(ngModel)]="model.appMode" #site_mode="ngModel" name="site_mode">
+    <option *ngFor="let mode of site_mode_options" [value]="mode.value">
+      {{mode.viewValue}}
+    </option>
+  </select>
+  <button class="ui-button" (click)="confirmSiteMode()">Update Application Mode</button>
+</span>
 </div>

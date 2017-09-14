@@ -33,6 +33,10 @@ export class ExecService {
     return this.http.post(environment.apiUrl+'/api/exec/checkinmode', {mode: newMode}, this.authService.jwt()).map((response: Response) => response.json());
   }
 
+  setApplicationMode(newMode: string){
+    return this.http.post(environment.apiUrl+'/api/applications/mode', {mode: newMode}, this.authService.jwt()).map((response: Response) => response.json());
+  }
+
   getNextApplication(){
     return this.http.get(environment.apiUrl+'/api/exec/nextApplication', this.authService.jwt()).map((response: Response) => response.json());
   }

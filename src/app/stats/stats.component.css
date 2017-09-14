@@ -21,3 +21,19 @@
 .stats-input {
   width: 400px;
 }
+
+.admin-wrapper {
+  width: 700px;
+}
+
+.admin-col {
+  width: 200px;
+  height: 30px;
+  display: inline-block;
+}
+
+.small-button {
+	padding: 5px 5px;
+  background: #55C296;
+	color: #fff;
+}

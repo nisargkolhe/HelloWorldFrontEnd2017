@@ -13,6 +13,7 @@ export class StatsComponent implements OnInit {
   currentUser: User;
 
   model: any = {};
+  adminsList: any = [];
 
   site_mode_options = [
     {value: 'interest', viewValue: 'Interest Signups'},
@@ -102,15 +103,28 @@ export class StatsComponent implements OnInit {
         }
       )
 
-      this.appService.getApplicationMode()
+      //Only check these if user has devteam role
+      if(this.currentUser.roles.indexOf('devteam') !== -1) {
+        this.execService.getAdminList()
         .subscribe(
           result => {
-            console.log(result.status);
-            this.model.appMode = result.status;
-            this.appMode = result.status;
+            this.adminsList = result.admins;
           }, error => {
+            console.log(error);
           }
-      );
+        )
+
+        this.appService.getApplicationMode()
+          .subscribe(
+            result => {
+              console.log(result.status);
+              this.model.appMode = result.status;
+              this.appMode = result.status;
+            }, error => {
+            }
+        );
+      }
+
   }
 
 
@@ -160,6 +174,32 @@ export class StatsComponent implements OnInit {
           this.appMode = result.mode;
         }, error => {
           console.log(error);
+        }
+      )
+    }
+
+    public addAdminPermission() {
+      var emailToAdd = this.model.promoteText;
+
+      this.execService.addAdmin(emailToAdd)
+      .subscribe(
+        result => {
+          this.adminsList = result.admins;
+        }, error => {
+          console.log(error);
+          alert("Unable to add admin");
+        }
+      )
+    }
+
+    public revokePermission(emailToRevoke) {
+      this.execService.revokeAdmin(emailToRevoke)
+      .subscribe(
+        result => {
+          this.adminsList = result.admins;
+        }, error => {
+          console.log(error);
+          alert("Unable to add user with given email")
         }
       )
     }

@@ -40,4 +40,16 @@ export class ExecService {
   getNextApplication(){
     return this.http.get(environment.apiUrl+'/api/exec/nextApplication', this.authService.jwt()).map((response: Response) => response.json());
   }
+
+  getAdminList(){
+    return this.http.get(environment.apiUrl+'/api/exec/admins', this.authService.jwt()).map((response: Response) => response.json());
+  }
+
+  addAdmin(emailToAdd: string){
+    return this.http.post(environment.apiUrl+'/api/exec/addAdmin', {email: emailToAdd}, this.authService.jwt()).map((response: Response) => response.json());
+  }
+
+  revokeAdmin(emailToRevoke: string){
+    return this.http.post(environment.apiUrl+'/api/exec/removeAdmin', {email: emailToRevoke}, this.authService.jwt()).map((response: Response) => response.json());
+  }
 }

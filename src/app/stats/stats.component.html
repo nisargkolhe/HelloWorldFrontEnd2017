@@ -40,5 +40,17 @@
     </option>
   </select>
   <button class="ui-button" (click)="confirmSiteMode()">Update Application Mode</button>
+
+  <h3>Admin List</h3>
+  Use this form to add or remove the admin role from users. This does not affect the devteam role.
+  <input class="formInput stats-input" placeholder="Email to add" [(ngModel)]="model.promoteText">
+  <button class="ui-button" (click)="addAdminPermission()">Add Admin</button>
+  <div class="admin-wrapper" *ngFor="let user of adminsList">
+    <div class="admin-col">{{user.firstname}} {{user.lastname}}</div>
+    <div class="admin-col">{{user.email}}</div>
+    <div class="admin-col">
+      <button class="ui-button negative small-button" (click)="revokePermission(user.email)">Revoke</button>
+    </div>
+  </div>
 </span>
 </div>

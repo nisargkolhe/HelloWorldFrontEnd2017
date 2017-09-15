@@ -73,13 +73,29 @@ export class CheckinComponent implements OnInit {
       this.execService.checkInUser(this.model.userEmail)
           .subscribe(
               data => {
-                  this.alertService.success(data.message);
+                  if(data.message === "success") {
+                    this.alertService.success("Welcome to Hello World!");
+                    this.model.userEmail = "";
+                  } else if (data.message === "already_checked_in") {
+                    this.alertService.success("Looks like you already checked in!");
+                    this.model.userEmail = "";
+                  } else {
+                    this.alertService.success(data.message);
+                  }
                   this.loadCheckIns();
                   this.loading = false;
               },
               error => {
-                  this.alertService.error(error);
-                  console.log(error);
+                  if(error.status == 403) {
+                    this.alertService.error("Sorry, we can't find your application. Please check with a volunteer.");
+                    console.log(error);
+                  } else if(error.status == 400) {
+                    this.alertService.error("Sorry, we can't find your account. Please check with a volunteer.");
+                    console.log(error);
+                  } else {
+                    this.alertService.error(error.data);
+                    console.log(error);
+                  }
                   this.loading = false;
               });
   }

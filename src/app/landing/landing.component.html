@@ -27,17 +27,36 @@
   <h1>Hello World</h1>
   <h1>Sept 16 - 17, 2017</h1>
 </div>
-<div class="landing_button">
-  <ul>
-    <span *ngIf="isLoggedIn || appMode == 'closed' else elseBlock">
-      <li><button class="ui-button" [routerLink]="['/home']">My Account</button></li>
-    </span>
-    <ng-template #elseBlock>
-      <li><button class="ui-button" [routerLink]="['/register']">Sign Up</button></li>
-    </ng-template>
-  </ul>
+
+<!-- Interest Signup Box -->
+<div *ngIf="appMode == 'interest' else elseBlockA">
+  <div class="landing_button">
+    <ul>
+      <li>{{model.warningMessage}}</li>
+      <li><input class="formInput small-input"  [(ngModel)]="model.interestText" placeholder="Email Address" type="email"/></li>
+      <li><button class="ui-button" (click)="interestSignup()">Get Updates</button></li>
+    </ul>
+  </div>
 </div>
+<!-- Content that is shown if NOT in interest signups-->
+<ng-template #elseBlockA>
+  <div class="landing_button">
+    <ul>
+      <!-- Show my account if apps are closed or you are logged in -->
+      <span *ngIf="isLoggedIn || appMode == 'closed' else elseBlock">
+        <li><button class="ui-button" [routerLink]="['/home']">My Account</button></li>
+      </span>
+      <!-- Show signup button otherwise -->
+      <ng-template #elseBlock>
+        <li><button class="ui-button" [routerLink]="['/register']">Sign Up</button></li>
+      </ng-template>
+    </ul>
+  </div>
+</ng-template>
+
 </main>
+
+<!-- Add the interest form here so the site is ready to go for next year -->
 
 <!-- Content that is only shown on the day-of -->
 <div *ngIf="appMode == 'dayof' else elseBlockB">

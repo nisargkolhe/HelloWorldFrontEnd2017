@@ -30,6 +30,10 @@ export class UserService {
       return this.http.post(environment.apiUrl+'/api/user/search', {"searchvalue": searchKey}, this.jwt()).map((response: Response) => response.json());
   }
 
+  sendInterestSignup(email) {
+    return this.http.post(environment.apiUrl+'/api/user/interest', {"email": email}).map((response: Response) => response.json());
+  }
+  
   loadFromLocalStorage() {
     let currentUser = new User();
     let jsonData = JSON.parse(localStorage.getItem("currentUser"));

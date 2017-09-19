@@ -11,6 +11,7 @@ export class LandingComponent implements OnInit {
   public isLoggedIn: boolean;
   public show: boolean;
   public appMode: string;
+  model: any = {};
 
   constructor(
     private route: ActivatedRoute,
@@ -37,5 +38,27 @@ export class LandingComponent implements OnInit {
         }, error => {
         }
     );
+  }
+
+  public interestSignup() {
+    var email = this.model.interestText;
+
+    //Validate email
+    var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(!regex.test(this.model.interestText) || this.model.interestText.length <= 0) {
+      //Email is not valid
+      this.model.warningMessage = "Please enter a valid email";
+      return;
+    }
+    this.userService.sendInterestSignup(this.model.interestText)
+      .subscribe(
+        result => {
+          this.model.interestText = "";
+          this.model.warningMessage = "Thanks! We'll be in touch soon!";
+        }, error => {
+          this.model.warningMessage = "Sorry, something went wrong";
+        }
+    );
+
   }
 }
